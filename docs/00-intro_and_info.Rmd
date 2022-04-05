@@ -1,8 +1,8 @@
 ---
-title: "TITLE"
-subtitle: 'EVENT - CONTEXT/SCHOOL'
+title: "Statistica e Sociologia Generale"
+subtitle: "Corso di laurea in TECNICHE DELLA PREVENZIONE NELL'AMBIENTE E NEI LUOGHI DI LAVORO"
 author: "[CorradoLanera](www.CorradoLanera.it)"
-date: "YYYY-MM-DD (last update: `r Sys.Date()`)"
+date: "2022-04-07 (last update: `r Sys.Date()`)"
 institute: "[Unit of Biostatistics, Epidemiology, and Public Health](https://www.unipd-ubep.it/) --- University of Padova"
 output: 
   xaringan::moon_reader:
@@ -70,14 +70,14 @@ style_share_again(
 ```{r meta, echo=FALSE}
 meta() %>%
   meta_general(
-    description = "Machine learning assisted Systematic Reviews",
+    description = "Modulo di STATISTICA MEDICA del corso in STATISTICA E SOCIOLOGIA GENERALE per il corso di laurea in TECNICHE DELLA PREVENZIONE NELL'AMBIENTE E NEI LUOGHI DI LAVORO",
     generator = "xaringan and remark.js"
   ) %>% 
-  meta_name("github-repo" = "CorradoLanera/ml4sr") %>% 
+  meta_name("github-repo" = "CorradoLanera/tpall") %>% 
   meta_social(
-    title = "Machine learning assisted Systematic Reviews",
-    url = "https://CorradoLanera.github.io/ml4sr/#1",
-    image = "https://github.com/CorradoLanera/ml4sr/raw/main/img/cover.jpg",
+    title = "Statistica e Sociologia Generale",
+    url = "https://corradolanera.github.io/tpall/#1",
+    image = "https://github.com/CorradoLanera/tpall/raw/main/docs/img/cover.jpg",
     og_type = "website",
     og_author = "UBEP",
     twitter_card_type = "summary",
@@ -157,20 +157,176 @@ style_duo_accent(
 <br>
 <br>
 <br>
+
+# **STATISTICA E SOCIOLOGIA GENERALE**<br>**.orange[STATISTICA MEDICA]**
+
+-- Presentazione e informazioni generali --
+<br>
 <br>
 <br>
 
-# **FIRST LINE TITLE**<br>**.orange[SECOND LINE TITLE]**
+C.d.L. **Tecniche della prevenzione nell'ambiente e nei luoghi di lavoro**
 
-<br>
-<br>
-<br>
+Feltre, a.a. 2021/2022 - 20 ore (2 crediti)
 
-**GLOBAL EVENT** - Place, YYYY/MM/DD -
+Corrado Lanera | [**Unità di Biostatistica, Epidemiologia e Salute Pubblic**](https://www.unipd-ubep.it/)
 
-Context/school/program
 
-Corrado Lanera | [**Unit of Biostatistics, Epidemiology, and Public Health**](https://www.unipd-ubep.it/)
+
+
+
+
+
+---
+class: hide-count
+
+
+# .orange[Scopo]
+
+
+---
+class: hide-count
+
+
+# .orange[Obiettivi]
+
+# .orange[Requisiti]
+
+
+
+
+
+
+---
+class: hide-count
+
+
+# .orange[Argomenti]
+
+
+---
+class: hide-count
+
+
+# .orange[Lezioni]
+
+
+- Aula:
+
+- Zoom: 
+
+- Materiale didattico:
+
+- Registrazioni:
+
+
+
+---
+class: hide-count
+
+
+# .orange[Agenda]
+
+Cinque lezioni da 4 ore ciascuna
+
+- Lezione 1:
+- Lezione 2:
+- Lezione 3:
+- Lezione 4:
+- Lezione 5:
+
+
+Adattamenti su temi (o il loro ordine) potranno occorrere in funzione dell'andamento del corso.
+
+---
+class: hide-count
+
+
+# .orange[Organizzazione della lezione]
+
+
+
+
+
+
+
+
+---
+class: hide-count
+
+
+# .orange[R/Rstudio]
+
+
+
+
+
+
+
+
+
+
+
+---
+class: hide-count
+
+
+# .orange[Supporto]
+
+
+- Forum:
+
+- Esercizi di autoapprendimento:
+
+- Ricevimento:
+
+
+> Utilizzare il forum è utile (al posto/prima) del ricevimento per domande (e risposte!) ai vostri dubbi nell'interesse di ciascuno e tutti voi.
+
+
+
+
+
+
+
+---
+class: hide-count
+
+
+# .orange[Regole di condotta]
+
+
+
+
+
+
+---
+class: hide-count
+
+
+# .orange[Esame finale]
+
+
+
+
+
+---
+class: hide-count
+
+
+# .orange[Suggerimenti]
+
+
+
+
+
+---
+class: hide-count
+
+
+# .orange[Riconoscimenti]
+
+
 
 ---
 class: inverse, bottom, right, hide-count
@@ -179,7 +335,7 @@ class: inverse, bottom, right, hide-count
 ```{r, echo=FALSE, out.width = "50%"}
 knitr::include_graphics("img/profilo_CL.jpg")
 ```
-# Find me at...
+# Per trovarmi...
 
 
 [`r fontawesome::fa("link")`](https://www.unipd-ubep.it/) [**www.unipd-ubep.it**](https://www.unipd-ubep.it/)
@@ -191,58 +347,10 @@ knitr::include_graphics("img/profilo_CL.jpg")
 [`r fontawesome::fa("telegram-plane")`](https://telegram.me/CorradoLanera)
 **@CorradoLanera**
 
-[`r fontawesome::fa("github")`](https://github.com/UBESP-DCTV)
-**@UBESP-DCTV**
+[`r fontawesome::fa("github")`](https://github.com/CorradoLanera/tpall)
+**@CorradoLanera/tpall**
 
-
----
-class: hide-count
-
-
-# .orange[Outline]
-
-- Topic **one**
-
-- Second **topic**
-
-- Another **interesting** topic
-
-
-
-
----
-class: inverse, middle, center, hide-count
-
-# .orange[Topic **one**]
- 
-
----
-
-# Foo
-
-
----
-class: inverse, middle, center, hide-count
-
-# .orange[Second **topic**]
- 
-
----
-
-# Bar
-
-
-
----
-class: inverse, middle, center, hide-count
-
-# .orange[Another **interesting** topic]
- 
- 
----
-
-# Tar
-
+[`r fontawesome::fa("calendar-check")` ](https://calendly.com/corradolanera) [**calendly.com/corradolanera**](https://calendly.com/corradolanera)
 ---
 class: inverse, center, middle, hide-count
 
@@ -259,13 +367,13 @@ _If you think the only acceptable performance is the ".orange[perfect performanc
 
 <br>
 
-# Thank .orange[you] for the attention!
+# .orange[Grazie] per l'attenzione!
 
 
 <br>
 <br>
 
-Slides: <SLIDES' URL>
+Diapositive: [https://corradolanera.github.io/tpall](https://corradolanera.github.io/tpall)
 
 
 [`r fontawesome::fa("link")`](https://www.unipd-ubep.it/) [**www.unipd-ubep.it**](https://www.unipd-ubep.it/) | 
@@ -274,8 +382,7 @@ Slides: <SLIDES' URL>
 [`r fontawesome::fa("github")`](https://github.com/corradolanera)
 [`r fontawesome::fa("twitter")`](https://twitter.com/corradolanera)
 [`r fontawesome::fa("telegram-plane")`](https://telegram.me/CorradoLanera)
-**@CorradoLanera** | 
-[`r fontawesome::fa("github")`](https://github.com/UBESP-DCTV)
-**@UBESP-DCTV**
+**@CorradoLanera** |
+[`r fontawesome::fa("calendar-check")` ](https://calendly.com/corradolanera) [**calendly.com/corradolanera**](https://calendly.com/corradolanera)
 
 
