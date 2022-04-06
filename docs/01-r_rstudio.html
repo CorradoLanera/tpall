@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Statistica e Sociologia Generale</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="CorradoLanera" />
+    <script src="01-r_rstudio_files/header-attrs/header-attrs.js"></script>
+    <link href="01-r_rstudio_files/tachyons/tachyons.min.css" rel="stylesheet" />
+    <script src="01-r_rstudio_files/clipboard/clipboard.min.js"></script>
+    <link href="01-r_rstudio_files/shareon/shareon.min.css" rel="stylesheet" />
+    <script src="01-r_rstudio_files/shareon/shareon.min.js"></script>
+    <link href="01-r_rstudio_files/xaringanExtra-shareagain/shareagain.css" rel="stylesheet" />
+    <script src="01-r_rstudio_files/xaringanExtra-shareagain/shareagain.js"></script>
+    <link href="01-r_rstudio_files/panelset/panelset.css" rel="stylesheet" />
+    <script src="01-r_rstudio_files/panelset/panelset.js"></script>
+    <link href="01-r_rstudio_files/xaringanExtra-clipboard/xaringanExtra-clipboard.css" rel="stylesheet" />
+    <script src="01-r_rstudio_files/xaringanExtra-clipboard/xaringanExtra-clipboard.js"></script>
+    <script>window.xaringanExtraClipboard(null, {"button":"Copy Code","success":"Copied!","error":"Press Ctrl+C to Copy"})</script>
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"x6bd0b11832441698afbcb60f6cf0c03","expires":1}</script>
+    <script src="01-r_rstudio_files/himalaya/himalaya.js"></script>
+    <script src="01-r_rstudio_files/js-cookie/js.cookie.js"></script>
+    <link href="01-r_rstudio_files/editable/editable.css" rel="stylesheet" />
+    <script src="01-r_rstudio_files/editable/editable.js"></script>
+    <script src="01-r_rstudio_files/freezeframe/freezeframe.min.js"></script>
+    <script src="01-r_rstudio_files/xaringanExtra-freezeframe/freezeframe-init.js"></script>
+    <script id="xaringanExtra-freezeframe-options" type="application/json">{"selector":"img[src$=\"gif\"]","trigger":"click","overlay":false,"responsive":true,"warnings":true}</script>
+    <link href="01-r_rstudio_files/xaringanExtra-extra-styles/xaringanExtra-extra-styles.css" rel="stylesheet" />
+    <script src="01-r_rstudio_files/xaringanExtra-progressBar/progress-bar.js"></script>
+    <meta name="description" content="Modulo di STATISTICA MEDICA del corso in STATISTICA E SOCIOLOGIA GENERALE per il corso di laurea in TECNICHE DELLA PREVENZIONE NELL&#39;AMBIENTE E NEI LUOGHI DI LAVORO"/>
+    <meta name="generator" content="xaringan and remark.js"/>
+    <meta name="github-repo" content="CorradoLanera/tpall"/>
+    <meta name="twitter:title" content="Statistica e Sociologia Generale"/>
+    <meta name="twitter:description" content="Modulo di STATISTICA MEDICA del corso in STATISTICA E SOCIOLOGIA GENERALE per il corso di laurea in TECNICHE DELLA PREVENZIONE NELL&#39;AMBIENTE E NEI LUOGHI DI LAVORO"/>
+    <meta name="twitter:url" content="https://corradolanera.github.io/tpall/#1"/>
+    <meta name="twitter:image" content="https://github.com/CorradoLanera/tpall/raw/main/docs/img/cover.jpg"/>
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:creator" content="@CorradoLanera"/>
+    <meta name="twitter:site" content="@CorradoLanera"/>
+    <meta property="og:title" content="Statistica e Sociologia Generale"/>
+    <meta property="og:description" content="Modulo di STATISTICA MEDICA del corso in STATISTICA E SOCIOLOGIA GENERALE per il corso di laurea in TECNICHE DELLA PREVENZIONE NELL&#39;AMBIENTE E NEI LUOGHI DI LAVORO"/>
+    <meta property="og:url" content="https://corradolanera.github.io/tpall/#1"/>
+    <meta property="og:image" content="https://github.com/CorradoLanera/tpall/raw/main/docs/img/cover.jpg"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="article:author" content="UBEP"/>
+    <link href="01-r_rstudio_files/countdown/countdown.css" rel="stylesheet" />
+    <script src="01-r_rstudio_files/countdown/countdown.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle, bg_title, hide-count
+
+
+&lt;img src="img/logo_800anni.png" width="150px"/&gt;
+&lt;img src="img/DSCTV.png" width="50px"/&gt;
+&lt;img src="img/UBEP.png" width="50px"/&gt;
+&lt;img src="img/LAIMS.png" width="50px"/&gt;
+
+
+
+
+<style>.xe__progress-bar__container {
+  top:0;
+  opacity: 1;
+  position:absolute;
+  right:0;
+  left: 0;
+}
+.xe__progress-bar {
+  height: 0.25em;
+  background-color: #0051BA;
+  width: calc(var(--slide-current) / var(--slide-total) * 100%);
+}
+.remark-visible .xe__progress-bar {
+  animation: xe__progress-bar__wipe 200ms forwards;
+  animation-timing-function: cubic-bezier(.86,0,.07,1);
+}
+@keyframes xe__progress-bar__wipe {
+  0% { width: calc(var(--slide-previous) / var(--slide-total) * 100%); }
+  100% { width: calc(var(--slide-current) / var(--slide-total) * 100%); }
+}</style>
+
+<style>.shareagain-bar {
+--shareagain-foreground: rgb(255, 255, 255);
+--shareagain-background: rgba(0, 0, 0, 0.5);
+--shareagain-facebook: none;
+--shareagain-pinterest: none;
+--shareagain-reddit: none;
+}</style>
+
+
+
+
+&lt;style type="text/css"&gt;
+.left-code {
+  color: #777;
+  width: 38%;
+  height: 92%;
+  float: left;
+}
+.right-code {
+  color: #777;
+  width: 55%;
+  height: 92%;
+  float: right;
+  padding-top: 0.5em;
+}
+.left-plot {
+  width: 43%;
+  float: left;
+}
+.right-plot {
+  width: 60%;
+  float: right;
+}
+.hide-count .remark-slide-number {
+  display: none;
+}
+
+.bg_title {
+  position: relative;
+  z-index: 1;
+}
+
+.bg_title::before {    
+      content: "";
+      background-image: url('img/bg1.png');
+      background-size: contain;
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      left: 0px;
+      opacity: 0.3;
+      z-index: -1;
+}
+
+&lt;/style&gt;
+
+
+
+
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+# **STATISTICA E SOCIOLOGIA GENERALE**&lt;br&gt;**.orange[STATISTICA MEDICA]**
+
+-- Introduzione a R/RStudio --
+
+(opzionale, fuori programma)
+&lt;br&gt;
+&lt;br&gt;
+
+C.d.L. **Tecniche della prevenzione nell'ambiente e nei luoghi di lavoro**
+
+Feltre, a.a. 2021/2022 - 20 ore (2 crediti)
+
+Corrado Lanera | [**Unità di Biostatistica, Epidemiologia e Salute Pubblic**](https://www.unipd-ubep.it/)
+
+
+
+
+
+
+---
+class: inverse, hide-count
+
+
+# Cosa faremo
+
+Nella prossima ora vi fornirò un'introduzione all'uso di **R**, tramite **RStudio**. Vedremo **.orange[cosa sono]**, **.orange[a cosa servono]** (in cosa si differenziano) e come installarli.
+
+L'obiettivo principale è quello di fornirvi gli elementi **base** per poter (se volete, vi fa piacere, o pensate possa esservi utile\*) seguire _anche_ la fase di codifica degli esempi interattivi ed esercitazioni che vi mostrerò nelle future lezioni. Questo, oltre a poterli utilizzare (seppur non richiesto!!) per svolgere l'esame.\*\*
+
+Inoltre, ho messo a disposizione (**gratuitamente**) un ambiente di lavoro RStudio Cloud attivabile da ciascuno di voi (vedremo come), in modo che possiate usare R/Rstudio senza doverli installare, e con/su qualunque dispositivo vi troviate a operare.\*\*\*
+
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+&lt;small&gt;
+.right[\* La mia opinione in merito, chiaramente, è: _si_ 😉.]
+
+.right[\*\* Una tale scelta **non comporterà valutazioni** di merito né demerito, e in alcun caso influenzerà la valutazione finale (se non in misura di un loro utilizzo corretto o errato nel produrre i risultati richiesti).]
+
+.right[ \*\*\* Volendo, anche su smartphone e tablet, seppur piuttosto scomodo!]
+
+&lt;/small&gt;
+
+---
+class: inverse, middle, center
+
+# Panoramica
+
+---
+
+
+&lt;br&gt;
+
+![](img/concept-map-1.PNG)
+
+---
+
+&lt;br&gt;
+
+![](img/concept-map-2.PNG)
+
+---
+
+&lt;br&gt;
+
+![](img/concept-map-3.PNG)
+
+---
+
+&lt;br&gt;
+
+![](img/concept-map-4.PNG)
+
+---
+
+&lt;br&gt;
+
+![](img/concept-map-5.PNG)
+
+---
+
+&lt;br&gt;
+
+![](img/concept-map-6.PNG)
+
+---
+
+&lt;br&gt;
+
+![](img/concept-map-7.PNG)
+
+---
+
+&lt;br&gt;
+
+![](img/concept-map-8.PNG)
+
+---
+
+&lt;br&gt;
+
+![](img/concept-map-9.PNG)
+
+---
+
+&lt;br&gt;
+
+![](img/concept-map-10.PNG)
+
+
+
+---
+class: inverse, middle, center, hide-count
+
+&lt;img src="img/R_logo.png" width="20%" /&gt;
+
+
+---
+# Installazione
+
+## Go to: https://cloud.r-project.org/
+
+&lt;iframe src="https://cloud.r-project.org/" width="100%" height="400px" data-external="1"&gt;&lt;/iframe&gt;
+
+---
+# .orange[Algebra] elementare
+
+In R possiamo operare tutte le operazioni algebriche di base, e anche di
+più! Ottimo quindi anche come calcolatrice potenziata!
+
+&lt;small&gt;
+&lt;small&gt;
+
+```r
+1 + 1  # sum
+```
+
+```
+[1] 2
+```
+
+```r
+7 * 3  # product
+```
+
+```
+[1] 21
+```
+
+```r
+abs(-2)  # absoulte value
+```
+
+```
+[1] 2
+```
+
+```r
+3^2  # power
+```
+
+```
+[1] 9
+```
+
+```r
+sqrt(9)  # squared root
+```
+
+```
+[1] 3
+```
+&lt;/small&gt;
+&lt;/small&gt;
+
+
+
+
+
+
+
+---
+# .orange[Vettori]
+
+La struttura base dei dati in R è il vettore: sequenze di numeri
+
+
+```r
+c(1, 2, 3, 7)  # concatenate
+```
+
+```
+[1] 1 2 3 7
+```
+
+```r
+1:7  # sequence
+```
+
+```
+[1] 1 2 3 4 5 6 7
+```
+
+```r
+seq_len(4)  # sequence
+```
+
+```
+[1] 1 2 3 4
+```
+
+```r
+rep(2, 3)  # replicate
+```
+
+```
+[1] 2 2 2
+```
+
+```r
+rev(c(1, 2, 3))  # reverse
+```
+
+```
+[1] 3 2 1
+```
+
+
+
+
+
+---
+# .orange[Assegnamento] ("memorizzazione")
+
+Spesso può essere utile salvare il risultato di una operazione o della
+chiamata di una funzione in un oggetto (che chiamiamo **variabile**) a
+cui possiamo assegnare un nome.
+
+
+```r
+first_vector &lt;- 1:10
+first_vector
+```
+
+```
+ [1]  1  2  3  4  5  6  7  8  9 10
+```
+
+```r
+first_vector + 5
+```
+
+```
+ [1]  6  7  8  9 10 11 12 13 14 15
+```
+
+---
+# .orange[Confronti] (Booleani)
+
+Possiamo fare confronti ottenendo dei risultati __logici__: `TRUE`/`FALSE`.
+
+
+```r
+1 == 0
+```
+
+```
+[1] FALSE
+```
+
+```r
+1 != 0
+```
+
+```
+[1] TRUE
+```
+
+```r
+1 &gt; 0
+```
+
+```
+[1] TRUE
+```
+
+```r
+1 &lt;= 0
+```
+
+```
+[1] FALSE
+```
+
+---
+# .orange[Logica] (Booleana)
+
+Possiamo anche fare operazioni direttamente con vettori logici
+
+
+```r
+TRUE &amp; FALSE
+```
+
+```
+[1] FALSE
+```
+
+```r
+TRUE | FALSE
+```
+
+```
+[1] TRUE
+```
+
+```r
+!TRUE
+```
+
+```
+[1] FALSE
+```
+
+---
+# .orange[Logica] (Booleana, ... vettoriale)
+
+
+```r
+c(TRUE, FALSE) &amp; c(FALSE, FALSE)
+```
+
+```
+[1] FALSE FALSE
+```
+
+```r
+c(1, 2, 3, 3, 2, 4) == 2
+```
+
+```
+[1] FALSE  TRUE FALSE FALSE  TRUE FALSE
+```
+
+```r
+which(c(1, 2, 3, 3, 2, 4) == 2)
+```
+
+```
+[1] 2 5
+```
+
+```r
+*# WARNING
+*c(TRUE, FALSE, NA) &amp; FALSE
+```
+
+```
+[1] FALSE FALSE FALSE
+```
+
+```r
+*c(TRUE, FALSE, NA) &amp; TRUE
+```
+
+```
+[1]  TRUE FALSE    NA
+```
+
+
+---
+## .orange[Dataframe]
+
+- ogni riga è una osservazione (es: un paziente, o una visita)
+- ogni colonna è una variabile (es: il genere, o l'età)
+
+
+```r
+first_df &lt;- data.frame(
+  id     = c(7, 12, 31),
+  gender = factor(
+      c('m', 'm', 'f'),
+      levels = c('f', 'm', 'non-binary', 'unknown')
+  ),
+  city   = c('Gorizia', 'Viterbo', 'Napoli'),
+  height = c(1.84, 1.70, 1.59),
+  weight = c(115, 70, 51),
+  overweight = c(TRUE, FALSE, FALSE)
+)
+first_df
+```
+
+```
+  id gender    city height weight overweight
+1  7      m Gorizia   1.84    115       TRUE
+2 12      m Viterbo   1.70     70      FALSE
+3 31      f  Napoli   1.59     51      FALSE
+```
+
+
+
+
+---
+background-image: url(img/culmen_depth.png)
+background-position: 100% 0%
+background-size: 26%
+
+## .orange[Pacchetti]
+
+Un pacchetto di espansione di R è una collezione di funzioni e/o di 
+dati che possono essere "aggiunti" al proprio ambiente di lavoro.
+
+Si installano una sola volta (in generale, salvo aggiornamenti) ma si caricano ogni volta (una sola volta) che si ricomincia a lavorare.
+
+
+```r
+library('tidyverse')
+library('palmerpenguins')
+
+ggplot(
+    penguins,
+    aes(x = bill_length_mm, y = bill_depth_mm, colour = species)
+  ) +
+  geom_point() +
+  geom_smooth(method = lm) +
+  facet_wrap(island~.) +
+  labs(
+    x = "Lunghezza becco (mm)",
+    y = "Altezza becco (mm)",
+    colour = "Specie",
+    title = "Relazioni tra dimensioni del becco per specie di pinguino",
+    subtitle = "Ogni riquadro riporta i dati dei un isola differente.",
+    caption = "Dati: Palmer Archipelago (Antarctica) penguin."
+  ) +
+  theme_bw()
+```
+
+---
+
+&lt;img src="01-r_rstudio_files/figure-html/pkgs-1.png" width="80%" /&gt;
+
+
+
+---
+class: inverse, middle, center
+
+&lt;img src="img/RStudio-Logo-Flat.png" width="30%" /&gt;
+
+
+
+---
+# Installazione
+
+### Go to: https://rstudio.com/products/rstudio/download/
+
+&lt;iframe src="https://rstudio.com/products/rstudio/download/" width="100%" height="400px" data-external="1"&gt;&lt;/iframe&gt;
+
+---
+class: middle, center, hide-count, inverse
+
+# .orange[Vediamolo...&lt;br&gt;...sul _vostro_ cloud!]
+
+[https://bit.ly/tpall22-feltre-rscloud](https://bit.ly/tpall22-feltre-rscloud)
+
+---
+class: inverse
+
+# Risorse utili
+
+- [**RStudio Cloud**](https://bit.ly/tpall22-feltre-rscloud): [https://bit.ly/tpall22-feltre-rscloud](https://bit.ly/tpall22-feltre-rscloud) gratis per voi per esplorare RStudio, le sue funzionalità, e allenarvi con R (link di iscrizione valido fino alla fine del corso). NOTA: a vostra scelta, è utilizzabile anche come _supporto_ durante l'esame.
+
+- [**RStudio primers**](https://rstudio.cloud/learn/primers) ambiente gratuito dentro RStudio Cloud per l'apprendimento delle basi di analisi di dati con R tramite tutorial interattivi. Una volta registrati, oltre all'accesso al _nostro_ spazio di lavoro, avete accesso libero anche ai _Primers_.
+
+- [**R 4 Data Science**](https://r4ds.had.co.nz/): libro gratuito (on-line) di [**Hadley Wickham**](http://hadley.nz/) e [**Garrett Grolemund**](https://rstudio.com/speakers/garrett-grolemund/)
+
+
+---
+class: middle, hide-count, inverse
+
+# .center[.orange[Break]]
+
+Consigli: 
+- alzarsi
+- sgranchirsi
+- guardare _lontano_ (rilassare gli occhi)
+- bere
+- andare in bagno
+
+<div class="countdown" id="timer_624dc7d1" style="bottom:5%;left:65%;" data-audio="true" data-warnwhen="5">
+<code class="countdown-time"><span class="countdown-digits minutes">30</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+
+
+
+
+---
+class: inverse, center, middle, hide-count
+
+
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt5[
+.left[
+_**Can** one be a .orange[good data analyst] **without** being a .orange[half-good programmer]?&lt;br&gt;The short answer to that is, 'No.'&lt;br&gt;The long answer to that is, 'No.'_
+]
+
+.tr[
+—Frank Harrell&lt;br&gt;10/1999 - S-PLUS User Conference, New Orleans&lt;br&gt;
+]
+]
+
+&lt;br&gt;
+
+
+# .orange[Grazie] per l'attenzione!
+
+&lt;br&gt;
+&lt;br&gt;
+
+
+Diapositive: [https://corradolanera.github.io/tpall](https://corradolanera.github.io/tpall)
+
+
+[<svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg>](https://www.unipd-ubep.it/) [**www.unipd-ubep.it**](https://www.unipd-ubep.it/) | 
+[<svg aria-hidden="true" role="img" viewBox="0 0 576 512" style="height:1em;width:1.12em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M160 448c-25.6 0-51.2-22.4-64-32-64-44.8-83.2-60.8-96-70.4V480c0 17.67 14.33 32 32 32h256c17.67 0 32-14.33 32-32V345.6c-12.8 9.6-32 25.6-96 70.4-12.8 9.6-38.4 32-64 32zm128-192H32c-17.67 0-32 14.33-32 32v16c25.6 19.2 22.4 19.2 115.2 86.4 9.6 6.4 28.8 25.6 44.8 25.6s35.2-19.2 44.8-22.4c92.8-67.2 89.6-67.2 115.2-86.4V288c0-17.67-14.33-32-32-32zm256-96H224c-17.67 0-32 14.33-32 32v32h96c33.21 0 60.59 25.42 63.71 57.82l.29-.22V416h192c17.67 0 32-14.33 32-32V192c0-17.67-14.33-32-32-32zm-32 128h-64v-64h64v64zm-352-96c0-35.29 28.71-64 64-64h224V32c0-17.67-14.33-32-32-32H96C78.33 0 64 14.33 64 32v192h96v-32z"/></svg>](mailto:Corrado.Lanera@ubep.unipd.it) [**Corrado.Lanera@ubep.unipd.it**](mailto:Corrado.Lanera@ubep.unipd.it)
+
+[<svg aria-hidden="true" role="img" viewBox="0 0 496 512" style="height:1em;width:0.97em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>](https://github.com/corradolanera)
+[<svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>](https://twitter.com/corradolanera)
+[<svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M446.7 98.6l-67.6 318.8c-5.1 22.5-18.4 28.1-37.3 17.5l-103-75.9-49.7 47.8c-5.5 5.5-10.1 10.1-20.7 10.1l7.4-104.9 190.9-172.5c8.3-7.4-1.8-11.5-12.9-4.1L117.8 284 16.2 252.2c-22.1-6.9-22.5-22.1 4.6-32.7L418.2 66.4c18.4-6.9 34.5 4.1 28.5 32.2z"/></svg>](https://telegram.me/CorradoLanera)
+**@CorradoLanera** |
+[<svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M436 160H12c-6.627 0-12-5.373-12-12v-36c0-26.51 21.49-48 48-48h48V12c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v52h128V12c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v52h48c26.51 0 48 21.49 48 48v36c0 6.627-5.373 12-12 12zM12 192h424c6.627 0 12 5.373 12 12v260c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48V204c0-6.627 5.373-12 12-12zm333.296 95.947l-28.169-28.398c-4.667-4.705-12.265-4.736-16.97-.068L194.12 364.665l-45.98-46.352c-4.667-4.705-12.266-4.736-16.971-.068l-28.397 28.17c-4.705 4.667-4.736 12.265-.068 16.97l82.601 83.269c4.667 4.705 12.265 4.736 16.97.068l142.953-141.805c4.705-4.667 4.736-12.265.068-16.97z"/></svg> ](https://calendly.com/corradolanera) [**calendly.com/corradolanera**](https://calendly.com/corradolanera)
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
