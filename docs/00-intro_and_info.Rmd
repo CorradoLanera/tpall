@@ -362,7 +362,8 @@ alcun caso influenzerà la valutazione finale (se non in misura di un
 loro utilizzo corretto o errato nel produrre i risultati richiesti).
 
 
-
+Un ambiente di lavoro per ciascuno di voi è attivabile e utilizzabile
+gratuitamente su RStudio Cloud collegandosi all'indirizzo: [https://bit.ly/tpall22-feltre-rscloud](https://bit.ly/tpall22-feltre-rscloud)
 
 
 
@@ -485,7 +486,9 @@ class: hide-count
 <br><br>
 
 > Un ringraziamento speciale a Cristiana Vettori e a Mariasole Rizzi per
-l'aiuto e il supporto logistico e amministrativo che mi è stato offerto.
+l'aiuto e il supporto logistico e amministrativo che mi è stato offerto,
+e ad Andrea Francavilla per avermi aiutato nella revisione del
+materiale.
 
 ---
 class: inverse, bottom, right, hide-count
@@ -510,6 +513,10 @@ knitr::include_graphics("img/profilo_CL.jpg")
 **@CorradoLanera/tpall**
 
 [`r fontawesome::fa("calendar-check")` ](https://calendly.com/corradolanera) [**calendly.com/corradolanera**](https://calendly.com/corradolanera)
+
+
+
+
 ---
 class: inverse, center, middle, hide-count
 
