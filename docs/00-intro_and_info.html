@@ -16,7 +16,7 @@
     <link href="00-intro_and_info_files/xaringanExtra-clipboard/xaringanExtra-clipboard.css" rel="stylesheet" />
     <script src="00-intro_and_info_files/xaringanExtra-clipboard/xaringanExtra-clipboard.js"></script>
     <script>window.xaringanExtraClipboard(null, {"button":"Copy Code","success":"Copied!","error":"Press Ctrl+C to Copy"})</script>
-    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"x915b70c55e04c5d934e006a52e19081","expires":1}</script>
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"x7584aac0a24436299d8e18d39cad123","expires":1}</script>
     <script src="00-intro_and_info_files/himalaya/himalaya.js"></script>
     <script src="00-intro_and_info_files/js-cookie/js.cookie.js"></script>
     <link href="00-intro_and_info_files/editable/editable.css" rel="stylesheet" />
@@ -170,6 +170,9 @@ class: hide-count
 
 # .orange[Scopo]
 
+- apprendere le conoscenze teoriche di base della statistica medica
+
+- essere in grado di approcciarsi alla ricerca scientifica
 
 ---
 class: hide-count
@@ -177,9 +180,38 @@ class: hide-count
 
 # .orange[Obiettivi]
 
+- imparare le definizioni e gli operatori base della statistica medica,
+ in particolare riguardo:
+ 
+  + analisi descrittiva dei dati
+  + elementi di probabilità
+
+- imparare a comprendere e stimare i parametri di valutazione di un test
+  diagnostico, in particolare sensibilità, specificità e curva ROC
+  
+- conoscere e identificare le principali distribuzioni di probabilità
+  e i loro ambiti di utilità e applicabilità
+
+- acquisire le basi dell'inferenza statistica, in particolare per la
+  comprensione e conduzione di test statistici per variabili continue e
+  categoriche, come il t-test (per campioni singoli o appaiati) e il
+  test del chi-quadrato
+  
+- imparare a comprendere e a condurre analisi di relazione tra più
+  variabili, in particolare tramite la regressione e la correlazione.
+  
+
+
+---
+class: hide-count
+
 # .orange[Requisiti]
 
+- competenze di aritmetica di base e di _insiemistica_ (richiamate comunque durante il corso)
 
+- autonomia nell'utilizzo di un computer
+
+- disponibilità a intervenire e partecipare attivamente alle lezioni
 
 
 
@@ -187,8 +219,22 @@ class: hide-count
 ---
 class: hide-count
 
-
 # .orange[Argomenti]
+
+- statistica descrittiva
+
+- calcolo delle probabilità
+
+- distribuzioni di probabilità
+
+- test diagnostici
+
+- inferenza statistica
+
+- associazioni tra variabili binarie, e rischi
+
+- regressione e correlazione
+
 
 
 ---
@@ -198,13 +244,29 @@ class: hide-count
 # .orange[Lezioni]
 
 
-- Aula:
+- Modalità: in presenza, con possiblità di seguire da remoto per
+ giustificati motivi
 
-- Zoom: 
+- Zoom: [https://bit.ly/tpall22-feltre](https://bit.ly/tpall22-feltre),
+  accessibile anche dal link sul Moodle del corso.
 
-- Materiale didattico:
+- Materiale didattico: Moodle (https://elearning.unipd.it/dctv/course/view.php?id=520)
 
-- Registrazioni:
+- Registrazioni: Disponibili dopo la lezione sul Moodle del corso.
+
+- Utilizzo del materiale del corso e suoi derivati: consentite e libero
+  sotto licenza 
+  [cc-by 4.0](https://creativecommons.org/licenses/by/4.0/deed.it).
+  
+&lt;br&gt;
+&lt;small&gt;
+In sintesi: potete condividere, modificare, utilizzare il materiale
+liberamente e gratuitamente per qualsiasi fine, a patto di attribuire
+adeguata paternalità al materiale che producete ma senza alcuna mia
+responsabilità o garanzia su di esso. Siete tenuti comunque a
+distribuirlo (incluse eventuali opere derivate) con analoga ed esplicita
+licenza, e senza ulteriori restrizioni.
+&lt;/small&gt;
 
 
 
@@ -214,16 +276,33 @@ class: hide-count
 
 # .orange[Agenda]
 
-Cinque lezioni da 4 ore ciascuna
+Cinque lezioni da 4 _ore_ ciascuna (180' effettivi)
 
-- Lezione 1:
-- Lezione 2:
-- Lezione 3:
-- Lezione 4:
-- Lezione 5:
+&lt;small&gt;
+- Lezione 1: oggi, giovedì 7 aprile 2022 - 08:30-12:30
+  + (60') intro al corso
+  + (60') intro a R/RStudio (facoltativo, non oggetto di esame)
+  + (60') statistica descrittiva
+- Lezione 2: mercoledì 20 aprile 2022 - 14:30-18:30
+  + (30') esercizi, domande, dubbi e perplessità
+  + (60') basi di probabilità
+  + (90') distribuzioni di probabilità
+- Lezione 3: giovedì 21 aprile 2022 - 08:30-12:30
+  + (30') ricapitolazione, domande, dubbi e perplessità
+  + (60') test (statistici)
+  + (90') inferenza
+- Lezione 4: mercoledì 4 maggio 2022 - 14:30-18:30
+  + (30') esercizi, domande, dubbi e perplessità
+  + (60') relazioni tra variabili binarie (e rischi)
+  + (90') relazioni tra variabili continue (regressione e correlazione)
+- Lezione 5: giovedì 5 maggio 2022 - 08:30-12:30
+  + (90') ricapitolazione, domande, dubbi e perplessità
+  + (90') esercizi, domande, dubbi e perplessità
+&lt;/small&gt;
 
-
-Adattamenti su temi (o il loro ordine) potranno occorrere in funzione dell'andamento del corso.
+Adattamenti su temi (o i loro ordine, durata, e livello di profondità)
+potranno avvenire in funzione dell'andamento del corso e degli interessi
+riscontrati o utili.
 
 ---
 class: hide-count
@@ -231,9 +310,13 @@ class: hide-count
 
 # .orange[Organizzazione della lezione]
 
+Le lezioni saranno frontali, con l'ausilio di diapositive messe a
+disposizione il giorno della lezione, (e soggette a modifica o correzione, 
+a seguito della stessa).
 
+Sono graditi e caldeggiati gli interventi e le domande.
 
-
+Due _PAUSE_ da mezz'ora: una "reale", circa a metà della lezione, una "conclusiva", al termine della stessa.
 
 
 
@@ -245,7 +328,25 @@ class: hide-count
 # .orange[R/Rstudio]
 
 
+Durante il corso saranno offerti esempi ottenuti tramite l'utilizzo dei 
+software R ed RStudio, i quali verranno introdotti brevemente all'inizio 
+del corso.
 
+Tali software non sono oggetto del corso, né in esame. Non è richiesto 
+né necessario acquisire competenze nel loro utilizzo o comprensione. Al
+contario, sarà necessario comprenderne e capirne i risultati (grafici,
+tabelle, o numeri di sintesi prodotti).
+
+Tutto quanto scritto (script) e prodotto (grafici) nel corso delle
+lezioni con tali software sarà aggiunto al materiale didattico a
+disposizione degli studenti.
+
+Detto questo, l'utilizzo di tali software sarà comunque consentito,
+seppur non richiesto, come supporto per lo svolgimento dell'esame (o
+degli esercizi) per chi lo desiderasse. La scelta è lasciata agli
+studenti e non comporterà valutazioni né di merito né di demerito, e in
+alcun caso influenzerà la valutazione finale (se non in misura di un 
+loro utilizzo corretto o errato nel produrre i risultati richiesti).
 
 
 
@@ -260,28 +361,30 @@ class: hide-count
 
 # .orange[Supporto]
 
+Tramite i link nella pagina Moodle del corso, sono state attivate e
+messe a disposizione le seguenti risorse:
 
-- Forum:
+- **Forum**: spazio libero a disposizione degli studenti per interagire e 
+confrontarsi tra loro sui temi del corso e lo svolgimento degli esercizi
 
-- Esercizi di autoapprendimento:
+&gt; Utilizzare il forum è utile (al posto/prima) del ricevimento per
+domande (e risposte!) ai vostri dubbi, nell'interesse di ciascuno e tutti
+voi.
 
-- Ricevimento:
-
-
-&gt; Utilizzare il forum è utile (al posto/prima) del ricevimento per domande (e risposte!) ai vostri dubbi nell'interesse di ciascuno e tutti voi.
-
-
-
-
-
+- **Esercizi** di autoapprendimento: a disposizione un numero non
+predefinito di esercizi svolti e commentati per l'autoapprendimento
 
 
----
-class: hide-count
+- **Ricevimento**: i martedì tra le 17:00 e le 18:30, sono disponibile a 
+  ricevere gli studenti per 25 minuti a sessione, prenotabile con almeno 
+  tre giorni di anticipo tramite il link (disponibile su Moodle e 
+  riservato esclusivamente agli studenti del corso):
+  [https://calendly.com/corradolanera/statmed-tpall-21-22](https://calendly.com/corradolanera/statmed-tpall-21-22)
 
 
-# .orange[Regole di condotta]
-
+&gt; Utilizzare il ricevimento è soggetto a condizioni, tra cui il
+riportare in modo sintetico il contenuto dello stesso nel forum, a
+beneficio di tutti i colleghi.
 
 
 
@@ -292,28 +395,84 @@ class: hide-count
 
 
 # .orange[Esame finale]
+&lt;small&gt;
+L'esame finale sarà composto da esercizi a risposta multipla, o a
+completamento di testo/numeri mancanti tramite selezione da opzioni
+proposte. Sarà svolto online, autocorretto, su piattaforma Moodle. Avrà
+la durata di 2 ore e un quarto (135'), nei cui primi 15' sarà possibile
+solo leggere le domande, senza poter rispondere.
 
+Durante lo svolgimento dell'esame sarà concesso l'utilizzo di qualunque
+libro di testo cartaceo, appunti personali cartacei, e dei software R ed
+Rstudio (messi a disposizione, per chiunque lo desideri, da me, con
+accesso tramite browser web). Sarà invece proibita la navigazione e la
+ricerca on-line, così come l'utilizzo di smartphone o la comunicazione
+con terzi.
 
+Nel caso di più riposte (giuste o da selezionare) in una stessa domanda, ciascuna contribuirà positivamente sul totale in misura pari al punteggio attribuito alla domanda, diviso per il numero di opzioni corrette
+selezionabili.
+
+Una risposta errata sommerà negativamente sul totale in misura pari al
+punteggio attribuito alla domanda, diviso per il numero
+di opzioni sbagliate selezionabili.
+
+Il punteggio totale dell'esame è di 33/30. Superato totalizzandone
+almeno 18/30. La lode è assegnata solo (e sempre) in presenza di un
+esame perfetto, ovvero privo di alcun errore per un totale di 33/30
+ottenuti.
+
+L'accettazione o meno del voto, se pari o superiore a 18/30 è a
+discrezione dello studente. Non accettare il voto da diritto a
+rieffettuare la prova a qualunque degli appelli seguenti. In caso di più
+prove effettuate, il voto proposto per essere accettato come definitivo
+sarà quello maggiore tra quelli ottenuti.
+
+La data dell'esame sarà concordata con gli studenti a partire da una
+loro proposte, e successiva accettazione da parte mia. Le prime due date
+dovranno essere fissate entro fine giugno, di cui almeno la prima a
+maggio.
 
 
 
 ---
 class: hide-count
-
 
 # .orange[Suggerimenti]
 
+- Discutete tra voi (anche sul forum) punti di vista, dubbi, ed esercizi.
 
+- Utilizzate il ricevimento per chiarimenti che non siete riusciti a
+risolvere in gruppo.
 
-
+- Esplorate (e proponete) esercizi con dati anche sui vostri ambiti
+  di interesse.
 
 ---
 class: hide-count
 
-
 # .orange[Riconoscimenti]
 
+- Le diapositive proposte sono state prodotte a partire anche da
+  materiale generato da/con le seguenti persone gravitanti attorno
+  l'UBEP*:
+  
+  + Danila Azzolina
+  + Dario Gregori
+  + Giulia Lorenzoni
+  + Ileana Baldi
+  + Luca Vedovelli
+  + Matteo Martinato
+  + Paola Berchialla
 
+&lt;br&gt;&lt;br&gt;
+&lt;small&gt;
+.right[\* In ordine alfabetico.]
+&lt;/small&gt;
+
+&lt;br&gt;&lt;br&gt;
+
+&gt; Un ringraziamento speciale a Cristiana Vettori e a Mariasole Rizzi per
+l'aiuto e il supporto logistico e amministrativo che mi è stato offerto.
 
 ---
 class: inverse, bottom, right, hide-count
@@ -352,7 +511,8 @@ _If you think the only acceptable performance is the ".orange[perfect performanc
 
 &lt;br&gt;
 
-# .orange[Grazie] per l'attenzione!
+# .orange[Domande?]
+
 
 
 &lt;br&gt;
