@@ -35,10 +35,12 @@ library(xaringanExtra)
 library(xaringanthemer)
 
 library(tidyverse)
+library(here)
 library(gridExtra)
 
 library(countdown)
 library(metathis)
+library(DT)
 
 options(width = 59) # fit into the right-column slides
 

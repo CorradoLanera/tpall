@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Statistica e Sociologia Generale</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="CorradoLanera" />
+    <script src="02-descrittive_files/header-attrs/header-attrs.js"></script>
+    <link href="02-descrittive_files/tachyons/tachyons.min.css" rel="stylesheet" />
+    <script src="02-descrittive_files/clipboard/clipboard.min.js"></script>
+    <link href="02-descrittive_files/shareon/shareon.min.css" rel="stylesheet" />
+    <script src="02-descrittive_files/shareon/shareon.min.js"></script>
+    <link href="02-descrittive_files/xaringanExtra-shareagain/shareagain.css" rel="stylesheet" />
+    <script src="02-descrittive_files/xaringanExtra-shareagain/shareagain.js"></script>
+    <link href="02-descrittive_files/panelset/panelset.css" rel="stylesheet" />
+    <script src="02-descrittive_files/panelset/panelset.js"></script>
+    <link href="02-descrittive_files/xaringanExtra-clipboard/xaringanExtra-clipboard.css" rel="stylesheet" />
+    <script src="02-descrittive_files/xaringanExtra-clipboard/xaringanExtra-clipboard.js"></script>
+    <script>window.xaringanExtraClipboard(null, {"button":"Copy Code","success":"Copied!","error":"Press Ctrl+C to Copy"})</script>
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"d7f74804530d4f00902086c2d9b240e4","expires":1}</script>
+    <script src="02-descrittive_files/himalaya/himalaya.js"></script>
+    <script src="02-descrittive_files/js-cookie/js.cookie.js"></script>
+    <link href="02-descrittive_files/editable/editable.css" rel="stylesheet" />
+    <script src="02-descrittive_files/editable/editable.js"></script>
+    <script src="02-descrittive_files/freezeframe/freezeframe.min.js"></script>
+    <script src="02-descrittive_files/xaringanExtra-freezeframe/freezeframe-init.js"></script>
+    <script id="xaringanExtra-freezeframe-options" type="application/json">{"selector":"img[src$=\"gif\"]","trigger":"click","overlay":false,"responsive":true,"warnings":true}</script>
+    <link href="02-descrittive_files/xaringanExtra-extra-styles/xaringanExtra-extra-styles.css" rel="stylesheet" />
+    <script src="02-descrittive_files/xaringanExtra-progressBar/progress-bar.js"></script>
+    <meta name="description" content="Modulo di STATISTICA MEDICA del corso in STATISTICA E SOCIOLOGIA GENERALE per il corso di laurea in TECNICHE DELLA PREVENZIONE NELL&#39;AMBIENTE E NEI LUOGHI DI LAVORO"/>
+    <meta name="generator" content="xaringan and remark.js"/>
+    <meta name="github-repo" content="CorradoLanera/tpall"/>
+    <meta name="twitter:title" content="Statistica e Sociologia Generale"/>
+    <meta name="twitter:description" content="Modulo di STATISTICA MEDICA del corso in STATISTICA E SOCIOLOGIA GENERALE per il corso di laurea in TECNICHE DELLA PREVENZIONE NELL&#39;AMBIENTE E NEI LUOGHI DI LAVORO"/>
+    <meta name="twitter:url" content="https://corradolanera.github.io/tpall/#1"/>
+    <meta name="twitter:image" content="https://github.com/CorradoLanera/tpall/raw/main/docs/img/cover.jpg"/>
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:creator" content="@CorradoLanera"/>
+    <meta name="twitter:site" content="@CorradoLanera"/>
+    <meta property="og:title" content="Statistica e Sociologia Generale"/>
+    <meta property="og:description" content="Modulo di STATISTICA MEDICA del corso in STATISTICA E SOCIOLOGIA GENERALE per il corso di laurea in TECNICHE DELLA PREVENZIONE NELL&#39;AMBIENTE E NEI LUOGHI DI LAVORO"/>
+    <meta property="og:url" content="https://corradolanera.github.io/tpall/#1"/>
+    <meta property="og:image" content="https://github.com/CorradoLanera/tpall/raw/main/docs/img/cover.jpg"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="article:author" content="UBEP"/>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle, bg_title, hide-count
+
+
+&lt;img src="img/logo_800anni.png" width="150px"/&gt;
+&lt;img src="img/DSCTV.png" width="50px"/&gt;
+&lt;img src="img/UBEP.png" width="50px"/&gt;
+&lt;img src="img/LAIMS.png" width="50px"/&gt;
+
+
+
+
+<style>.xe__progress-bar__container {
+  top:0;
+  opacity: 1;
+  position:absolute;
+  right:0;
+  left: 0;
+}
+.xe__progress-bar {
+  height: 0.25em;
+  background-color: #0051BA;
+  width: calc(var(--slide-current) / var(--slide-total) * 100%);
+}
+.remark-visible .xe__progress-bar {
+  animation: xe__progress-bar__wipe 200ms forwards;
+  animation-timing-function: cubic-bezier(.86,0,.07,1);
+}
+@keyframes xe__progress-bar__wipe {
+  0% { width: calc(var(--slide-previous) / var(--slide-total) * 100%); }
+  100% { width: calc(var(--slide-current) / var(--slide-total) * 100%); }
+}</style>
+
+<style>.shareagain-bar {
+--shareagain-foreground: rgb(255, 255, 255);
+--shareagain-background: rgba(0, 0, 0, 0.5);
+--shareagain-facebook: none;
+--shareagain-pinterest: none;
+--shareagain-reddit: none;
+}</style>
+
+
+
+
+&lt;style type="text/css"&gt;
+.left-code {
+  color: #777;
+  width: 38%;
+  height: 92%;
+  float: left;
+}
+.right-code {
+  color: #777;
+  width: 55%;
+  height: 92%;
+  float: right;
+  padding-top: 0.5em;
+}
+.left-plot {
+  width: 43%;
+  float: left;
+}
+.right-plot {
+  width: 60%;
+  float: right;
+}
+.hide-count .remark-slide-number {
+  display: none;
+}
+
+.bg_title {
+  position: relative;
+  z-index: 1;
+}
+
+.bg_title::before {    
+      content: "";
+      background-image: url('img/bg1.png');
+      background-size: contain;
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      left: 0px;
+      opacity: 0.3;
+      z-index: -1;
+}
+
+&lt;/style&gt;
+
+
+
+
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+# **STATISTICA E SOCIOLOGIA GENERALE**&lt;br&gt;**.orange[STATISTICA MEDICA]**
+
+-- Analisi esplorativa e statistiche descrittive --
+
+(opzionale, fuori programma)
+&lt;br&gt;
+&lt;br&gt;
+
+C.d.L. **Tecniche della prevenzione nell'ambiente e nei luoghi di lavoro**
+
+Feltre, a.a. 2021/2022 - 20 ore (2 crediti)
+
+Corrado Lanera | [**Unità di Biostatistica, Epidemiologia e Salute Pubblic**](https://www.unipd-ubep.it/)
+
+
+
+
+
+
+---
+class: inverse, hide-count
+
+# Cosa faremo
+
+Prima di tutto richiameremo alcuni simboli, notazioni, oggetti
+"matematici" che ci potranno tornare utili lungo la trattazione
+dell'intero corso.
+
+Andremo quindi a identificare quali sono gli **.orange[oggetti]** che ci
+interessa analizzare, e di che **.orange[tipologie]** posso essere. 
+
+Quindi vedremo come **.orange[localizzarli]**; ovvero, come (numericamente) avere
+un'idea di dove si _collochino_ (rispetto a un dato riferimento o misura),
+questo grazie all'individuazione di uno o più **.orange[punti di riferimento]**
+(detti **centrali**) e una misura di quanto gli altri punti di interesse
+siano **.orange[più o meno distanti]** da questi (**variabilità**).
+
+Poiché **.orange[guardare]** numeri, a volte, può essere poco informativo, o
+immediato, ci occuperemo di rappresentare i nostri dati **graficamente**,
+individuando a seconda del tipo, quantità e interesse, il grafico più
+opportuno tra quelli base, imparando anche a _leggere_ cosa
+rappresentano.
+
+---
+class: inverse, middle
+
+# .center[**.orange[Panoramica]**]
+
+**Oggetti in gioco**
+
+**Localizzazione**
+
+**Rappresentazione**
+
+
+
+
+
+
+
+
+---
+class: inverse, middle
+
+# .center[**.orange[Oggetti] in gioco**]
+
+**Notazioni di base**
+
+**.orange[Unità] statistica e .orange[tipologie] di dati**
+
+
+
+---
+# .orange[Notazioni]: Sommatoria fino a N
+
+Sia `\(I\)` un insieme di indici `\(i\)` con `\(N\)` elementi, utile a identificare
+(in modo univoco) ciascun elemento `\(x\)` di un insieme `\(X\)` composto da `\(N\)`
+numeri. Allora, indichiamo in modo generico con `\(x_i\)` l'i-esimo elemento
+di `\(X\)`.
+
+Per esempio, quando consideriamo `\(i = 1\)`, allora `\(x_i\)` è `\(x_1\)`, ovvero
+il primo elemento di `\(X\)`.
+
+Con tale notazione, utilizzando il simbolo `\(\Sigma\)` (Sigma, maiuscola:
+la "S" greca), indichiamo brevemente con 
+
+`$$\sum_{i = 1}^N x_i = x_1 + x_2 + \cdots + x_{N-1} + x_{N}$$`
+
+la somma di tutti gli `\(x_i\)`, e lo leggiamo "Sommatoria per i che va da 1
+a N degli x-con-i".
+
+
+---
+# .orange[Notazioni]: Sommatoria su I
+
+In modo analogo, se `\(I\)` non fosse numerico ma, per esempio, l'insieme
+dei codici identificativi dei pazienti in uno studio, e `\(X\)` fosse 
+l'insieme dei pesi di tali pazienti, ipotizzando che `\(R43\)` sia l'id di 
+un paziente, allora quando `\(i = R43\)` abbiamo che `\(x_i = x_{R43}\)` è il
+peso del paziente identificato dal codice `\(R43\)`.
+
+Ricordando inoltre che indichiamo con `\(x\in X\)` la relazione di
+.orange[appartenenza insiemistica] per l'elemento `\(x\)` nell'insieme `\(X\)`,
+possiamo scrivere
+
+`$$\sum_{i\in I} x_i$$`
+
+Con il medesimo significato di prima, ovvero la somma di tutti i pesi di
+tutti i pazienti i cui indici (ovvero ID) stanno nell'insieme
+considerato `\(I\)`, e lo leggiamo "Sommatoria per gli i in I degli
+x-con-i".
+
+---
+# Proprietà della sommatoria
+
+Sia `\(C\)` una generica costante numerica, allora 
+
+
+`$$\sum_{i\in I} (C * x_i) = C * \sum_{i\in I} x_i$$`
+
+
+`$$\sum_{i = 1}^N C = N * C$$`
+
+Se `\(a\)` e `\(b\)` identificano lo stesso indice, ovvero `\(a = b\)`, allora
+
+`$$\sum_{i = a}^b x_i = x_a = x_b$$`
+
+
+---
+# Esempio sommatoria
+
+
+Per esempio considerando
+.left-column[
+
+Table: Portion of 'EPIC-Norfolk cohort' (Bain et al. 2015)
+
+|  I|  age|
+|--:|----:|
+|  1| 55.1|
+|  2| 62.9|
+|  3| 53.1|
+|  4| 76.3|
+|  5| 64.2|
+|  6| 53.3|
+]
+
+.right-column[
+Possiamo scrivere la somma di tutte le età 
+
+
+```
+55.1 + 62.9 + 53.1 + 76.3 + 64.2 + 53.3
+```
+
+
+come `\(\sum_{i\in I} age_i =\)` 364.9.
+
+]
+
+---
+# .orange[Unità] statistica
+
+Il soggetto,la _riga_, **.orange[su cui vengono misurate]** le informazioni rilevate (chiamate **variabili**, **features**,**covariate**, ...). 
+
+&lt;small&gt;
+
+
+Table: Portion of "EPIC-Norfolk cohort" (Bain et al. 2015)
+
+| id|gender |  age|att.fisica        | sigarette|  bmi|   sbp|   dbp| cole.tot|   mag|farmaci |
+|--:|:------|----:|:-----------------|---------:|----:|-----:|-----:|--------:|-----:|:-------|
+|  1|M      | 55.1|Mai               |         1| 30.4| 151.0| 108.0|      5.2| 425.5|No      |
+|  2|M      | 62.9|1-2 volte a sett. |         2| 42.6| 140.1| 103.9|      4.6| 312.6|Statine |
+|  3|M      | 53.1|3 Volte a sett.   |         2| 41.6| 145.2| 120.6|      4.8| 426.8|Statine |
+|  4|M      | 76.3|Mai               |         2| 23.3| 126.9| 114.0|      8.4| 422.7|fibrati |
+|  5|M      | 64.2|3 Volte a sett.   |         1| 32.9| 151.6| 116.0|      7.7| 281.1|No      |
+|  6|M      | 53.3|Mai               |         1| 31.7| 167.4| 100.7|      6.6| 318.2|No      |
+|  7|M      | 65.7|3 Volte a sett.   |         1| 26.4| 160.0| 101.5|      6.0| 424.5|No      |
+|  8|M      | 68.1|3 Volte a sett.   |         0| 31.4| 125.0| 101.0|      5.3| 327.3|Statine |
+|  9|M      | 66.6|3 Volte a sett.   |         0| 24.9| 110.1| 109.3|      5.1| 203.7|No      |
+| 10|M      | 58.2|1-2 volte a sett. |         2| 30.5| 138.0| 106.4|      6.7| 412.4|No      |
+
+&lt;/small&gt;
+
+.orange[Spesso], ma non sempre, si tratta dei pazienti (ma potrebbe essere "un minuto di un paziente, per esempio per dati raccolti da sensori in terapia intensiva").
+
+
+---
+# .orange[Tipologie] di dati
+
+- .orange[Continue] --- (BMI)
+
+- .orange[Discrete]
+    + Categoriche
+    
+         - Binarie --- (Diabete: {"Si=1", "No=0"})
+    
+         - Nominali --- (Farmaci Anti-colesterolo: {No, Statine, Fibrati, Altro})
+    
+         - Ordinali --- (Attività fisica: {Mai, Una volta al mese, 1-2 volte a settimana, 3 Volte a                          settimana, Piu' di 3 volte a settimana})
+    
+    + Cardinali --- (Numero sigarette fumate in una settimana: {1, 2, 3, ...})
+
+
+
+
+
+
+---
+class: inverse, middle
+
+# .center[**.orange[Localizzazione] (dati continui)**]
+
+**Misure di .orange[centralità]**
+
+**Misure di .orange[variabilità] (e confrontabilità)**
+
+**Percentili**
+
+**Accorpamenti, e misure ponderate**
+
+&lt;img src="img/img1.png" width="70%" style="display: block; margin: auto 0 auto auto;" /&gt;
+
+
+
+---
+# Misure di .orange[centralità]: media
+
+Data una variabile `\(x\)`, misurata su `\(n\)` soggetti, la media aritmetica
+.orange[campionaria] è pari a
+`$$\bar{x} = \frac{1}{N}\sum_{i=1}^N x_i$$`
+
+È molto sensibile ai valori estremi, e in tal caso non è una buona
+misura di centralità.
+
+Essendo un operatore lineare, vale
+`$$\mbox{se} \quad y_i = c_1x_i+c_2 \quad \forall i \quad \mbox{allora} \quad \bar{y} = c_1\bar{x} + c_2$$`
+
+---
+# Media (_.orange[estremamente]_ sensibile)
+
+Riprendendo le età del nostro sotto-campione di soggetti, la loro media è
+
+.left-column[
+
+Table: Portion of 'EPIC-Norfolk cohort' (Bain et al. 2015)
+
+|  I|  age|
+|--:|----:|
+|  1| 55.1|
+|  2| 62.9|
+|  3| 53.1|
+|  4| 76.3|
+|  5| 64.2|
+|  6| 53.3|
+]
+
+.right-column[
+`\(\frac{1}{6}\sum_{i=1}^6 age_i =\)` **60.82**
+
+&lt;br&gt;&lt;br&gt;
+La media è molto sensibile ai .orange[dati estremi]: sostituendo, per esempio, anche solamente il primo valore (55.1) con 20, la media cambia sensibilmente e diviene **54.97**.
+]
+
+
+---
+# Misure di .orange[centralità]: mediana
+
+Ordiniamo ora le `\(N\)` osservazioni. La mediana .orange[campionaria] è
+
+- la `\((\frac{N+1}{2})\)`-ma osservazione se `\(N\)` è dispari (ovvero, **ha un centro**)
+- la media aritmetica della `\((\frac{n}{2})\)`-ma e la `\((\frac{n}{2}+1)\)`-ma
+osservazione se `\(N\)` è pari (ovvero, **non ha un centro**)
+
+
+---
+# .orange[Mediana] (N pari)
+
+Nel nostro esempio
+
+.left-column[
+
+Table: Portion of 'EPIC-Norfolk cohort' (Bain et al. 2015)
+
+|   |  I|  age|
+|:--|--:|----:|
+|1  |  3| 53.1|
+|2  |  6| 53.3|
+|3  |  1| 55.1|
+|4  |  2| 62.9|
+|5  |  5| 64.2|
+|6  |  4| 76.3|
+]
+
+.right-column[
+Siccome `\(n\)` è pari, la mediana è la media della 10-ma e 11-ma osservazione
+(ordinate)
+`$$\mbox{Mediana} = \frac{55.1 + 62.9}{2} = 59$$`
+
+E anche modificando il primo valore (55.1) con 20, la mediana non cambia
+per nulla, e **resta 59**.
+
+]
+
+---
+# .orange[Mediana] (N dispari)
+
+.left-column[
+
+Table: Portion of 'EPIC-Norfolk cohort' (Bain et al. 2015)
+
+|   |  I|  age|
+|:--|--:|----:|
+|1  |  3| 53.1|
+|2  |  6| 53.3|
+|3  |  1| 55.1|
+|4  |  2| 62.9|
+|5  |  5| 64.2|
+|6  |  7| 65.7|
+|7  |  4| 76.3|
+]
+.right-column[
+Nel casi in cui N sia dispari (prendiamo per esempio `\(N = 7\)`), prendiamo
+direttamente il valore centrale, ovvero **62.9**.
+]
+
+
+---
+# .orange[Confronto] media e mediana
+
+Definiamo l'indice di .orange[asimmetria] (**skewness**)
+
+    Skewness = Media - Mediana
+
+.pull-left[
+La distribuzione dei dati sarà considerata:
+
+- **simmetrica** se `\(Skewness \simeq 0\)`
+
+- **asimmetrica** (sbilanciata) a sinistra se `\(Skewness &gt; 0\)` (la media è più grande, .orange[distorta in eccesso])
+
+- **asimmetrica** (sbilanciata) a destra se `\(Skewness &lt; 0\)` (la media è più piccola, .orange[distorta in difetto])
+]
+.pull-right[
+&lt;div class="figure"&gt;
+&lt;img src="img/img2.png" alt="'EPIC-Norfolk cohort' (Bain et al. 2015)" width="100%" /&gt;
+&lt;p class="caption"&gt;'EPIC-Norfolk cohort' (Bain et al. 2015)&lt;/p&gt;
+&lt;/div&gt;
+]
+
+
+---
+# Misure di .orange[centralità]: Moda
+Una moda di una variabile, è ciascuno dei suoi valori che si osserva con
+**.orange[maggiore frequenza]** in un determinato campione.
+
+Una distribuzione può essere *unimodale*, *bimodale*, *trimodale*, ...
+
+&lt;small&gt;
+
+.pull-left[
+Numero di sigarette fumate al giorno
+
+
+Table: Portion of 'EPIC-Norfolk cohort' (Bain et al. 2015)
+
+| sigarette|  n|
+|---------:|--:|
+|         0| 51|
+|         1| 62|
+|         2| 46|
+|         3| 14|
+|         4| 17|
+|         5|  7|
+|         6|  2|
+|         7|  1|
+]
+.pull-right[
+Moda del numero di sigarette fumate al giorno
+
+| sigarette|  n|
+|---------:|--:|
+|         1| 62|
+]
+
+&lt;/small&gt;
+
+---
+# Misure di .orange[variabilità]
+
+Si considerino due campioni di misurazioni del colesterolo eseguite con
+due tecniche, una autoanalitica e l'altra microenzimatica:
+
+
+| autoanalitica| microenzimatica|
+|-------------:|---------------:|
+|           177|             192|
+|           193|             197|
+|           195|             200|
+|           209|             202|
+|           226|             209|
+
+Le media campionaria (nonostante l'evidente differenza di variabilità) resta identica:
+
+| autoanalitica| microenzimatica|
+|-------------:|---------------:|
+|           200|             200|
+
+---
+# Misure di .orange[variabilità]: range
+
+Il **range** è la differenza tra il valore massimo osservato e quello
+più piccolo.
+
+Simbolicamente:
+`$$range = max(x_i)-min(x_i)$$`
+
+
+| autoanalitica| microenzimatica|
+|-------------:|---------------:|
+|            49|              17|
+
+È molto semplice da calcolare ma molto (e unicamente...) sensibile ai
+valori estremi.
+
+&gt; Dipende dall'ampiezza campionaria `\(N\)`, e **tende ad aumentare** all'aumentare di `\(N\)`!
+
+
+
+---
+# .orange[Range] (dipendenza da `\(N\)`)
+
+Si ri-campiona con reimmissione dalla, distribuzione della pressione sistolica, un campione di numerosità 20, 200, 2000 ottenendo le seguenti distribuzioni
+
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="img/img3.png" alt="'EPIC-Norfolk cohort' (Bain et al. 2015)" width="50%" /&gt;
+&lt;p class="caption"&gt;'EPIC-Norfolk cohort' (Bain et al. 2015)&lt;/p&gt;
+&lt;/div&gt;
+
+
+---
+# Misure di .orange[variabilità]: varianza campionaria
+
+La varianza campionaria è definita come
+
+`$$s^2 = \frac{\sum_{i=1}^n (x_i-\bar{x})^2}{n-1}$$`
+
+Questa è una misura di quanto, in media, gli elementi del campione si 
+discostano dalla loro media.
+
+E un valore non confrontabile con i dati stessi in quanto con un altra
+unità di misura. Si definisce quindi la **.orange[deviazione standard]** campionaria, come
+
+`$$s = \sqrt{\frac{\sum_{i=1}^n (x_i-\bar{x})^2}{n-1}} = \sqrt{s^2}$$`
+
+&gt; Si noti che `\(\sum_{i=1}^n (x_i-\bar{x}) = 0\)`
+
+
+
+---
+# .orange[Varianza] campionaria: esempio
+
+.left-column[
+
+| autoanalitica| microenzimatica|
+|-------------:|---------------:|
+|           177|             192|
+|           193|             197|
+|           195|             200|
+|           209|             202|
+|           226|             209|
+
+Medie:
+
+
+| autoanalitica| microenzimatica|
+|-------------:|---------------:|
+|           200|             200|
+
+
+]
+.right-column[.right[&lt;small&gt;
+Tecnica **autoanalitica**:
+
+  `\(\begin{split}s^2&amp; = \frac{(177-200)^2 + \ldots + (226-200)^2}{4}\\&amp; = \frac{1360}{4}\\&amp; = 340\end{split}\)`
+  
+  `\(s = \sqrt{340} = 18.4\)`
+
+&lt;br&gt;&lt;br&gt;
+
+Tecnica **microenzimatica**:
+
+  `\(\begin{split}s^2&amp; = \frac{(192-200)^2 + \ldots + (209-200)^2}{4}\\&amp; = \frac{158}{4}\\&amp; = 39.5\end{split}\)`
+  
+  `\(s = \sqrt{39.5} = 6.3\)`
+&lt;/small&gt;]]
+
+
+---
+# .orange[Varianza] (formula alternativa)
+
+Se la media è già calcolata, allora può essere utile usare
+`$$s^2=\frac{(\sum_{i=1}^n x_i^2) - n\bar{x}^2}{n-1}$$`
+
+Per la tecnica microanalitica si ha
+`$$\sum_{i=1}^5 x_i^2 = 177^2+\ldots+226^2=201360$$`
+`$$s^2 = \frac{201360 - 5 \times 200^2}{4}= 1360/4=340$$`
+
+
+---
+# Misure di .orange[variabilità]: coefficiente di variazione
+
+Sebbene la deviazione standard sia della stessa unità di misura dei
+dati, non permette di confrontare tra loro le variabilità di variabili con unità di misura differenti.
+
+Il **coefficiente di variazione** `\(CV\)` è definito come
+`$$CV = \frac{100s}{\bar{x}}$$`
+È una misura adimensionale, e quindi utilizzabile anche per confrontare variabili di natura differente. È anche insensibile alla scala, ovvero a trasformazioni del tipo `\(cx\)`
+
+---
+## .orange[CV] (non-effetto scala)
+I valori di Colesterolo raccolti dai 200 pazienti del database Epic sono (ordinati) i seguenti (espressi in mmol/L):
+
+&lt;small&gt;
+
+```
+4.6, 4.6, 4.6, 4.6, 4.6, 4.6, 4.7, 4.7, 4.7, 4.7, 4.7, 4.7, 4.7, 4.7, 4.8, 
+4.8, 4.8, 4.8, 4.8, 4.8, 4.8, 4.8, 4.9, 4.9, 4.9, 4.9, 4.9, 4.9, 4.9, 5, 
+5, 5, 5, 5, 5, 5.1, 5.1, 5.1, 5.1, 5.1, 5.1, 5.1, 5.1, 5.2, 5.2, 
+5.2, 5.2, 5.2, 5.2, 5.2, 5.2, 5.2, 5.3, 5.3, 5.3, 5.3, 5.3, 5.3, 5.3, 5.4, 
+5.4, 5.4, 5.4, 5.4, 5.4, 5.4, 5.4, 5.4, 5.4, 5.4, 5.4, 5.4, 5.5, 5.5, 5.5, 
+5.5, 5.5, 5.5, 5.5, 5.5, 5.6, 5.6, 5.6, 5.6, 5.6, 5.7, 5.7, 5.7, 5.7, 5.7, 
+5.7, 5.8, 5.8, 5.8, 5.8, 5.8, 5.8, 5.8, 5.9, 5.9, 5.9, 5.9, 5.9, 5.9, 5.9, 
+5.9, 6, 6, 6, 6, 6, 6, 6, 6, 6.1, 6.1, 6.1, 6.1, 6.1, 6.2, 
+6.2, 6.2, 6.2, 6.2, 6.2, 6.3, 6.3, 6.3, 6.3, 6.4, 6.4, 6.4, 6.4, 6.4, 6.4, 
+6.4, 6.4, 6.5, 6.6, 6.6, 6.6, 6.6, 6.7, 6.7, 6.7, 6.7, 6.7, 6.7, 6.7, 6.7, 
+6.7, 6.8, 6.8, 6.8, 6.8, 6.8, 6.8, 6.9, 6.9, 6.9, 6.9, 6.9, 7, 7, 7, 
+7, 7, 7.1, 7.1, 7.1, 7.1, 7.1, 7.1, 7.2, 7.2, 7.3, 7.3, 7.3, 7.4, 7.4, 
+7.5, 7.5, 7.6, 7.6, 7.7, 7.7, 7.9, 8, 8.3, 8.4, 8.4, 8.4, 8.4, 8.5, 8.5, 
+8.6, 8.7, 9.1, 10.5, 11.3
+```
+&lt;/small&gt;
+
+Partendo dai dati così espressi in mmol/L:
+`$$CV = 1.12/6.074 \times 100 = 18\%$$`
+
+e per gli stessi valori espressi in mg/dl abbiamo
+`$$CV = 43.27/234.43 \times 100 = 18\%$$`
+
+
+
+---
+# .orange[Percentili]
+
+Il **percentile** `\(p\)`-esimo è un valore `\(V_p\)` tale che il `\(p\)`\% del campione
+assume valori inferiori a esso.
+
+Posto `\(k\)` = "*l'intero più grande inferiore a `\(np/100\)`*", il percentile `\(p\)`-esimo
+è definito come
+
+- la `\((k+1)\)`-ma osservazione (ordinata) se `\(np/100\)` non è un intero.
+
+- la media delle osservazioni `\(np/100\)`-ma e `\((np/100) + 1\)`-ma osservazione
+(ordinata) se `\(np/100\)` è un intero
+
+I **quartili** sono valori che dividono i dati in quattro gruppi contenenti un numero approssimativamente uguale di osservazioni. Il totale di 100% è diviso in quattro parti uguali: 25%, 50%, 75% 100%.
+
+  + .orange[Primo] **quartile** (Q1) il minimo valore osservato tale che almeno il `\(25\% (=1/4)\)` dei dati è minore o uguale a questo
+  
+  + .orange[Terzo] **quartile** (Q3) il minimo valore osservato tale che almeno il `\(75\% (=3/4)\)` dei dati è minore o
+  uguale a questo 
+
+
+---
+# .orange[Percentili] (esempio _intero_)
+Si calcoli il `\(10\)`-mo e `\(90\)`-mo percentile del campione del BMI su 10 soggetti.
+
+.left-column[
+
+
+|   | id|  bmi|
+|:--|--:|----:|
+|1  |  4| 23.3|
+|2  |  9| 24.9|
+|3  |  7| 26.4|
+|4  |  1| 30.4|
+|5  | 10| 30.5|
+|6  |  8| 31.4|
+|7  |  6| 31.7|
+|8  |  5| 32.9|
+|9  |  3| 41.6|
+|10 |  2| 42.6|
+]
+
+.right-column[
+
+1. Si calcola `\(np/100\)`, pari a:
+  - 10-imo percentile (p = 0.1): `\(10 \times 0.1 = 1\)`
+  
+  - 90-esimo percentile (p = 0.9): `\(10 \times 0.9 = 9\)`
+
+2. (Sono valori interi, quindi) si calcola la media tra le osservazioni (**ordinate**):
+  - 10-imo: posizioni 1 e 2 `\(\frac{23.3 + 24.9}{2} =\)` 23.3
+  
+  - 90-esimo: posizioni 9 e 10 `\(\frac{41.6 + 42.6}{2} =\)` 41.6
+]
+
+
+---
+# .orange[Percentili] (esempio _decimale_)
+Si calcoli il `\(20\)`-mo percentile del campione del BMI su 9 soggetti.
+
+.left-column[
+
+
+|   | id|  bmi|
+|:--|--:|----:|
+|1  |  4| 23.3|
+|2  |  9| 24.9|
+|3  |  7| 26.4|
+|4  |  1| 30.4|
+|5  |  8| 31.4|
+|6  |  6| 31.7|
+|7  |  5| 32.9|
+|8  |  3| 41.6|
+|9  |  2| 42.6|
+]
+
+.right-column[
+
+1. Si calcola `\(np/100\)`, pari a:
+  - 20-imo percentile (p = 0.2): `\(9 \times 0.2 = 1.8\)`
+
+2. (È un valore decimale, quindi) Si trova il `\(k\)`-mo intero inferiore a 1.8:
+  - 1 (il _primo_).
+
+3. Il 20-esimo percentile è il `\(k+1\)`-esimo valore (ordinato!); ovvero quello in posizione `\(1 + 1 = 2\)`, il secondo; ovvero, **24.9**.
+]
+
+
+
+---
+# .orange[Accorpamenti]
+
+La struttura generale dei dati raggruppati è simile a
+
+
+|Gruppi            | Media                       | Frequenza
+|:----------------:|:---------------------------:|:---------:
+| `\([y_1, y_2)\)`     | `\(\frac{y_1+y_2}{2}\)`         | `\(f_1\)` 
+| `\(\vdots\)`         | `\(\vdots\)`                    | `\(\vdots\)`
+| `\([y_k, y_{k+1})\)` | `\(\frac{y_k+y_{k+1}}{2}\)` | `\(f_k\)`
+
+
+---
+# .orange[Accorpamenti]: Epic - magnesio
+
+Intake giornaliero di magnesio (mg/day) per `\(N = 100\)` soggetti
+
+
+
+```
+43, 84.2, 100.4, 102.2, 113, 116.7, 118.9, 128.8, 130.1, 144.3, 151.5, 152.3, 
+163, 168.9, 169.4, 181.1, 189.5, 197.5, 198.3, 198.3, 198.7, 202.2, 204.6, 212, 
+215.3, 215.4, 219.6, 222, 226.2, 228, 234.3, 234.4, 236.4, 239.9, 241.7, 245.9, 
+250, 251.8, 255.8, 257.9, 263.7, 264.5, 267.7, 269.6, 277.7, 279.7, 281.1, 285.3, 
+285.8, 288.9, 295.5, 297.6, 297.8, 299, 300.8, 302.9, 304.2, 304.9, 305.1, 306, 
+307.1, 307.4, 309, 312.3, 317.1, 317.8, 318.4, 320.1, 320.2, 320.4, 320.5, 321.1, 
+322.4, 323.7, 323.9, 324, 325.3, 326.4, 329.1, 329.2, 331.1, 332.6, 333, 334.3, 
+338.1, 340.3, 341.3, 343.4, 343.8, 344.9, 349.4, 349.6, 350.5, 351.4, 355.9, 357.6, 
+359.1, 359.8, 359.8, 360.3
+```
+
+---
+# .orange[Accorpamenti]: Epic - magnesio
+
+
+Table: 'EPIC-Norfolk cohort' (Bain et al. 2015)
+
+|Gruppi    |     m| Freq|
+|:---------|-----:|----:|
+|[ 43,169) | 106.0|   13|
+|[169,215) | 192.0|   12|
+|[215,256) | 235.5|   13|
+|[256,296) | 276.0|   12|
+|[296,312) | 304.0|   13|
+|[312,324) | 318.0|   12|
+|[324,344) | 334.0|   13|
+|[344,360] | 352.0|   12|
+
+
+
+
+---
+# misure .orange[ponderate]: media artimetica ponderata
+
+La media aritmetica campionaria ponderata è pari a
+`$$\bar{x}_g = \frac{\sum_{i=1}^k f_im_i}{\sum_{i=1}^k f_i}$$`
+
+Per il dataset accorpato sui dati di magnesio, è pari a
+`$$\bar{x}_g = \frac{13(106)+\ldots+12(352)}{13+\ldots+12}= 26389.5/100 = 263.895$$`
+
+
+
+---
+# misure .orange[ponderate]: varianza ponderata
+
+La varianza campionaria ponderata è pari a
+`$$s_g^2 = \frac{\sum_{i=1}^k f_i(m_i-\bar{x}_g)^2}{(\sum_{i=1}^k f_i)-1}$$`
+
+ovvero
+`$$s_g^2 = \frac{\sum_{i=1}^k f_im_i^2-n\bar{x}_g^2}{n-1}$$`
+
+Per il caso del magnesio è pari a
+`$$\begin{align*}\bar{s}_g^2&amp; = \frac{[13(106)^2+\ldots+12(352)^2]-100(263.895^2)}{100-1}\\&amp; = 611446.1/99 = 6176.223\end{align*}$$`
+
+
+---
+class: inverse, middle
+
+# .center[**.orange[Rappresentazione]**]
+
+### **Dati .orange[continui]**
+- Istogrammi
+- Box-plot
+
+### **Dati .orange[categorici]**
+- Grafici a barre
+
+&lt;!-- ### **.orange[Coppie] di dati** --&gt;
+&lt;!-- - continui - continui (scatter) --&gt;
+&lt;!-- - continui - categorici (jitter) --&gt;
+&lt;!-- - categorici - categorici (... count?! 🤔) --&gt;
+
+
+---
+# Dati continui: istogramma
+
+Per il calcolo dell'istogramma, la tabella delle frequenze deve essere
+estesa
+
+
+|Gruppi            | Media                       | Frequenza| Ampiezza      | Densità
+|:----------------:|:---------------------------:|:--------:|:-------------:|:-------
+| `\([y_1, y_2)\)`     | `\(\frac{y_1+y_2}{2}\)`         | `\(f_1\)`    | `\(y_2-y_1\)`     | `\(\frac{f_1}{a_1}\)`
+| `\(\vdots\)`         | `\(\vdots\)`                    | `\(\vdots\)` | `\(\vdots\)`      | `\(\vdots\)`
+| `\([y_k, y_{k+1})\)` | `\(\frac{y_k+y_{k+1}}{2}\)`     | `\(f_k\)`    | `\(y_{k+1}-y_k\)` | `\(\frac{f_{k+1}}{a_k}\)`
+
+
+---
+# Istogramma
+
+L'istogramma è uno stimatore della distribuzione
+
+.center[
+&lt;img src="02-descrittive_files/figure-html/unnamed-chunk-19-1.png" width="60%" /&gt;
+]
+---
+# Dati continui: box-plot
+
+Il .orange[box-plot] è un modo per rappresentare graficamente una distribuzione
+rispetto a __centralità e variabilità__. Per un campione di ampiezza `\(N\)`
+
+- Il segmento all'interno del box è la mediana.
+
+- il __baffo inferiore__ (h) parte dal primo quartile (o 25º percentile)
+
+- il __baffo superiore__ (H) parte dal terzo quartile (o 75º percentile)
+
+- un valore __estremo__ è: un valore che si allontana dai baffi più di una volta
+  e mezza la loro distanza (distanza inter-quartile), cioè
+`$$x &gt; H + 1.5 \times (H-h)  \quad o \quad x &lt; h - 1.5 \times (H-h)$$`
+
+- un __outlier__ è: un valore che si allontana dai baffi più di tre volte la
+  loro distanza, cioè
+`$$x &gt; H + 3 \times (H-h)  \quad o \quad x &lt; h - 3 \times (H-h)$$`
+
+---
+# Box-plot (calcolo)
+Un' assunzione giornaliera di 43 mg/die di magnesio rappresenta un dato estremo
+
+&lt;small&gt;
+
+```
+43, 84.2, 100.4, 102.2, 113, 116.7, 118.9, 128.8, 130.1, 144.3, 151.5, 152.3, 
+163, 168.9, 169.4, 181.1, 189.5, 197.5, 198.3, 198.3, 198.7, 202.2, 204.6, 212, 
+215.3, 215.4, 219.6, 222, 226.2, 228, 234.3, 234.4, 236.4, 239.9, 241.7, 245.9, 
+250, 251.8, 255.8, 257.9, 263.7, 264.5, 267.7, 269.6, 277.7, 279.7, 281.1, 285.3, 
+285.8, 288.9, 295.5, 297.6, 297.8, 299, 300.8, 302.9, 304.2, 304.9, 305.1, 306, 
+307.1, 307.4, 309, 312.3, 317.1, 317.8, 318.4, 320.1, 320.2, 320.4, 320.5, 321.1, 
+322.4, 323.7, 323.9, 324, 325.3, 326.4, 329.1, 329.2, 331.1, 332.6, 333, 334.3, 
+338.1, 340.3, 341.3, 343.4, 343.8, 344.9, 349.4, 349.6, 350.5, 351.4, 355.9, 357.6, 
+359.1, 359.8, 359.8, 360.3
+```
+&lt;/small&gt;
+
+- `\(H\)` è la media tra l'osservazione `\((50 / 2)\)`ª e la `\(((50 / 2) + 1)\)`ª, ovvero
+  `\((215.3+215.4) / 2 = 215.35\)`
+- `\(h\)` è la media dell'osservazione `\((50 / 2)\)`ª e la `\(((50 / 2) + 1)\)`ª, ovvero
+  `\((323.9+324) / 2 = 323.95\)`
+- i limiti per i valori estremi sono quindi
+`$$x &gt; 323.95 + 1.5 (323.95 - 215.35) = 486.85 x &lt; 52.45$$`
+- gli outliers
+`$$x &gt; 323.95 + 3 *(323.95 - 215.35) = 649.75$$`
+
+
+---
+# Box-plot (mag)
+
+.center[
+&lt;img src="02-descrittive_files/figure-html/unnamed-chunk-21-1.png" width="60%" /&gt;
+]
+---
+# Boxplot (general)
+.center[
+&lt;img src="img/bxp.png" width="70%" /&gt;
+]
+
+
+---
+# Dati categorici: barre
+
+
+
+&lt;!-- --- --&gt;
+&lt;!-- # Coppie di dati: continui-continui --&gt;
+
+&lt;!-- --- --&gt;
+&lt;!-- # Coppie di dati: continui-categorici --&gt;
+
+&lt;!-- --- --&gt;
+&lt;!-- # Coppie di dati: categorici-categorici --&gt;
+
+
+---
+class: middle, center, hide-count, inverse
+
+# .orange[Vediamolo...&lt;br&gt;...sul _vostro_ cloud!]
+
+[https://bit.ly/tpall22-feltre-rscloud](https://bit.ly/tpall22-feltre-rscloud)
+
+---
+class: inverse
+
+# Risorse utili
+
+- [**RStudio Cloud**](https://bit.ly/tpall22-feltre-rscloud): [https://bit.ly/tpall22-feltre-rscloud](https://bit.ly/tpall22-feltre-rscloud) gratis per voi per esplorare RStudio, le sue funzionalità, e allenarvi con R (link di iscrizione valido fino alla fine del corso). NOTA: a vostra scelta, è utilizzabile anche come _supporto_ durante l'esame.
+
+- [**RStudio primers**](https://rstudio.cloud/learn/primers) ambiente gratuito dentro RStudio Cloud per l'apprendimento delle basi di analisi di dati con R tramite tutorial interattivi. Una volta registrati, oltre all'accesso al _nostro_ spazio di lavoro, avete accesso libero anche ai _Primers_.
+
+- [**R 4 Data Science**](https://r4ds.had.co.nz/): libro gratuito (on-line) di [**Hadley Wickham**](http://hadley.nz/) e [**Garrett Grolemund**](https://rstudio.com/speakers/garrett-grolemund/)
+
+- [**GGplot2 cheatsheet**](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-visualization.pdf) schema dei possibili grafici di base rappresentabili in R con il pacchetto `{ggplot2}`, molto utile anche per conoscere le tipologie di grafico, e il loro utilizzo.
+
+- [An Introduction to Medical Statistics](https://global.oup.com/academic/product/an-introduction-to-medical-statistics-9780199589920) di [**Martin Bland**](https://www.york.ac.uk/healthsciences/our-staff/honoraryemeritus/martin-bland/), suggeriti capitoli 4 e 5.
+
+---
+class: inverse, center, middle, hide-count
+
+
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt5[
+.left[
+_Mathematical conventions are just that, conventions. They differ by field of mathematics. Don’t ask us why **matrix rows** **.orange[are numbered down]** but **graphs** **.orange[are numbered up]** the **y axis**, nor why **x .orange[comes before] y** but **row .orange[before] column**. But the matrix layout has always seemed illogical to me._
+]
+
+.tr[
+—Brian D. Ripley&lt;br&gt;08/2004 - R-help&lt;br&gt;
+]
+]
+
+&lt;br&gt;
+
+
+# **.orange[Grazie]** per l'attenzione!
+
+... e buona settimana.
+
+&lt;br&gt;
+&lt;br&gt;
+
+
+Diapositive: [https://corradolanera.github.io/tpall](https://corradolanera.github.io/tpall)
+
+
+[<svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg>](https://www.unipd-ubep.it/) [**www.unipd-ubep.it**](https://www.unipd-ubep.it/) | 
+[<svg aria-hidden="true" role="img" viewBox="0 0 576 512" style="height:1em;width:1.12em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M160 448c-25.6 0-51.2-22.4-64-32-64-44.8-83.2-60.8-96-70.4V480c0 17.67 14.33 32 32 32h256c17.67 0 32-14.33 32-32V345.6c-12.8 9.6-32 25.6-96 70.4-12.8 9.6-38.4 32-64 32zm128-192H32c-17.67 0-32 14.33-32 32v16c25.6 19.2 22.4 19.2 115.2 86.4 9.6 6.4 28.8 25.6 44.8 25.6s35.2-19.2 44.8-22.4c92.8-67.2 89.6-67.2 115.2-86.4V288c0-17.67-14.33-32-32-32zm256-96H224c-17.67 0-32 14.33-32 32v32h96c33.21 0 60.59 25.42 63.71 57.82l.29-.22V416h192c17.67 0 32-14.33 32-32V192c0-17.67-14.33-32-32-32zm-32 128h-64v-64h64v64zm-352-96c0-35.29 28.71-64 64-64h224V32c0-17.67-14.33-32-32-32H96C78.33 0 64 14.33 64 32v192h96v-32z"/></svg>](mailto:Corrado.Lanera@ubep.unipd.it) [**Corrado.Lanera@ubep.unipd.it**](mailto:Corrado.Lanera@ubep.unipd.it)
+
+[<svg aria-hidden="true" role="img" viewBox="0 0 496 512" style="height:1em;width:0.97em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>](https://github.com/corradolanera)
+[<svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>](https://twitter.com/corradolanera)
+[<svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M446.7 98.6l-67.6 318.8c-5.1 22.5-18.4 28.1-37.3 17.5l-103-75.9-49.7 47.8c-5.5 5.5-10.1 10.1-20.7 10.1l7.4-104.9 190.9-172.5c8.3-7.4-1.8-11.5-12.9-4.1L117.8 284 16.2 252.2c-22.1-6.9-22.5-22.1 4.6-32.7L418.2 66.4c18.4-6.9 34.5 4.1 28.5 32.2z"/></svg>](https://telegram.me/CorradoLanera)
+**@CorradoLanera** |
+[<svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M436 160H12c-6.627 0-12-5.373-12-12v-36c0-26.51 21.49-48 48-48h48V12c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v52h128V12c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v52h48c26.51 0 48 21.49 48 48v36c0 6.627-5.373 12-12 12zM12 192h424c6.627 0 12 5.373 12 12v260c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48V204c0-6.627 5.373-12 12-12zm333.296 95.947l-28.169-28.398c-4.667-4.705-12.265-4.736-16.97-.068L194.12 364.665l-45.98-46.352c-4.667-4.705-12.266-4.736-16.971-.068l-28.397 28.17c-4.705 4.667-4.736 12.265-.068 16.97l82.601 83.269c4.667 4.705 12.265 4.736 16.97.068l142.953-141.805c4.705-4.667 4.736-12.265.068-16.97z"/></svg> ](https://calendly.com/corradolanera) [**calendly.com/corradolanera**](https://calendly.com/corradolanera)
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
