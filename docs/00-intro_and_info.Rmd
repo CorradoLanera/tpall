@@ -22,7 +22,11 @@ class: center, middle, bg_title, hide-count
 <img src="img/LAIMS.png" width="50px"/>
 
 ```{r setup, include=FALSE}
-options(htmltools.dir.version = FALSE)
+options(
+  htmltools.dir.version = FALSE,
+  htmltools.preserve.raw = FALSE
+)
+
 knitr::opts_chunk$set(
   fig.retina = 3,
   warning = FALSE,
@@ -35,10 +39,12 @@ library(xaringanExtra)
 library(xaringanthemer)
 
 library(tidyverse)
+library(here)
 library(gridExtra)
 
 library(countdown)
 library(metathis)
+library(DT)
 
 options(width = 59) # fit into the right-column slides
 
@@ -293,9 +299,9 @@ Cinque lezioni da 4 _ore_ ciascuna (180' effettivi)
 
 <small>
 - Lezione 1: oggi, giovedì 7 aprile 2022 - 08:30-12:30
-  + (60') intro al corso
+  + (30') intro al corso
   + (60') intro a R/RStudio (facoltativo, non oggetto di esame)
-  + (60') statistica descrittiva
+  + (90') statistica descrittiva
 - Lezione 2: mercoledì 20 aprile 2022 - 14:30-18:30
   + (30') esercizi, domande, dubbi e perplessità
   + (60') basi di probabilità
