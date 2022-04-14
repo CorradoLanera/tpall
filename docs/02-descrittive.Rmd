@@ -162,13 +162,12 @@ style_duo_accent(
 
 <br>
 <br>
-<br>
 
 # **STATISTICA E SOCIOLOGIA GENERALE**<br>**.orange[STATISTICA MEDICA]**
 
 -- Analisi esplorativa e statistiche descrittive --
 
-(opzionale, fuori programma)
+<br>
 <br>
 <br>
 
@@ -322,6 +321,15 @@ cat(paste(ages, collapse = " + "))
 
 come $\sum_{i\in I} age_i =$ `r sum(ages)`.
 
+in R
+```{r}
+set_of_number <- c(
+  55.1, 62.9, 53.1, 76.3, 64.2, 53.3
+)
+sum(set_of_number)
+```
+
+
 ]
 
 ---
@@ -406,10 +414,28 @@ ages_db |>
 ]
 
 .right-column[
+
+.panelset[
+.panel[.panel-name[Natural]
 $\frac{1}{6}\sum_{i=1}^6 age_i =$ **`r round(mean(ages), 2)`**
 
 <br><br>
 La media è molto sensibile ai .orange[dati estremi]: sostituendo, per esempio, anche solamente il primo valore (55.1) con 20, la media cambia sensibilmente e diviene **`r round(mean(c(20, ages[-1])), 2)`**.
+]
+
+.panel[.panel-name[R Code]
+```{r}
+age <- c(55.1, 62.9, 53.1, 76.3, 64.2, 53.3)
+sum(age) / length(age)
+mean(age) |> round(2)
+
+# cambiando il primo valore da 55.1 a 20
+c(20, age[-1]) |> 
+  mean() |> 
+  round(2)
+```
+]
+]
 ]
 
 
@@ -437,12 +463,28 @@ ages_db |>
 ]
 
 .right-column[
+
+.panelset[
+.panel[.panel-name[Natural]
 Siccome $n$ è pari, la mediana è la media della 10-ma e 11-ma osservazione
 (ordinate)
 $$\mbox{Mediana} = \frac{55.1 + 62.9}{2} = 59$$
-
 E anche modificando il primo valore (55.1) con 20, la mediana non cambia
 per nulla, e **resta 59**.
+]
+
+.panel[.panel-name[R Code]
+```{r}
+# age_sorted <- c(53.1, 53.3, 55.1, 62.9, 64.2, 76.3)
+age_sorted <- sort(age)
+n <- length(age_sorted)
+1/2 * (age_sorted[n / 2] + age_sorted[n / 2 + 1])
+
+median(age)
+median(c(20, age_sorted[-1]))
+```
+]
+]
 
 ]
 
@@ -461,9 +503,28 @@ ages_db_dispari |>
   kable(row.names = TRUE, caption = "Portion of \'EPIC-Norfolk cohort\' (Bain et al. 2015)")
 ```
 ]
+
 .right-column[
+
+.panelset[
+.panel[.panel-name[Natural]
 Nel casi in cui N sia dispari (prendiamo per esempio $N = 7$), prendiamo
 direttamente il valore centrale, ovvero **62.9**.
+
+]
+
+.panel[.panel-name[R Code]
+```{r}
+age <- c(55.1, 62.9, 53.1, 76.3, 64.2, 53.3, 65.7)
+age_sorted <- sort(age)
+age_sorted
+n <- length(age_sorted)
+age_sorted[(n + 1) / 2]
+median(age)
+```
+]
+]
+
 ]
 
 
@@ -499,8 +560,8 @@ Una distribuzione può essere *unimodale*, *bimodale*, *trimodale*, ...
 
 <small>
 
-.pull-left[
-Numero di sigarette fumate al giorno
+.left-column[
+Sigarette al giorno
 
 ```{r, echo = FALSE}
 epic_sigarette <- epic |> 
@@ -510,15 +571,48 @@ epic_sigarette |>
   kable(caption = "Portion of \'EPIC-Norfolk cohort\' (Bain et al. 2015)")
 ```
 ]
-.pull-right[
-Moda del numero di sigarette fumate al giorno
-```{r, echo = FALSE}
+
+.right-column[
+
+.panelset[
+.panel[.panel-name[Natural]
+
+Moda di sigarette fumate al giorno
+```{r echo=FALSE}
 epic_sigarette |> 
   slice_max(n) |> 
   kable()
 ```
 ]
 
+.panel[.panel-name[R code]
+```{r}
+tab_siga <- rep(
+    epic_sigarette$sigarette,
+    times = epic_sigarette$n
+  ) |>
+  table()
+tab_siga
+
+names(tab_siga)[tab_siga == max(tab_siga)]
+
+```
+]
+
+.panel[.panel-name[R code - bimodale]
+```{r}
+tab_siga <- rep(
+    epic_sigarette$sigarette,
+    times = epic_sigarette$n
+  ) |>
+  c(rep(3, 48)) |> table()
+tab_siga
+
+names(tab_siga)[tab_siga == max(tab_siga)]
+
+```
+]
+]
 </small>
 
 ---
@@ -587,7 +681,7 @@ discostano dalla loro media.
 E un valore non confrontabile con i dati stessi in quanto con un altra
 unità di misura. Si definisce quindi la **.orange[deviazione standard]** campionaria, come
 
-$$s = \sqrt{\frac{\sum_{i=1}^n (x_i-\bar{x})^2}{n-1}} = \sqrt{s^2}$$
+$$s = \sqrt{s^2} = \sqrt{\frac{\sum_{i=1}^n (x_i-\bar{x})^2}{n-1}}$$
 
 > Si noti che $\sum_{i=1}^n (x_i-\bar{x}) = 0$
 
@@ -596,7 +690,7 @@ $$s = \sqrt{\frac{\sum_{i=1}^n (x_i-\bar{x})^2}{n-1}} = \sqrt{s^2}$$
 ---
 # .orange[Varianza] campionaria: esempio
 
-.left-column[
+.left-plot[
 ```{r, echo=FALSE}
 kable(colesterolo)
 ```
@@ -610,22 +704,43 @@ summarise(colesterolo, across(everything(), mean)) |>
 
 
 ]
-.right-column[.right[<small>
-Tecnica **autoanalitica**:
 
-  $\begin{split}s^2& = \frac{(177-200)^2 + \ldots + (226-200)^2}{4}\\& = \frac{1360}{4}\\& = 340\end{split}$
+.right-code[
+
+.panelset[
+.panel[.panel-name[Autoanalitica]
+  $\begin{split}s^2& = \frac{(177-200)^2 + \ldots + (226-200)^2}{4}\\& = \frac{1360}{4} = 340\end{split}$
+  
+```{r}
+auto <- colesterolo[["autoanalitica"]]
+sum(
+  (auto - mean(auto))^2
+) / (length(auto) - 1)
+```
   
   $s = \sqrt{340} = 18.4$
-
-<br><br>
-
-Tecnica **microenzimatica**:
-
-  $\begin{split}s^2& = \frac{(192-200)^2 + \ldots + (209-200)^2}{4}\\& = \frac{158}{4}\\& = 39.5\end{split}$
   
-  $s = \sqrt{39.5} = 6.3$
-</small>]]
 
+]
+
+.panel[.panel-name[Microenzimatica]
+  $\begin{split}s^2& = \frac{(192-200)^2 + \ldots + (209-200)^2}{4}\\& = \frac{158}{4} = 39.5\end{split}$
+  
+```{r}
+micro <- colesterolo[["microenzimatica"]]
+var(micro)
+```
+  $s = \sqrt{39.5} = 6.3$
+
+```{r}
+sd(micro)
+```
+
+
+]
+]
+
+]
 
 ---
 # .orange[Varianza] (formula alternativa)
@@ -633,9 +748,14 @@ Tecnica **microenzimatica**:
 Se la media è già calcolata, allora può essere utile usare
 $$s^2=\frac{(\sum_{i=1}^n x_i^2) - n\bar{x}^2}{n-1}$$
 
-Per la tecnica microanalitica si ha
+Per la tecnica autoanalitica si ha
 $$\sum_{i=1}^5 x_i^2 = 177^2+\ldots+226^2=201360$$
 $$s^2 = \frac{201360 - 5 \times 200^2}{4}= 1360/4=340$$
+```{r}
+n <- length(auto)
+mean_auto <- mean(auto)
+(sum(auto^2) - n * mean_auto^2) / (n - 1)
+```
 
 
 ---
@@ -649,39 +769,40 @@ $$CV = \frac{100s}{\bar{x}}$$
 È una misura adimensionale, e quindi utilizzabile anche per confrontare variabili di natura differente. È anche insensibile alla scala, ovvero a trasformazioni del tipo $cx$
 
 ---
-## .orange[CV] (non-effetto scala)
-I valori di Colesterolo raccolti dai 200 pazienti del database Epic sono (ordinati) i seguenti (espressi in mmol/L):
-
+### .orange[CV] (non-effetto scala)
 <small>
+I valori di Colesterolo raccolti dai 200 pazienti del database Epic sono i seguenti:
+
 ```{r, echo=FALSE}
-sort(epic$cole.tot) |> 
+epic$cole.tot |> 
   paste(collapse = ", ") |> 
   str_replace_all("((.+?, ){15})", "\\1\n") |> 
   cat()
 ```
+
+Partendo dai dati così espressi in mmol/L: $CV = 1.12/6.07 \times 100 \simeq 18\%$
+```{r}
+100 * sd(epic$cole.tot) / mean(epic$cole.tot)
+```
+
+
+e per gli stessi valori espressi in mg/dl (massa molare colesterolo: 386.65 g/mol) abbiamo:
+$$CV = 43.35/234.83 \times 100 \simeq 18\%$$
 </small>
-
-Partendo dai dati così espressi in mmol/L:
-$$CV = 1.12/6.074 \times 100 = 18\%$$
-
-e per gli stessi valori espressi in mg/dl abbiamo
-$$CV = 43.27/234.43 \times 100 = 18\%$$
 
 
 
 ---
 # .orange[Percentili]
 
-Il **percentile** $p$-esimo è un valore $V_p$ tale che il $p$\% del campione
-assume valori inferiori a esso.
+Il **percentile** $p$-esimo è un valore $V_p$ tale che il $p$\% del campione assume valori inferiori a esso.
 
-Posto $k$ = "*l'intero più grande inferiore a $np/100$*", il percentile $p$-esimo
-è definito come
+Per un calcolo _a mano_, posto $k$ = "*l'intero più grande non superiore a $np/100$*", il percentile $p$-esimo è definito come
+
+- la media delle osservazioni $k$-ma e $k + 1$-ma osservazione
+(ordinata) se $np/100$ è un intero ( $=k$ ).
 
 - la $(k+1)$-ma osservazione (ordinata) se $np/100$ non è un intero.
-
-- la media delle osservazioni $np/100$-ma e $(np/100) + 1$-ma osservazione
-(ordinata) se $np/100$ è un intero
 
 I **quartili** sono valori che dividono i dati in quattro gruppi contenenti un numero approssimativamente uguale di osservazioni. Il totale di 100% è diviso in quattro parti uguali: 25%, 50%, 75% 100%.
 
@@ -692,16 +813,19 @@ I **quartili** sono valori che dividono i dati in quattro gruppi contenenti un n
 
 
 ---
-# .orange[Percentili] (esempio _intero_)
+## .orange[Percentili] (esempio _intero_)
+<small>
 Si calcoli il $10$-mo e $90$-mo percentile del campione del BMI su 10 soggetti.
 
 .left-column[
 
 ```{r, echo=FALSE, caption = "Portion of \'EPIC-Norfolk cohort\' (Bain et al. 2015)"}
-epic |> 
+epic_10 <- epic |> 
   slice_head(n = 10) |> 
   select(id, bmi) |> 
-  arrange(bmi) |> 
+  arrange(bmi)
+
+epic_10 |> 
   kable(row.names = TRUE)
 ```
 ]
@@ -709,16 +833,30 @@ epic |>
 .right-column[
 
 1. Si calcola $np/100$, pari a:
-  - 10-imo percentile (p = 0.1): $10 \times 0.1 = 1$
+  - 10-imo percentile (p/100 = 0.1): $10 \times 0.1 = 1$
   
-  - 90-esimo percentile (p = 0.9): $10 \times 0.9 = 9$
+  - 90-esimo percentile (p/100 = 0.9): $10 \times 0.9 = 9$
 
-2. (Sono valori interi, quindi) si calcola la media tra le osservazioni (**ordinate**):
-  - 10-imo: posizioni 1 e 2 $\frac{23.3 + 24.9}{2} =$ `r mean(23.3, 24.9)`
+2. (Sono valori interi, quindi posti uguale a $k$ e) si calcola la media tra le osservazioni (**ordinate**):
+
+.panelset[
+.panel[.panel-name[Naturale]
+  - 10-imo: posizioni 1 e 2 $\frac{23.3 + 24.9}{2} =$ `r mean(c(23.3, 24.9))`
   
-  - 90-esimo: posizioni 9 e 10 $\frac{41.6 + 42.6}{2} =$ `r mean(41.6, 42.6)`
+  - 90-esimo: posizioni 9 e 10 $\frac{41.6 + 42.6}{2} =$ `r mean(c(41.6, 42.6))`
+  
+]
+.panel[.panel-name[R Code]
+```{r}
+# default type = 7 (continuo in p)
+quantile(epic_10[["bmi"]], probs = c(0.1, 0.9), type = 2)
+```
+]
 ]
 
+]
+
+</small>
 
 ---
 # .orange[Percentili] (esempio _decimale_)
@@ -741,12 +879,18 @@ epic_bmi_p2 |>
 .right-column[
 
 1. Si calcola $np/100$, pari a:
-  - 20-imo percentile (p = 0.2): $9 \times 0.2 = 1.8$
+  - 20-imo percentile (p/100 = 0.2): $9 \times 0.2 = 1.8$
 
 2. (È un valore decimale, quindi) Si trova il $k$-mo intero inferiore a 1.8:
   - 1 (il _primo_).
 
 3. Il 20-esimo percentile è il $k+1$-esimo valore (ordinato!); ovvero quello in posizione $1 + 1 = 2$, il secondo; ovvero, **`r epic_bmi_p2$bmi[[2]]`**.
+
+```{r}
+# default type = 7 (per continuità in p)
+quantile(epic_10[["bmi"]][-10], probs = 0.2, type = 2)
+```
+
 ]
 
 
@@ -764,21 +908,25 @@ La struttura generale dei dati raggruppati è simile a
 | $[y_k, y_{k+1})$ | $\frac{y_k+y_{k+1}}{2}$ | $f_k$
 
 
+
 ---
+
 # .orange[Accorpamenti]: Epic - magnesio
 
 Intake giornaliero di magnesio (mg/day) per $N = 100$ soggetti
 
-
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 sort(epic$mag[101:200]) |> 
   paste(collapse = ", ") |> 
-  str_replace_all("((.+?, ){12})", "\\1\n") |> 
+  str_replace_all("((.+?, ){11})", "\\1\n") |> 
   cat()
 ```
 
 ---
 # .orange[Accorpamenti]: Epic - magnesio
+
+Accorpati in 8 gruppi con approssimativamente la stessa quantità di 
+soggetti in ciascun gruppo:
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 discr <- cut2(epic$mag[101:200], g = 8)
@@ -808,21 +956,61 @@ $$\bar{x}_g = \frac{\sum_{i=1}^k f_im_i}{\sum_{i=1}^k f_i}$$
 
 Per il dataset accorpato sui dati di magnesio, è pari a
 $$\bar{x}_g = \frac{13(106)+\ldots+12(352)}{13+\ldots+12}= 26389.5/100 = 263.895$$
+```{r}
+sum(dt$m * dt$Freq) / sum(dt$Freq)
+weighted.mean(x = dt$m, w = dt$Freq)
+```
 
 
 
 ---
-# misure .orange[ponderate]: varianza ponderata
+## misure .orange[ponderate]: varianza ponderata
 
 La varianza campionaria ponderata è pari a
-$$s_g^2 = \frac{\sum_{i=1}^k f_i(m_i-\bar{x}_g)^2}{(\sum_{i=1}^k f_i)-1}$$
+$$s_g^2 = \frac{\sum_{i=1}^k f_i(m_i-\bar{x}_g)^2}{(\sum_{i=1}^k f_i)-1} \quad\rm{ovvero}\quad s_g^2 = \frac{(\sum_{i=1}^k f_im_i^2)-n\bar{x}_g^2}{n-1}$$
 
-ovvero
-$$s_g^2 = \frac{\sum_{i=1}^k f_im_i^2-n\bar{x}_g^2}{n-1}$$
 
 Per il caso del magnesio è pari a
-$$\begin{align*}\bar{s}_g^2& = \frac{[13(106)^2+\ldots+12(352)^2]-100(263.895^2)}{100-1}\\& = 611446.1/99 = 6176.223\end{align*}$$
 
+.panelset[
+.panel[.panel-name[Naturale]
+$$\begin{align*}\bar{s}_g^2& = \frac{13(106 - 263.895)^2+\ldots+12(352 - 263.895)^2}{13 + \cdots + 12 - 1}\\& = 611446.1/99 = 6176.224\end{align*}$$
+$$\begin{align*}\bar{s}_g^2& = \frac{[13(106)^2+\ldots+12(352)^2]-100(263.895^2)}{100-1}\\& = 611446.1/99 = 6176.224\end{align*}$$
+]
+.panel[.panel-name[R Code]
+
+.pull-left[
+```{r}
+w_mean <- weighted.mean(
+  x = dt$m,
+  w = dt$Freq
+)
+n <- sum(dt$Freq)
+
+sum(
+  dt$Freq * (dt$m - w_mean)^2
+) / (n - 1)
+```
+]
+
+.pull-rigth[
+```{r}
+#
+#
+#
+#
+#
+#
+(
+  sum(dt$Freq * dt$m^2) -
+  n * w_mean^2
+) / (n - 1)
+```
+
+]
+
+]
+]
 
 ---
 class: inverse, middle
@@ -849,29 +1037,62 @@ Per il calcolo dell'istogramma, la tabella delle frequenze deve essere
 estesa
 
 
-|Gruppi            | Media                       | Frequenza| Ampiezza      | Densità
-|:----------------:|:---------------------------:|:--------:|:-------------:|:-------
-| $[y_1, y_2)$     | $\frac{y_1+y_2}{2}$         | $f_1$    | $y_2-y_1$     | $\frac{f_1}{a_1}$
-| $\vdots$         | $\vdots$                    | $\vdots$ | $\vdots$      | $\vdots$
-| $[y_k, y_{k+1})$ | $\frac{y_k+y_{k+1}}{2}$     | $f_k$    | $y_{k+1}-y_k$ | $\frac{f_{k+1}}{a_k}$
+|Gruppi            | Media                       | Frequenza| Ampiezza            | Densità
+|:----------------:|:---------------------------:|:--------:|:-------------------:|:-------
+| $[y_1, y_2)$     | $\frac{y_1+y_2}{2}$         | $f_1$    | $a_1 = y_2-y_1$     | $\frac{f_1}{a_1}$
+| $\vdots$         | $\vdots$                    | $\vdots$ | $\vdots$            | $\vdots$
+| $[y_k, y_{k+1})$ | $\frac{y_k+y_{k+1}}{2}$     | $f_k$    | $a_k = y_{k+1}-y_k$ | $\frac{f_{k+1}}{a_k}$
 
 
 ---
-# Istogramma
-
+## Istogramma
+<small>
 L'istogramma è uno stimatore della distribuzione
 
-.center[
-```{r, echo=FALSE, out.width="60%"}
-hist(
-  round(epic$mag[101:200]),
-  breaks = as.numeric(unique(unlist(matches))),
-  col = "royalblue",
-  main = "",
-  xlab = "mag mg/day"
-)
+.panelset[
+```{r panelset = c(source = "ggplot2", output = "Plot"), out.width = "55%"}
+epic |> 
+  slice(101:200) |> 
+  ggplot(aes(x = mag, y = ..density..)) +
+  geom_histogram(
+    fill = "royalblue",
+    bins = 8,
+    breaks = as.numeric(unique(unlist(matches))),
+    closed = "left"
+  ) + 
+  xlab("Mag [mg/day]")
+
 ```
 ]
+</small>
+
+---
+## Istogramma: autocalcolato
+<small>
+
+Se ampiezze tutte uguali, la _forma_ standardizzata ad area unitaria è
+proporzionale a quella con barre di altezza le frequenze
+
+.panelset[
+```{r panelset = c(source = "ggplot2", output = "Plot"), out.width = "50%"}
+epic |> 
+  slice(101:200) |> 
+  ggplot(aes(x = mag, y = ..density..)) +
+  geom_histogram(fill = "royalblue") + 
+  xlab("Mag [mg/day]")
+```
+
+```{r panelset = c(source = "ggplot2", output = "Plot count"), out.width = "50%"}
+epic |> 
+  slice(101:200) |> 
+  ggplot(aes(x = mag)) +
+  geom_histogram(fill = "royalblue") + 
+  xlab("Mag [mg/day]")
+```
+]
+</small>
+
+
 ---
 # Dati continui: box-plot
 
@@ -898,35 +1119,46 @@ Un' assunzione giornaliera di 43 mg/die di magnesio rappresenta un dato estremo
 
 <small>
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
-sort(epic$mag[101:200]) |> 
-  paste(collapse = ", ") |> 
-  str_replace_all("((.+?, ){12})", "\\1\n") |> 
-  cat()
+sort(epic$mag[101:200])
 ```
-</small>
 
-- $H$ è la media tra l'osservazione $(50 / 2)$ª e la $((50 / 2) + 1)$ª, ovvero
+
+- $h$ è la media tra l'osservazione $(100 * 1/4)$ª e la $((100 * 1/4) + 1)$ª, ovvero
   $(215.3+215.4) / 2 = 215.35$
-- $h$ è la media dell'osservazione $(50 / 2)$ª e la $((50 / 2) + 1)$ª, ovvero
+- $H$ è la media dell'osservazione $(100 * 3/4)$ª e la $((100 * 3/4) + 1)$ª, ovvero
   $(323.9+324) / 2 = 323.95$
-- i limiti per i valori estremi sono quindi
-$$x > 323.95 + 1.5 (323.95 - 215.35) = 486.85 x < 52.45$$
-- gli outliers
-$$x > 323.95 + 3 *(323.95 - 215.35) = 649.75$$
+- i limiti per i valori estremi sono quindi:
+$$x > 323.95 + 1.5 (323.95 - 215.35) = 486.85$$
+$$x < 215.35 - 1.5 * (323.95 - 215.35) = 52.45$$
+- gli outlier sarebbero: 
+$$x > 323.95 + 3 * (323.95 - 215.35) = 649.75$$
+$$x < 215.35 - 3 * (323.95 - 215.35) = 0$$
+</small>
 
 
 ---
 # Box-plot (mag)
 
-.center[
-```{r, echo=FALSE, out.width="60%"}
+.panelset[
+```{r panelset = c(source = "ggplot2", output = "Plot"), out.width = "60%"}
 epic |> 
-  filter(mag %in% 101:200) |> 
+  slice(101:200) |> 
   ggplot(aes(y = mag)) +
   geom_boxplot() +
-  theme_bw()
+  geom_point(aes(x = 0, y = mean(mag)), shape = "+", size = 6) +
+  labs(
+    x = "",
+    y = "Mag [mg/die]"
+  ) +
+  theme_bw() +
+  theme(
+    axis.ticks.x = element_blank(),
+    axis.text.x = element_blank()
+  )
 ```
 ]
+
+
 ---
 # Boxplot (general)
 .center[
@@ -939,6 +1171,79 @@ include_graphics("img/bxp.png")
 ---
 # Dati categorici: barre
 
+Volendo rappresentare confronti tra conteggi, possiamo usare grafici a
+barre.
+
+> ATTENZIONE 1: istogramma rappresenta una distribuzione per i valori 
+  di una variabile continua; un grafico a barre rappresenta i valori
+  (conteggi) dei livelli di una variabile categorica!
+
+> ATTENZIONE 2: in un grafico a barre, la base delle barre DEVE essere 
+  sempre (ben!!) definita, ovvero deve SEMPRE iniziare dall'opportuno
+  "zero" (per esempio da 1 per scale logaritimiche, da 0 per i conteggi
+  classici)
+
+---
+# Dati categorici: plot
+
+.panelset[
+```{r panelset = c(source = "ggplot2", output = "Plot"), out.width = "50%"}
+epic |> 
+  ggplot(aes(att.fisica)) +
+  geom_bar() +
+  labs(
+    x = "Attività fisica",
+    y = "N (soggetti)"
+  )
+```
+]
+
+---
+# Dati categorici: grouped
+
+.panelset[
+```{r panelset = c(source = "ggplot2", output = "Plot"), out.width = "50%"}
+epic |> 
+  ggplot(aes(att.fisica, fill = gender)) +
+  coord_flip() +
+  geom_bar(position = "dodge") +
+  labs(
+    x = "Attività fisica",
+    y = "N (soggetti)",
+    fill = "Genere"
+  ) +
+  theme_bw()
+```
+]
+
+
+---
+
+# Dati categorici: correct
+.panelset[
+```{r panelset = c(source = "ggplot2", output = "Plot"), out.width = "50%"}
+epic |> 
+  mutate(
+    att.fisica = att.fisica |> 
+      fct_collapse(
+        `1-2/sett` = c("1-2 volte a sett.", "1-2 volte a sett"),
+        `3/sett` = c("3 Volte a settimana", "3 Volte a sett."),
+        `1/mese` = "Una volta al mese"
+      ) |> 
+      fct_infreq()
+  ) |> 
+  ggplot(aes(att.fisica)) +
+  coord_flip() +
+  geom_bar() +
+  geom_bar(aes(fill = gender), position = "dodge") +
+  labs(
+    x = "Attività fisica",
+    y = "N (soggetti)",
+    fill = "Genere"
+  ) +
+  theme_bw()
+```
+]
 
 
 <!-- --- -->
