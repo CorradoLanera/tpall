@@ -168,7 +168,6 @@ style_duo_accent(
 
 -- Valutazione di test diagnostici --
 
-(opzionale, fuori programma)
 <br>
 <br>
 
