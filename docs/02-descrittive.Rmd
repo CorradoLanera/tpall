@@ -1292,15 +1292,21 @@ _Mathematical conventions are just that, conventions. They differ by field of ma
 ]
 ]
 
-<br>
 
 
-# **.orange[Grazie]** per l'attenzione!
+# .center[.orange[Break]]
+.left[
+- sgranchirsi
+- guardare _lontano_ (rilassare gli occhi)
+- bere
+- andare in bagno
+]
 
-... e buona settimana.
+```{r, echo = FALSE}
+countdown(minutes = 30, warn_when = 5, play_sound = TRUE,
+          left = "70%", bottom = "20%")
+```
 
-<br>
-<br>
 
 
 Diapositive: [https://corradolanera.github.io/tpall](https://corradolanera.github.io/tpall)

@@ -168,7 +168,7 @@ style_duo_accent(
 
 -- Distribuzioni di probabilità --
 
-(opzionale, fuori programma)
+
 <br>
 <br>
 
