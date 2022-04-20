@@ -325,11 +325,12 @@ Un medico inizia a controllare lo stato ipertensivo di 4 suoi pazienti con farma
 **Allora**:
 
 ```{r, echo=FALSE}
-tibble::tibble(
+ipertensione <- tibble::tibble(
   r = c(0, 1, 2, 3, 4),
   `P(X=r)` = c(0.008, 0.076, 0.265, 0.411, 0.240)
-) |> 
-  knitr::kable()
+)
+
+knitr::kable(ipertensione)
 ```
 
 ]
@@ -337,71 +338,118 @@ tibble::tibble(
 ---
 # .orange[Modelli discreti]: valore atteso
 
+.panelset[
+.panel[.panel-name[Definizione]
+
 Il valore atteso di una variabile casuale discreta è definito come
-\[
-E(X)=\sum_{i=1}^k x_iP(X=x_i)
-\]
+
+$$E(X)=\sum_{i=1}^k x_iP(X=x_i)$$
+
 dove $x_i$ sono i valori che la variabile casuale $X$ assume con probabilità positiva
-\vspace{1cm}
+]
+.panel[.panel-name[Esempio]
 
-\small Per la variabile $X$=\em{pazienti complianti al controllo dell'ipertensione}
+
+Per la variabile $X =$ _pazienti complianti al controllo dell'ipertensione_
+
 ```{r, include=FALSE}
-MEAN0=0*(0.008)+1*(0.076)+2*(0.265)+3*(0.411)+4*(0.240)
+media_ipertensione <- sum(
+  ipertensione[["r"]] * ipertensione[["P(X=r)"]]
+)
 ```
-\[
-E(X)=0(0.008)+1(0.076)+2(0.265)+3(0.411)+4(0.240) = `r MEAN0`
-\]
 
+$$E(X)=0(0.008)+1(0.076)+2(0.265)+3(0.411)+4(0.240) = `r media_ipertensione`$$
+
+]
+]
 
 ---
 # .orange[Valore atteso]: esempio
 
-\scriptsize Sia $X$ il numero di episodi di otiti nei primi due anni di vita e la rispettiva massa di probabilità sia:
 
-\begin{center}
-\begin{tabular}{l|ccccccc}
-\toprule
-$r$ & 0 & 1 & 2 & 3 & 4 & 5 & 6\\
-\midrule
-$P(X=r)$ & 0.129 & 0.264 & 0.271 & 0.185 & 0.095 & 0.039 & 0.017\\
-\bottomrule
-\end{tabular}
-\end{center}
-
-```{r, include=FALSE}
-MEAN=0*(0.129)+1*(0.264)+2*(0.271)+3*(0.185)+4*(0.095)+5*(0.039)+6*(0.017)
+```{r, echo = FALSE}
+countdown(minutes = 1, warn_when = 1, play_sound = TRUE,
+          left = "70%", bottom = "10%")
 ```
 
-il numero atteso di episodi di episodi di otite nei primi due anni di vita è pari a
-\vspace{0.5cm}
-\[
-E(X) = 0(0.129)+1(0.264)+2(0.271)+3(0.185)+4(0.095)+5(0.039)+6(0.017)= `r MEAN`
-\]
 
+.panelset[
+.panel[.panel-name[Problema]
+
+
+**Sia**: $X$ il **numero** di episodi di otiti **nei primi due anni di vita**, con la seguente rispettiva massa di probabilità:
+
+```{r, echo=FALSE}
+otiti <- tibble::tibble(
+  r = c(0, 1, 2, 3, 4, 5, 6),
+  `P(X=r)` = c(0.129, 0.264, 0.271, 0.185, 0.095, 0.039, 0.017)
+)
+knitr::kable(otiti)
+```
+
+Determinare il numero atteso di episodi di otite nei primi due anni di vita
+
+]
+
+.panel[.panel-name[Soluzione]
+```{r, include=FALSE}
+atteso_otiti <- sum(
+  otiti[["r"]] * otiti[["P(X=r)"]]
+)
+```
+
+il numero atteso di episodi di episodi di otite nei primi due anni di vita è:
+
+
+$$\begin{split}E(X) =\ &0(0.129)\ + \\&1(0.264)\ + \\& 2(0.271)\ + \\&3(0.185)\ + \\&4(0.095)\ + \\&5(0.039)\ + \\& 6(0.017) =\\& `r atteso_otiti` \end{split}$$
+
+]
+
+.panel[.panel-name[R Code]
+
+```{r}
+sum(otiti[["r"]] * otiti[["P(X=r)"]])
+```
+
+]
+]
 
 ---
 # .orange[Modelli discreti]: varianza
 
-\small
+.panelset[
+.panel[.panel-name[Definizione]
+
 La varianza di una variabile casuale discreta $X$ è pari a
-\[
-\mbox{var}(X)=\sum_{i=1}^k(x-\mu)^2P(X=x_i)=\sigma^2
-\]
+
+$$\mbox{var}(X)=\sum_{i=1}^k(x-\mu)^2P(X=x_i)=\sigma^2$$
+
 vale anche
-\[
-\sigma^2=E(X-\mu)=\sum_{i=1}^kx_i^2P(X=x_i)-\mu^2
-\]
+
+$$\sigma^2=E(X-\mu)=\left(\sum_{i=1}^kx_i^2P(X=x_i)\right)-\mu^2$$
+]
+.panel[.panel-name[Esempio]
 
 ```{r, include=FALSE}
-var=(0^2*(0.129)+1^2*(0.264)+2^2*(0.271)+3^2*(0.185)+4^2*(0.095)+5^2*(0.039)+6^2*(0.017))-MEAN^2
+var_otiti <- sum(
+    otiti[["r"]]^2 * otiti[["P(X=r)"]]
+  ) - atteso_otiti^2
 ```
-\small
+
 La varianza della variabile casuale episodi di otite è pari a
-\[
-0^2(0.129)+\ldots+36(0.017)-2.038^2=`r round(var,3)`
-\]
 
+$$0^2(0.129)+\ldots+36(0.017)-2.038^2=`r round(var_otiti,3)`$$
 
+]
+
+.panel[.panel-name[R Code]
+
+```{r}
+sum(otiti[["r"]]^2 * otiti[["P(X=r)"]]) - atteso_otiti^2
+```
+
+]
+]
 
 
 

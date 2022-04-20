@@ -16,7 +16,7 @@
     <link href="04-distribuzioni_files/xaringanExtra-clipboard/xaringanExtra-clipboard.css" rel="stylesheet" />
     <script src="04-distribuzioni_files/xaringanExtra-clipboard/xaringanExtra-clipboard.js"></script>
     <script>window.xaringanExtraClipboard(null, {"button":"Copy Code","success":"Copied!","error":"Press Ctrl+C to Copy"})</script>
-    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"xc361852826d4258983374562abdad1a","expires":1}</script>
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"b83f768577974a909043490905a27568","expires":1}</script>
     <script src="04-distribuzioni_files/himalaya/himalaya.js"></script>
     <script src="04-distribuzioni_files/js-cookie/js.cookie.js"></script>
     <link href="04-distribuzioni_files/editable/editable.css" rel="stylesheet" />
@@ -43,6 +43,8 @@
     <meta property="og:type" content="website"/>
     <meta property="og:locale" content="en_US"/>
     <meta property="article:author" content="UBEP"/>
+    <link href="04-distribuzioni_files/countdown/countdown.css" rel="stylesheet" />
+    <script src="04-distribuzioni_files/countdown/countdown.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
   <body>
@@ -319,65 +321,118 @@ Un medico inizia a controllare lo stato ipertensivo di 4 suoi pazienti con farma
 ---
 # .orange[Modelli discreti]: valore atteso
 
+.panelset[
+.panel[.panel-name[Definizione]
+
 Il valore atteso di una variabile casuale discreta è definito come
-\[
-E(X)=\sum_{i=1}^k x_iP(X=x_i)
-\]
+
+`$$E(X)=\sum_{i=1}^k x_iP(X=x_i)$$`
+
 dove `\(x_i\)` sono i valori che la variabile casuale `\(X\)` assume con probabilità positiva
-\vspace{1cm}
+]
+.panel[.panel-name[Esempio]
 
-\small Per la variabile `\(X\)`=\em{pazienti complianti al controllo dell'ipertensione}
 
-\[
-E(X)=0(0.008)+1(0.076)+2(0.265)+3(0.411)+4(0.240) = 2.799
-\]
+Per la variabile `\(X =\)` _pazienti complianti al controllo dell'ipertensione_
 
+
+
+`$$E(X)=0(0.008)+1(0.076)+2(0.265)+3(0.411)+4(0.240) = 2.799$$`
+
+]
+]
 
 ---
 # .orange[Valore atteso]: esempio
 
-\scriptsize Sia `\(X\)` il numero di episodi di otiti nei primi due anni di vita e la rispettiva massa di probabilità sia:
 
-\begin{center}
-\begin{tabular}{l|ccccccc}
-\toprule
-`\(r\)` &amp; 0 &amp; 1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 &amp; 6\\
-\midrule
-`\(P(X=r)\)` &amp; 0.129 &amp; 0.264 &amp; 0.271 &amp; 0.185 &amp; 0.095 &amp; 0.039 &amp; 0.017\\
-\bottomrule
-\end{tabular}
-\end{center}
+<div class="countdown" id="timer_625faec8" style="bottom:10%;left:70%;" data-audio="true" data-warnwhen="1">
+<code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
 
 
+.panelset[
+.panel[.panel-name[Problema]
 
-il numero atteso di episodi di episodi di otite nei primi due anni di vita è pari a
-\vspace{0.5cm}
-\[
-E(X) = 0(0.129)+1(0.264)+2(0.271)+3(0.185)+4(0.095)+5(0.039)+6(0.017)= 2.038
-\]
 
+**Sia**: `\(X\)` il **numero** di episodi di otiti **nei primi due anni di vita**, con la seguente rispettiva massa di probabilità:
+
+
+|  r| P(X=r)|
+|--:|------:|
+|  0|  0.129|
+|  1|  0.264|
+|  2|  0.271|
+|  3|  0.185|
+|  4|  0.095|
+|  5|  0.039|
+|  6|  0.017|
+
+Determinare il numero atteso di episodi di otite nei primi due anni di vita
+
+]
+
+.panel[.panel-name[Soluzione]
+
+
+il numero atteso di episodi di episodi di otite nei primi due anni di vita è:
+
+
+`$$\begin{split}E(X) =\ &amp;0(0.129)\ + \\&amp;1(0.264)\ + \\&amp; 2(0.271)\ + \\&amp;3(0.185)\ + \\&amp;4(0.095)\ + \\&amp;5(0.039)\ + \\&amp; 6(0.017) =\\&amp; 2.038 \end{split}$$`
+
+]
+
+.panel[.panel-name[R Code]
+
+
+```r
+sum(otiti[["r"]] * otiti[["P(X=r)"]])
+```
+
+```
+[1] 2.038
+```
+
+]
+]
 
 ---
 # .orange[Modelli discreti]: varianza
 
-\small
+.panelset[
+.panel[.panel-name[Definizione]
+
 La varianza di una variabile casuale discreta `\(X\)` è pari a
-\[
-\mbox{var}(X)=\sum_{i=1}^k(x-\mu)^2P(X=x_i)=\sigma^2
-\]
+
+`$$\mbox{var}(X)=\sum_{i=1}^k(x-\mu)^2P(X=x_i)=\sigma^2$$`
+
 vale anche
-\[
-\sigma^2=E(X-\mu)=\sum_{i=1}^kx_i^2P(X=x_i)-\mu^2
-\]
+
+`$$\sigma^2=E(X-\mu)=\left(\sum_{i=1}^kx_i^2P(X=x_i)\right)-\mu^2$$`
+]
+.panel[.panel-name[Esempio]
 
 
-\small
+
 La varianza della variabile casuale episodi di otite è pari a
-\[
-0^2(0.129)+\ldots+36(0.017)-2.038^2=1.967
-\]
+
+`$$0^2(0.129)+\ldots+36(0.017)-2.038^2=1.967$$`
+
+]
+
+.panel[.panel-name[R Code]
 
 
+```r
+sum(otiti[["r"]]^2 * otiti[["P(X=r)"]]) - atteso_otiti^2
+```
+
+```
+[1] 1.966556
+```
+
+]
+]
 
 
 
