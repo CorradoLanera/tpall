@@ -190,13 +190,52 @@ class: inverse, hide-count
 
 
 ---
+class: hide-count
+
+# .orange[Riconoscimenti]
+
+- Le diapositive proposte sono state prodotte a partire anche da
+  materiale generato da/con le seguenti persone gravitanti attorno
+  l'UBEP*:
+  
+  + Danila Azzolina
+  + Dario Gregori
+  + Giulia Lorenzoni
+  + Ileana Baldi
+  + Luca Vedovelli
+  + Matteo Martinato
+  + Paola Berchialla
+
+<br><br>
+<small>
+.right[\* In ordine alfabetico.]
+</small>
+
+<br><br>
+
+> Un ringraziamento speciale a Cristiana Vettori e a Mariasole Rizzi per
+l'aiuto e il supporto logistico e amministrativo che mi è stato offerto,
+e ad Andrea Francavilla per avermi aiutato nella revisione del
+materiale.
+
+---
 class: inverse, middle
 
 # .center[**.orange[Panoramica]**]
 
-**First** topic
+**Modello** probabilistico per variabili discrete: massa, valore atteso e varianza 
 
-**Second** topic
+Distribuzione **binomiale** (ovvero per variabili con due soli possibili esiti)
+
+Distribuzione di **Poisson** (ovvero per varibili _conteggio_) e approssimazione della binomiale
+
+**Modello** probabilistico per variabili continue: densità
+
+Distribuzione **normale**, localizzazione, forma, simmetria, percentili, trasformazioni 
+
+**Approssimazioni** alla Normale
+
+
 
 
 
@@ -208,24 +247,322 @@ class: inverse, middle
 ---
 class: inverse, middle
 
-# .center[**.orange[First] topic**]
+# .center[Modelli (probabilistici) **.orange[discreti]**]
 
-- **one**
+- **Massa**
 
-- **two**
+- **Valore atteso**
+
+- **Varianza**
+
+
+
+---
+# Richiamo: .orange[Variabile casuale]
+
+Una variabile casuale è una quantità che assume **valori differenti** con **specifiche probabilità**
+
+- una variabile casuale che assume un .orange[insieme discreto] di valori con probabilità specificata à detta variabile casuale **discreta**
+
+- una variabile casuale che assume un .orange[insieme continuo] (e infinito) di valori, in modo che **gli intervalli** di tali valori abbiano probabilità specificata è detta variabile casuale continua
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+> Nota: una funzione di una variabile casuale **è** una variabile casuale
+
+ 
+
+> Nota 2: **funzione**: una qualunque mappa/regola che associa **a ogni elemento** di un insieme (.orange[dominio] della funzione) **un unico elemento** di un un insieme (.orange[codominio] della funzione).
+
+
+---
+# .orange[Modelli discreti]
+
+Obiettivo è determinare il modello probabilistico adatto ai dati
+che si vuole trattare, ovvero individuare eventi con la stessa struttura probabilistica
+
+- distribuzione .orange[binomiale], in cui l'evento di interesse ha due possibili esiti 
+
+- distribuzione di .orange[Poisson], in cui l'evento di interesse è definito dal conteggio di eventi
+
+
 
 
 
 ---
-# .orange[One]: a
+# .orange[Modelli discreti]: massa
+
+.panelset[
+.panel[.panel-name[Definizione]
+
+Una funzione di (distribuzione di) .orange[massa] di probabilità è una relazione matematica, o regola, che assegna **ad ogni possibile valore** $r$ di una variabile casuale discreta $X$ **la (sua) probabilità** $P(X=r)$.
+
+Questa regola è definita per tutti i valori $r$ che hanno probabilità positiva.
+
+<br>
+<br>
+<br>
+<br>
+
+> Importante: Valgono sempre:
+>
+>  - $0\leq P(X=r) \leq 1$
+>
+>  - $\sum P(X=r) = 1$
+
+]
+.panel[.panel-name[Esempio]
+
+
+Un medico inizia a controllare lo stato ipertensivo di 4 suoi pazienti con farmaci antiipertensivi.
+
+**Sia**: $X$ è il numero di pazienti complianti
+
+**Allora**:
+
+```{r, echo=FALSE}
+ipertensione <- tibble::tibble(
+  r = c(0, 1, 2, 3, 4),
+  `P(X=r)` = c(0.008, 0.076, 0.265, 0.411, 0.240)
+)
+
+knitr::kable(ipertensione)
+```
+
+]
+
+
+.panel[.panel-name[Distr. Cumulativa]
+
+La distribuzione cumulativa di una variabile casuale discreta è indicata come $F(x)$ ed è pari a $P(X\leq x)$
+]
+
+.panel[.panel-name[Esempio]
+
+$$F(x) = P(X\leq x)$$
+.left-column[
+```{r, echo=FALSE}
+ipertensione |> 
+  dplyr::mutate(
+    `F(x)` = cumsum(.data[["P(X=r)"]])
+  ) |> 
+  knitr::kable()
+```
+]
+
+.right-plot[
+
+```{r, echo=FALSE, out.width="80%"}
+ipertensione |> 
+  dplyr::mutate(
+    `F(x)` = cumsum(.data[["P(X=r)"]])
+  ) |> 
+  ggplot(aes(r, `F(x)`)) +
+  geom_step(colour = "blue") + 
+  geom_point(aes(y = .data[["P(X=r)"]]), colour = "red") +
+  theme_bw() +
+  ggtitle(
+    "Distribuzione Cumulativa Empirica",
+    subtitle = "In rosso la massa di probabilità per ciascun corrispondente possibile valore."
+  )
+```
+
+  
+]
+
+]
+
+]
+---
+# .orange[Modelli discreti]: valore atteso
+
+.panelset[
+.panel[.panel-name[Definizione]
+
+Il valore atteso di una variabile casuale discreta è definito come
+
+$$E(X)=\sum_{i=1}^k x_iP(X=x_i)$$
+
+dove $x_i$ sono i valori che la variabile casuale $X$ assume con probabilità positiva
+]
+.panel[.panel-name[Esempio]
+
+
+Per la variabile $X =$ _pazienti complianti al controllo dell'ipertensione_
+
+```{r, include=FALSE}
+media_ipertensione <- sum(
+  ipertensione[["r"]] * ipertensione[["P(X=r)"]]
+)
+```
+
+$$E(X)=0(0.008)+1(0.076)+2(0.265)+3(0.411)+4(0.240) = `r media_ipertensione`$$
+
+]
+]
+
+---
+# .orange[Valore atteso]: esempio
+
+
+```{r, echo = FALSE}
+countdown(minutes = 1, warn_when = 1, play_sound = TRUE,
+          left = "70%", bottom = "10%")
+```
+
+
+.panelset[
+.panel[.panel-name[Problema]
+
+
+**Sia**: $X$ il **numero** di episodi di otiti **nei primi due anni di vita**, con la seguente rispettiva massa di probabilità:
+
+```{r, echo=FALSE}
+otiti <- tibble::tibble(
+  r = c(0, 1, 2, 3, 4, 5, 6),
+  `P(X=r)` = c(0.129, 0.264, 0.271, 0.185, 0.095, 0.039, 0.017)
+)
+knitr::kable(otiti)
+```
+
+Determinare il numero atteso di episodi di otite nei primi due anni di vita
+
+]
+
+.panel[.panel-name[Soluzione]
+```{r, include=FALSE}
+atteso_otiti <- sum(
+  otiti[["r"]] * otiti[["P(X=r)"]]
+)
+```
+
+il numero atteso di episodi di episodi di otite nei primi due anni di vita è:
+
+
+$$\begin{split}E(X) =\ &0(0.129)\ + \\&1(0.264)\ + \\& 2(0.271)\ + \\&3(0.185)\ + \\&4(0.095)\ + \\&5(0.039)\ + \\& 6(0.017) =\\& `r atteso_otiti` \end{split}$$
+
+]
+
+.panel[.panel-name[R Code]
+
+```{r}
+sum(otiti[["r"]] * otiti[["P(X=r)"]])
+```
+
+]
+]
+
+---
+# .orange[Modelli discreti]: varianza
+
+.panelset[
+.panel[.panel-name[Definizione]
+
+La varianza di una variabile casuale discreta $X$ è pari a
+
+$$\mbox{var}(X)=\sum_{i=1}^k(x-\mu)^2P(X=x_i)=\sigma^2$$
+
+vale anche
+
+$$\sigma^2=E(X-\mu)=\left(\sum_{i=1}^kx_i^2P(X=x_i)\right)-\mu^2$$
+]
+.panel[.panel-name[Esempio]
+
+```{r, include=FALSE}
+var_otiti <- sum(
+    otiti[["r"]]^2 * otiti[["P(X=r)"]]
+  ) - atteso_otiti^2
+```
+
+La varianza della variabile casuale episodi di otite è pari a
+
+$$0^2(0.129)+\ldots+36(0.017)-2.038^2=`r round(var_otiti,3)`$$
+
+]
+
+.panel[.panel-name[R Code]
+
+```{r}
+sum(otiti[["r"]]^2 * otiti[["P(X=r)"]]) - atteso_otiti^2
+```
+
+]
+]
+
+
+
+
+
+
+
+
 
 
 ---
-# .orange[One]: b
+class: inverse, middle
+
+# .center[Distribuzione **.orange[binomiale]**]
+
+- Struttura e **.orange[distribuzione]**
+
+- Valore **.orange[atteso]** e **.orange[varianza]**
+
+
+
+---
+# .orange[Binomiale]: struttura
+
+Una variabile binomiale rapresenta la **.orange[quantità]** di esiti **positivi** di un possibile esperimento con due soli risultati possibili (**dicotomico**), che possono avvenire con date **.orange[probabilità costanti]** (complementari a 1).
+
+Si caratterizza quindi da:
+
+- $n$ prove **indipendenti**
+
+- **due** possibili outcomes di ogni prova, .orange[successo] o .orange[insuccesso]
+
+- la probabilità di successo, $p$ è .orange[costante] in ogni prova (quella di insuccesso è pari a $1-p=q$)
+
+Ed è utile Utile per:
+
+- valutare la probabilità di $k$ successi in $n$ prove
+
+
+---
+# .orange[Binomiale]: probabilità
+
+la probabilità che $k$ successi avvengano in $k$ prove, con le rimantenti $n-k$ tutte insuccessi è pari a
+
+$$p^k(1-p)^{n-k}$$
+
+Tenendo conto che i $k$ successi posso ottenerli in $_nC_k$ modi diversi, si ha che
+
+$$P(X=k)=\binom{n}{k}p^k(1-p)^{n-k}$$
+
+che è la distribuzione di probabilità binomiale
+
 
 
 ---
 # .orange[Two]: a
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ---
