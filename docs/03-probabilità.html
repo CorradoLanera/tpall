@@ -16,7 +16,7 @@
     <link href="03-probabilità_files/xaringanExtra-clipboard/xaringanExtra-clipboard.css" rel="stylesheet" />
     <script src="03-probabilità_files/xaringanExtra-clipboard/xaringanExtra-clipboard.js"></script>
     <script>window.xaringanExtraClipboard(null, {"button":"Copy Code","success":"Copied!","error":"Press Ctrl+C to Copy"})</script>
-    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"dae3205a987d443bb7bbff63f9ac92d1","expires":1}</script>
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"xf24729e058941cb90ce61af759c7193","expires":1}</script>
     <script src="03-probabilità_files/himalaya/himalaya.js"></script>
     <script src="03-probabilità_files/js-cookie/js.cookie.js"></script>
     <link href="03-probabilità_files/editable/editable.css" rel="stylesheet" />
@@ -170,6 +170,43 @@ class: inverse, hide-count
 
 # Cosa faremo
 
+Inizieremo richiamando alcune definizioni e proprietà base della probabilità come il concetto di **.orange[evento]** e **.orange[probabilità]** stessa. 
+
+Vedremo come questi elementi si combinano tra loro con le operazioni di base quali **.orange[somma]**,**.orange[prodotto]**, e **.orange[complemento]** (corrispondenti agli analoghi insiemistici di _unione_, _intersezione_, e _complementare_). In particolare introdurremo il concetto di **.orange[indipendenza]** e vedremo come questo interagisce con le operazioni base.
+
+A questo punto saremo pronti per introdurre la parte interessante della probabilità, ovvero come la conoscenza del verificarsi di un dato evento **.orange[condizioni]** la nostra conoscenza sulla probabilità del verificarsi di un altro. Ne vedremo una prima applicazione al caso dei **.orange[rischi relativi]** e alle misure di valutazione per i **.orange[test di screening]**.
+
+Quest'ultime ci daranno il pretesto per apprezzare la differenza fondamentale, quando siamo di fronte a due eventi, tra quello eventualmente noto e quello ignoto, e come poter _girare_ i condizionamenti tramite il **.orange[teorema di Bayes]** in modo da poter calcolare le misure che ci interessano (e non possiamo conoscere a priori) a partire da quelle che conosciamo (o possiamo conoscere a priori).
+
+
+---
+class: hide-count
+
+# .orange[Riconoscimenti]
+
+- Le diapositive proposte sono state prodotte a partire anche da
+  materiale generato da/con le seguenti persone gravitanti attorno
+  l'UBEP*:
+  
+  + Danila Azzolina
+  + Dario Gregori
+  + Giulia Lorenzoni
+  + Ileana Baldi
+  + Luca Vedovelli
+  + Matteo Martinato
+  + Paola Berchialla
+
+&lt;br&gt;&lt;br&gt;
+&lt;small&gt;
+.right[\* In ordine alfabetico.]
+&lt;/small&gt;
+
+&lt;br&gt;&lt;br&gt;
+
+&gt; Un ringraziamento speciale a Cristiana Vettori e a Mariasole Rizzi per
+l'aiuto e il supporto logistico e amministrativo che mi è stato offerto,
+e ad Andrea Francavilla per avermi aiutato nella revisione del
+materiale.
 
 ---
 class: inverse, middle
@@ -538,8 +575,8 @@ Un insieme di eventi `\(\mathscr{A} = \{A_1, \ldots, A_k\}\)` è detto **.orange
 ---
 ## .orange[Probabilità totali]: esempio problema
 
-<div class="countdown" id="timer_625f27c6" style="bottom:10%;left:70%;" data-audio="true" data-warnwhen="5">
-<code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+<div class="countdown" id="timer_625f969a" style="bottom:10%;left:70%;" data-audio="true" data-warnwhen="1">
+<code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
 
@@ -654,8 +691,8 @@ dove abbiamo indicato con `\(B\)` l'evento di avere la TB, e con `\(A\)` quello 
 ---
 ## .orange[Rischio relativo]: esempio problema
 
-<div class="countdown" id="timer_625f28f4" style="bottom:5%;left:70%;" data-audio="true" data-warnwhen="5">
-<code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+<div class="countdown" id="timer_625f9835" style="bottom:5%;left:70%;" data-audio="true" data-warnwhen="1">
+<code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
 .panelset[
@@ -847,7 +884,7 @@ Sostituendo:
 # .orange[Teorema di Bayes]: esempio
 
 
-<div class="countdown" id="timer_625f29c7" style="bottom:5%;left:70%;" data-audio="true" data-warnwhen="5">
+<div class="countdown" id="timer_625f9703" style="bottom:5%;left:70%;" data-audio="true" data-warnwhen="1">
 <code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -906,7 +943,7 @@ Dal teorema di Bayes:
 ---
 # .orange[Bayes generalizzato]: esempio
 
-<div class="countdown" id="timer_625f2aae" style="bottom:0%;left:70%;" data-audio="true" data-warnwhen="5">
+<div class="countdown" id="timer_625f9765" style="bottom:0%;left:70%;" data-audio="true" data-warnwhen="1">
 <code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -939,7 +976,7 @@ Si vuole conoscere le probabilità degli stati patologici dati i sintomi
 
 .panel[.panel-name[Soluzione]
 
-`$$\begin{split}P(M_1|T)&amp;=\frac{P(T|M_1)P(M_1)}{\sum_{j=1}^3 P(T|M_j)P(M_j)}\\&amp;=\frac{0.001(0.99)}{0.001(0.99)+0.9(0.001)+0.9(0.009)}\\&amp;=0.099\end{split}$$`
+`$$\begin{split}P(M_1|T)&amp;=\frac{P(T|M_1)P(M_1)}{\sum_{j=1}^3 P(T|M_j)P(M_j)}\\&amp;=\frac{0.001(0.99)}{0.001(0.99)+0.9(0.001)+0.9(0.009)} = 0.099\end{split}$$`
 
 
 `$$P(M_2|T)= \frac{0.9(0.001)}{0.001(0.99)+0.9(0.001)+0.9(0.009)}=0.090$$`
@@ -953,7 +990,9 @@ Si supponga ora che lo stesso paziente sia fumatore di due pacchetti di
 sigarette al giorno per 40 anni. Si abbia quindi che in questo gruppo di persone
 
 `$$P(M_1)=0.98 \:\:\: P(M_2)=0.015 \:\:\: P(M_3)=0.005$$`
+Sempre cnsiderando le stesse probabilità di avere i sintomi in evidenza se soggetti ai vari stati patologici in esame:
 
+`$$P(T|M_1) = 0.001 \:\:\: P(T|M_2)=0.9 \:\:\: P(T|M_3)=0.9$$`
 La probabilità degli stati patologici è?
 
 ]
@@ -961,7 +1000,7 @@ La probabilità degli stati patologici è?
 
 **Dati**: 
 - `\(P(M_1) = 0.98 \:\:\: P(M_2)=0.015 \:\:\: P(M_3)=0.005\)`
-- $ P(T|M_1) = 0.001 \:\:\: P(T|M_2)=0.9 \:\:\: P(T|M_3)=0.9$
+- `\(P(T|M_1) = 0.001 \:\:\: P(T|M_2)=0.9 \:\:\: P(T|M_3)=0.9\)`
 
 `$$P(M_1|T) = \frac{0.001(0.98)}{0.001(0.98)+0.9(0.015)+0.9(0.005)}=0.052$$`
 
@@ -1009,11 +1048,11 @@ class: inverse, center, middle, hide-count
 
 .bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt5[
 .left[
-_If you believe that witnessing an additional white swan will bring confirmation that there are no black swans, than you should also accept the statement, on purely logical ground, that the sighting of  a red Mini Cooper  should confirm that there are no black swans. [...] "all swans are white" iplies that all nonwhite objects are not swans._
+_If you believe that witnessing **.orange[an additional white swan]** will bring **confirmation** that there are **.orange[no black swans]**, than you should also accept the statement, on purely logical ground, that the sighting of a **.orange[red Mini Cooper]** **should confirm** that there are **.orange[no black swans]**. [...] "**all** swans **are** white" implies that "all **nonwhite** objects are **not swans**"._
 ]
 
 .tr[
-—Nassim Nicholas Taleb&lt;br&gt;The black swan - "Saw Another Black Mini", p.59&lt;br&gt;
+—Nassim Nicholas Taleb&lt;br&gt;The black swan - "Saw Another Red Mini", p.59&lt;br&gt;
 ]
 ]
 

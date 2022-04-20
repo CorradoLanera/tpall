@@ -206,6 +206,38 @@ individuando a seconda del tipo, quantità e interesse, il grafico più
 opportuno tra quelli base, imparando anche a _leggere_ cosa
 rappresentano.
 
+
+---
+class: hide-count
+
+# .orange[Riconoscimenti]
+
+- Le diapositive proposte sono state prodotte a partire anche da
+  materiale generato da/con le seguenti persone gravitanti attorno
+  l'UBEP*:
+  
+  + Danila Azzolina
+  + Dario Gregori
+  + Giulia Lorenzoni
+  + Ileana Baldi
+  + Luca Vedovelli
+  + Matteo Martinato
+  + Paola Berchialla
+
+<br><br>
+<small>
+.right[\* In ordine alfabetico.]
+</small>
+
+<br><br>
+
+> Un ringraziamento speciale a Cristiana Vettori e a Mariasole Rizzi per
+l'aiuto e il supporto logistico e amministrativo che mi è stato offerto,
+e ad Andrea Francavilla per avermi aiutato nella revisione del
+materiale.
+
+
+
 ---
 class: inverse, middle
 
