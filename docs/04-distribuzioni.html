@@ -16,7 +16,7 @@
     <link href="04-distribuzioni_files/xaringanExtra-clipboard/xaringanExtra-clipboard.css" rel="stylesheet" />
     <script src="04-distribuzioni_files/xaringanExtra-clipboard/xaringanExtra-clipboard.js"></script>
     <script>window.xaringanExtraClipboard(null, {"button":"Copy Code","success":"Copied!","error":"Press Ctrl+C to Copy"})</script>
-    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"b83f768577974a909043490905a27568","expires":1}</script>
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"x11b4ef57ed94a5c9c778093a1b92397","expires":1}</script>
     <script src="04-distribuzioni_files/himalaya/himalaya.js"></script>
     <script src="04-distribuzioni_files/js-cookie/js.cookie.js"></script>
     <link href="04-distribuzioni_files/editable/editable.css" rel="stylesheet" />
@@ -282,7 +282,7 @@ che si vuole trattare, ovvero individuare eventi con la stessa struttura probabi
 .panelset[
 .panel[.panel-name[Definizione]
 
-Una funzione di massa di probabilità è una relazione matematica, o regola, che assegna **ad ogni possibile valore** `\(r\)` di una variabile casuale discreta `\(X\)` **la (sua) probabilità** `\(P(X=r)\)`.
+Una funzione di (distribuzione di) .orange[massa] di probabilità è una relazione matematica, o regola, che assegna **ad ogni possibile valore** `\(r\)` di una variabile casuale discreta `\(X\)` **la (sua) probabilità** `\(P(X=r)\)`.
 
 Questa regola è definita per tutti i valori `\(r\)` che hanno probabilità positiva.
 
@@ -317,6 +317,36 @@ Un medico inizia a controllare lo stato ipertensivo di 4 suoi pazienti con farma
 |  4|  0.240|
 
 ]
+
+
+.panel[.panel-name[Distr. Cumulativa]
+
+La distribuzione cumulativa di una variabile casuale discreta è indicata come `\(F(x)\)` ed è pari a `\(P(X\leq x)\)`
+]
+
+.panel[.panel-name[Esempio]
+
+`$$F(x) = P(X\leq x)$$`
+.left-column[
+
+|  r| P(X=r)|  F(x)|
+|--:|------:|-----:|
+|  0|  0.008| 0.008|
+|  1|  0.076| 0.084|
+|  2|  0.265| 0.349|
+|  3|  0.411| 0.760|
+|  4|  0.240| 1.000|
+]
+
+.right-plot[
+
+&lt;img src="04-distribuzioni_files/figure-html/unnamed-chunk-4-1.png" width="80%" /&gt;
+
+  
+]
+
+]
+
 ]
 ---
 # .orange[Modelli discreti]: valore atteso
@@ -346,7 +376,7 @@ Per la variabile `\(X =\)` _pazienti complianti al controllo dell'ipertensione_
 # .orange[Valore atteso]: esempio
 
 
-<div class="countdown" id="timer_625faec8" style="bottom:10%;left:70%;" data-audio="true" data-warnwhen="1">
+<div class="countdown" id="timer_625ff9c2" style="bottom:10%;left:70%;" data-audio="true" data-warnwhen="1">
 <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -433,6 +463,76 @@ sum(otiti[["r"]]^2 * otiti[["P(X=r)"]]) - atteso_otiti^2
 
 ]
 ]
+
+
+
+
+
+
+
+
+
+
+---
+class: inverse, middle
+
+# .center[Distribuzione **.orange[binomiale]**]
+
+- Struttura e **.orange[distribuzione]**
+
+- Valore **.orange[atteso]** e **.orange[varianza]**
+
+
+
+---
+# .orange[Binomiale]: struttura
+
+Una variabile binomiale rapresenta la **.orange[quantità]** di esiti **positivi** di un possibile esperimento con due soli risultati possibili (**dicotomico**), che possono avvenire con date **.orange[probabilità costanti]** (complementari a 1).
+
+Si caratterizza quindi da:
+
+- `\(n\)` prove **indipendenti**
+
+- **due** possibili outcomes di ogni prova, .orange[successo] o .orange[insuccesso]
+
+- la probabilità di successo, `\(p\)` è .orange[costante] in ogni prova (quella di insuccesso è pari a `\(1-p=q\)`)
+
+Ed è utile Utile per:
+
+- valutare la probabilità di `\(k\)` successi in `\(n\)` prove
+
+
+---
+# .orange[Binomiale]: probabilità
+
+la probabilità che `\(k\)` successi avvengano in `\(k\)` prove, con le rimantenti `\(n-k\)` tutte insuccessi è pari a
+
+`$$p^k(1-p)^{n-k}$$`
+
+Tenendo conto che i `\(k\)` successi posso ottenerli in `\(_nC_k\)` modi diversi, si ha che
+
+`$$P(X=k)=\binom{n}{k}p^k(1-p)^{n-k}$$`
+
+che è la distribuzione di probabilità binomiale
+
+
+
+---
+# .orange[Two]: a
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

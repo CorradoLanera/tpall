@@ -299,7 +299,7 @@ che si vuole trattare, ovvero individuare eventi con la stessa struttura probabi
 .panelset[
 .panel[.panel-name[Definizione]
 
-Una funzione di massa di probabilità è una relazione matematica, o regola, che assegna **ad ogni possibile valore** $r$ di una variabile casuale discreta $X$ **la (sua) probabilità** $P(X=r)$.
+Una funzione di (distribuzione di) .orange[massa] di probabilità è una relazione matematica, o regola, che assegna **ad ogni possibile valore** $r$ di una variabile casuale discreta $X$ **la (sua) probabilità** $P(X=r)$.
 
 Questa regola è definita per tutti i valori $r$ che hanno probabilità positiva.
 
@@ -334,6 +334,48 @@ knitr::kable(ipertensione)
 ```
 
 ]
+
+
+.panel[.panel-name[Distr. Cumulativa]
+
+La distribuzione cumulativa di una variabile casuale discreta è indicata come $F(x)$ ed è pari a $P(X\leq x)$
+]
+
+.panel[.panel-name[Esempio]
+
+$$F(x) = P(X\leq x)$$
+.left-column[
+```{r, echo=FALSE}
+ipertensione |> 
+  dplyr::mutate(
+    `F(x)` = cumsum(.data[["P(X=r)"]])
+  ) |> 
+  knitr::kable()
+```
+]
+
+.right-plot[
+
+```{r, echo=FALSE, out.width="80%"}
+ipertensione |> 
+  dplyr::mutate(
+    `F(x)` = cumsum(.data[["P(X=r)"]])
+  ) |> 
+  ggplot(aes(r, `F(x)`)) +
+  geom_step(colour = "blue") + 
+  geom_point(aes(y = .data[["P(X=r)"]]), colour = "red") +
+  theme_bw() +
+  ggtitle(
+    "Distribuzione Cumulativa Empirica",
+    subtitle = "In rosso la massa di probabilità per ciascun corrispondente possibile valore."
+  )
+```
+
+  
+]
+
+]
+
 ]
 ---
 # .orange[Modelli discreti]: valore atteso
@@ -450,6 +492,76 @@ sum(otiti[["r"]]^2 * otiti[["P(X=r)"]]) - atteso_otiti^2
 
 ]
 ]
+
+
+
+
+
+
+
+
+
+
+---
+class: inverse, middle
+
+# .center[Distribuzione **.orange[binomiale]**]
+
+- Struttura e **.orange[distribuzione]**
+
+- Valore **.orange[atteso]** e **.orange[varianza]**
+
+
+
+---
+# .orange[Binomiale]: struttura
+
+Una variabile binomiale rapresenta la **.orange[quantità]** di esiti **positivi** di un possibile esperimento con due soli risultati possibili (**dicotomico**), che possono avvenire con date **.orange[probabilità costanti]** (complementari a 1).
+
+Si caratterizza quindi da:
+
+- $n$ prove **indipendenti**
+
+- **due** possibili outcomes di ogni prova, .orange[successo] o .orange[insuccesso]
+
+- la probabilità di successo, $p$ è .orange[costante] in ogni prova (quella di insuccesso è pari a $1-p=q$)
+
+Ed è utile Utile per:
+
+- valutare la probabilità di $k$ successi in $n$ prove
+
+
+---
+# .orange[Binomiale]: probabilità
+
+la probabilità che $k$ successi avvengano in $k$ prove, con le rimantenti $n-k$ tutte insuccessi è pari a
+
+$$p^k(1-p)^{n-k}$$
+
+Tenendo conto che i $k$ successi posso ottenerli in $_nC_k$ modi diversi, si ha che
+
+$$P(X=k)=\binom{n}{k}p^k(1-p)^{n-k}$$
+
+che è la distribuzione di probabilità binomiale
+
+
+
+---
+# .orange[Two]: a
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -554,6 +554,7 @@ n <- length(age_sorted)
 age_sorted[(n + 1) / 2]
 median(age)
 ```
+
 ]
 ]
 
@@ -643,6 +644,7 @@ tab_siga
 names(tab_siga)[tab_siga == max(tab_siga)]
 
 ```
+]
 ]
 ]
 </small>
