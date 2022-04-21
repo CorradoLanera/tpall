@@ -573,9 +573,9 @@ La distribuzione dei dati sarà considerata:
 
 - **simmetrica** se $Skewness \simeq 0$
 
-- **asimmetrica** (sbilanciata) a sinistra se $Skewness > 0$ (la media è più grande, .orange[distorta in eccesso])
+- **asimmetrica** (sbilanciata) a destra se $Skewness > 0$ (la media è più grande, .orange[distorta in eccesso])
 
-- **asimmetrica** (sbilanciata) a destra se $Skewness < 0$ (la media è più piccola, .orange[distorta in difetto])
+- **asimmetrica** (sbilanciata) a sinistra se $Skewness < 0$ (la media è più piccola, .orange[distorta in difetto])
 ]
 .pull-right[
 ```{r, echo=FALSE, out.width="100%", fig.cap = "\'EPIC-Norfolk cohort\' (Bain et al. 2015)"}
@@ -1293,7 +1293,7 @@ epic |>
 ---
 class: middle, center, hide-count, inverse
 
-# .orange[Vediamolo...<br>...sul _vostro_ cloud!]
+# .orange[link al _vostro_ cloud:]
 
 [https://bit.ly/tpall22-feltre-rscloud](https://bit.ly/tpall22-feltre-rscloud)
 
@@ -1312,6 +1312,9 @@ class: inverse
 
 - [An Introduction to Medical Statistics](https://global.oup.com/academic/product/an-introduction-to-medical-statistics-9780199589920) di [**Martin Bland**](https://www.york.ac.uk/healthsciences/our-staff/honoraryemeritus/martin-bland/), suggeriti capitoli 4 e 5.
 
+- [Perché n − 1 nella formula della deviazione standard
+campionaria?](http://rdossena.altervista.org/Articoli/Book-Perch%E9%20n-1.pdf) di [Riccardo Dossena](http://rdossena.altervista.org) Traduzione dell'articolo **Book, S.A.**: _Why n − 1 in the formula for the sample standard deviation?_, The Two-Year College Mathematics Journal 10(5), 330–333 (1979
+
 ---
 class: inverse, center, middle, hide-count
 
@@ -1326,20 +1329,6 @@ _Mathematical conventions are just that, conventions. They differ by field of ma
 ]
 ]
 
-
-
-# .center[.orange[Break]]
-.left[
-- sgranchirsi
-- guardare _lontano_ (rilassare gli occhi)
-- bere
-- andare in bagno
-]
-
-```{r, echo = FALSE}
-countdown(minutes = 30, warn_when = 5, play_sound = TRUE,
-          left = "70%", bottom = "20%")
-```
 
 
 
