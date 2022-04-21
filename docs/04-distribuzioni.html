@@ -16,7 +16,7 @@
     <link href="04-distribuzioni_files/xaringanExtra-clipboard/xaringanExtra-clipboard.css" rel="stylesheet" />
     <script src="04-distribuzioni_files/xaringanExtra-clipboard/xaringanExtra-clipboard.js"></script>
     <script>window.xaringanExtraClipboard(null, {"button":"Copy Code","success":"Copied!","error":"Press Ctrl+C to Copy"})</script>
-    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"x11b4ef57ed94a5c9c778093a1b92397","expires":1}</script>
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"xea12e6bde564113bbb6dcf5fe34931d","expires":1}</script>
     <script src="04-distribuzioni_files/himalaya/himalaya.js"></script>
     <script src="04-distribuzioni_files/js-cookie/js.cookie.js"></script>
     <link href="04-distribuzioni_files/editable/editable.css" rel="stylesheet" />
@@ -356,7 +356,7 @@ La distribuzione cumulativa di una variabile casuale discreta è indicata come `
 
 Il valore atteso di una variabile casuale discreta è definito come
 
-`$$E(X)=\sum_{i=1}^k x_iP(X=x_i)$$`
+`$$E(X)=\sum_{i\in  I}x_iP(X=x_i)$$`
 
 dove `\(x_i\)` sono i valori che la variabile casuale `\(X\)` assume con probabilità positiva
 ]
@@ -376,7 +376,7 @@ Per la variabile `\(X =\)` _pazienti complianti al controllo dell'ipertensione_
 # .orange[Valore atteso]: esempio
 
 
-<div class="countdown" id="timer_625ff9c2" style="bottom:10%;left:70%;" data-audio="true" data-warnwhen="1">
+<div class="countdown" id="timer_6260aafa" style="bottom:10%;left:70%;" data-audio="true" data-warnwhen="1">
 <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -482,7 +482,7 @@ class: inverse, middle
 
 - Valore **.orange[atteso]** e **.orange[varianza]**
 
-
+- Grafici
 
 ---
 # .orange[Binomiale]: struttura
@@ -495,17 +495,35 @@ Si caratterizza quindi da:
 
 - **due** possibili outcomes di ogni prova, .orange[successo] o .orange[insuccesso]
 
-- la probabilità di successo, `\(p\)` è .orange[costante] in ogni prova (quella di insuccesso è pari a `\(1-p=q\)`)
+- la probabilità di successo, `\(p\)` è .orange[costante] in ogni prova (quella di insuccesso è pari a `\(1-p = q\)`)
 
 Ed è utile Utile per:
 
 - valutare la probabilità di `\(k\)` successi in `\(n\)` prove
 
 
----
-# .orange[Binomiale]: probabilità
 
-la probabilità che `\(k\)` successi avvengano in `\(k\)` prove, con le rimantenti `\(n-k\)` tutte insuccessi è pari a
+---
+# .orange[Coefficiente binomiale]
+Il numero di combinazioni di `\(n\)` oggetti presi `\(k\)` alla volta è pari a
+
+`$$_nC_k=\binom{n}{k}=\frac{n(n-1)\ldots (n-k+1)}{k!}$$`
+
+moltiplicando numeratore e denominatore per `\((n-k)!\)` si ottiene
+
+`$$_nC_k=\binom{n}{k}=\frac{n!}{k!(n-k)!}$$`
+
+&gt;Note:
+- `\(n! := n\cdot (n-1)\cdot \cdots \cdot (2)\cdot 1\)`
+- convenzione: `\(\binom{n}{0}=1\)`
+- vale la simmetria: `\(\binom{n}{k}=\binom{n}{n-k}\)`
+
+
+
+---
+## Distribuzione .orange[Binomiale]: probabilità
+
+la probabilità che `\(k\)` successi avvengano in `\(n\)` prove, con le rimantenti `\(n-k\)` tutte insuccessi è pari a
 
 `$$p^k(1-p)^{n-k}$$`
 
@@ -515,21 +533,159 @@ Tenendo conto che i `\(k\)` successi posso ottenerli in `\(_nC_k\)` modi diversi
 
 che è la distribuzione di probabilità binomiale
 
+---
+### Coefficiente binomiale: .orange[Triangolo di Tartaglia]
+
+&lt;div class="figure"&gt;
+&lt;img src="img/Algebra1_12_fig003.svg.png" alt="http://matematicamente.it/6981-algebra-1-manuale-completo-per-il-primo-anno-della-secondaria-di-secondo-grado" width="80%" /&gt;
+&lt;p class="caption"&gt;http://matematicamente.it/6981-algebra-1-manuale-completo-per-il-primo-anno-della-secondaria-di-secondo-grado&lt;/p&gt;
+&lt;/div&gt;
 
 
 ---
-# .orange[Two]: a
+# Distribuzione .orange[Binomiale]
+
+.panelset[
+.panel[.panel-name[Descrizone]
+
+La distribuzione binomiale, di parametri `\(n\)` e `\(p\)` si indica come
+
+`$$P(S=k)=\binom{n}{k}p^k(1-p)^{n-k} \:\:\:\: k=0,1,\ldots,n$$`
+
+vale la simmetria
+
+`$$P(S=k)=\binom{n}{k}p^k(1-p)^{n-k} = \binom{n}{n-k}p^{n-k}(1-p)^{k}=P(S=n-k)$$`
+]
+
+.panel[.panel-name[Esempio]
+
+Quale è la probabilità di ottenere 2 bambini maschi da 5 nati se la probabilità di un maschio è pari a 0.51, indipendente dal sesso dei bambini nati prima?
+
+
+Si usa la distribuzione binomiale
+
+`$$P(S=2)=\binom{5}{2}0.51^2(0.49)^{5-2}=\frac{5 \times 4}{2 \times 1}0.51^2(0.49)^{5-2}=0.306$$`
+
+
+```r
+dbinom(x = 2, size = 5, prob = 0.51)
+```
+
+```
+[1] 0.306005
+```
+
+```r
+pbinom(q = 2, size = 5, prob = 0.51) -
+  pbinom(q = 1, size = 5, prob = 0.51)
+```
+
+```
+[1] 0.306005
+```
+
+
+]
+
+
+]
 
 
 
+---
+## .orange[Binomiale]: Valore atteso e varianza
+
+Per definizione si ha che: `\(E(S) = \sum_{i\in I}x_iP(X=x_i)\)`
+
+Da cui: `\(E(S) =\sum_{k=0}^n k\binom{n}{k}p^kq^{n-k}\)`
+
+Del resto, Se `\(S\)` è la somma degli esiti dei singoli lanci (che possimo indicare come variabile casuale `\(X\)`), allora per linearità
+
+`$$E(S) = E\left(\sum_{i=1}^n X_i\right) = \sum_{i=1}^nE(X_i) = \sum_{i=1}^np=np$$`
+
+Sempre per definizione, la varianza sarà: `\(\mbox{var}(S)=\sum_{k=0}^n (k-np)^2 \binom{n}{k}p^kq^{n-k}\)`
+
+Che possiamo calcolare per linearità più semplicemente come
+
+`$$var(S) = var\left(\sum_{i=1}^n X_i\right) = \sum_{i=1}^nvar(X_i) =^*  \sum_{i=1}^npq=npq$$`
+&lt;br&gt;
+
+.right[*= Se interessa, dimostrarlo per esercizio.]
 
 
 
+---
+## .orange[Singolo esperimento]: grafico
+
+.panelset[
+.panel[.panel-name[Code]
+
+```r
+db &lt;- tibble(
+  p = seq(0, 1, by = 0.001),
+  q = 1 - p,
+  pq = p*q
+)
+
+ggplot(db, aes(x = p, y = pq)) +
+  geom_point() +
+  theme_bw() +
+  ggtitle("Attesa e Varianza per distribuzione Binomiale con n = 1",
+        subtitle = "(Nota anche come distribuzione Bernulli)")
+```
 
 
 
+]
+
+.panel[.panel-name[Output]
+
+&lt;img src="04-distribuzioni_files/figure-html/unnamed-chunk-15-1.png" width="60%" /&gt;
+
+]
+
+]
 
 
+
+---
+## .orange[10 esperimenti]: grafico
+
+.panelset[
+.panel[.panel-name[Code]
+
+```r
+n &lt;- 10
+k &lt;- seq_len(n)
+p &lt;- c(0.05, 0.5, 0.95)
+
+
+db &lt;- crossing(p, k, n) |&gt; 
+  mutate(
+    `P(S=k)` = dbinom(x = k, size = n, prob = p),
+    p = factor(p)
+  )
+
+ggplot(db, aes(x = k, y = `P(S=k)`,fill = p)) +
+  geom_col() +
+  facet_grid(p~., scales = "free") +
+  theme_bw() +
+  theme(legend.position = "none") +
+  ggtitle("Distribuzioni Binomiali con n = 10 e diversi valori di p")
+```
+
+
+
+]
+
+.panel[.panel-name[Output]
+
+&lt;img src="04-distribuzioni_files/figure-html/unnamed-chunk-16-1.png" width="60%" /&gt;
+
+]
+
+
+]
 
 
 
@@ -537,26 +693,214 @@ che è la distribuzione di probabilità binomiale
 
 
 ---
-# .center[**.orange[Second] topic**]
+class: inverse, middle
 
-- **one**
+# .center[Distribuzione di **.orange[Poisson]**]
 
-- **two**
+- Struttura e **.orange[distribuzione]**
+
+- Valore **.orange[atteso]** e **.orange[varianza]**
+
+- Grafici
+
+
+
+---
+# .orange[Poisson]: struttura
+
+Dato un intervallo di tempo `\(\Delta t\)`, si ha che
+
+- la probabilità di osservare un evento è direttamente proporzionale alla lunghezza dell'intervallo di tempo `\(\Delta t\)`, ovvero, per una qualche costante `\(\lambda\)`, abbiamo:
+
+`$$P(\mbox{1 evento})\sim \lambda\,\Delta t$$`
+
+
+
+- la probabilità di osservare `\(0\)` eventi nell'intervallo `\(\Delta t\)` è approssimativamente `\(1-\lambda\Delta t\)`
+
+- la probabilità di osservare più di un evento nell'intervallo è sostanzialmente `\(0\)`
+
+- .orange[Stazionarietà]: il numero di eventi per unità di tempo è lo stesso in tutto l'intervallo di tempo `\(t\)` (no trend)
+
+- .orange[Indipendenza]: se si verifica un evento nell'intervallo di tempo considerato, questa non modifica la probabilità di osservarne un secondo nell'intervallo successivo.
+
+
+---
+## Distribuzione di .orange[Poisson]: probabilità
+
+La probabilità di osservare `\(k\)` eventi in un periodo di tempo `\(t\)` per una variabile aleatoria di Poisson di parametro `\(\lambda\)` è pari a
+
+`$$P(X=k)=\frac{e^{-\mu}\mu^k}{k!}$$`
+
+dove `\(\mu=\lambda t\)` ed `\(e\)` è pari approssimativamente a 2.71828 è la costante di Nepero.
+
+---
+## Distribuzione di .orange[Poisson]
+
+.panelset[
+.panel[.panel-name[Esempio]
+
+Si supponga che il numero di morti attribuite alla febbre tifoide in un anno sia una Poisson con parametro `\(\mu = 4.6\)`. Si cerca la distribuzione di probabilità su un periodo di 6 e 3 mesi
+
+Dalla definizione si ha che `\(\mu = 4.6 \times 1\)`, quindi `\(\lambda = 4.6\)`.
+
+Su 6 mesi si ha allora che `\(\mu=4.6 \times 0.5 = 2.3\)`
+
+
+`$$P(X=0) = e^{-2.3} = 0.1 \:\:\:\: P(X\geq6) = 1-P(X&lt;6)=0.03$$`
+
+Su 3 mesi si ha allora che `\(\mu=4.6 \times 0.25 = 1.15\)`
+
+`$$P(X=0) = e^{-1.15} = 0.317 \:\:\:\: P(X\geq6) = 1-P(X&lt;6)=0.001$$`
+
+]
+
+.panel[.panel-name[R Code]
+
+```r
+lambda = 4.6
+mesi = c(3, 6)
+t &lt;- mesi / 12
+mu &lt;- lambda * t
+n &lt;- 0:6
+
+db &lt;- crossing(mu, n) |&gt; 
+  mutate(
+    `P(X=n)` = dpois(n, mu),
+    mu = factor(mu)
+  )
+
+ggplot(db, aes(n, `P(X=n)`, fill = mu)) +
+  geom_col(alpha = 0.6) +
+  facet_grid(mu~., scales = "free") +
+  scale_fill_(
+    labels = paste0(lambda, " * ", t),
+    values = c("blue", "red")
+  ) +
+  theme_bw()
+```
+
+]
+
+.panel[.panel-name[Grafici]
+&lt;img src="04-distribuzioni_files/figure-html/unnamed-chunk-18-1.png" width="60%" /&gt;
+]
+]
 
 
 
 ---
-# .orange[One]: a
+# .orange[Poisson]: valore atteso e varianza
+
+Per una distribuzione di Poisson con parametro `\(\mu\)`, la media e la varianza sono entrambi pari a `\(\mu\)`
 
 
 ---
-# .orange[One]: b
+# .orange[Poisson]: Polio
+
+Si consideri numero di morti per polio negli anni 1968-76
+
+.pull-left[
+
+| Anno| Morti|
+|----:|-----:|
+|   68|    24|
+|   69|    13|
+|   70|     7|
+|   71|    18|
+|   72|     2|
+|   73|    10|
+|   74|     3|
+|   75|     9|
+|   76|    16|
+]
+
+.pull-right[
+La media è pari a `\(11.3\)` e la varianza a `\(51.5\)`.
+
+Probabilmente vi è un effetto di clustering rispetto a certi periodi temporali e a certe aree geografiche.
+
+]
 
 
 ---
-# .orange[Two]: a
+# .orange[Poisson]: cibo cancerogeno
 
 
+In uno studio sul possibile effetto cancerogneo di EDB (etilene dibromide), osservando la mortalità di 161 operai bianchi, occupati presso due fabbriche, Texas e Michigan, 1940-1975 [Ott \em et al., B J Ind Med, 1980:37, 163-8]
+
+Si sono osservate 7 morti per cancro. In base ai dati di mortalità degli USA, si sarebbero attese in quel periodo 5.8 morti per cancro.
+
+Si cerca quindi la probabilità di osservare almeno 7 morti  secondo una Poisson di parametro `\(\mu=5.8\)`.
+
+`$$\begin{align}P(X \geq 7) &amp;= 1 - P(X\leq 6)\\&amp; = 1-(e^{-5.8}5.8^0/0!)+ \ldots + (e^{-5.8}5.8^6/6!)\\&amp; = 0.362\end{align}$$`
+
+
+```
+[1] 0.3616089
+```
+
+
+per cui le morti non sembrano in eccesso in questo gruppo di lavoratori.
+
+
+---
+# .orange[Poisson]: Approssimazone
+
+La distribuzione Binomiale con `\(n\)` grande e `\(p\)` piccolo può essere accuratamente approssimata da una distribuzione di Poisson con parametro `\(\mu=np\)`
+
+La motivazione è data dalla maggiore semplicità computazionale della distribuzione di Poisson
+
+Una regola approssimativa è di usare l'approssimazione quando `\(n\geq 100\)` e `\(p\leq 0.01\)`
+
+.pull-left[
+
+
+```r
+n &lt;- 100
+p &lt;- 0.01
+tibble(
+  k = 0:6,
+  bin = dbinom(k, n, p),
+  pois = dpois(k, n*p) 
+)
+```
+
+]
+
+.pull-right[
+
+
+|  k|       bin|      pois|
+|--:|---------:|---------:|
+|  0| 0.3660323| 0.3678794|
+|  1| 0.3697296| 0.3678794|
+|  2| 0.1848648| 0.1839397|
+|  3| 0.0609992| 0.0613132|
+|  4| 0.0149417| 0.0153283|
+|  5| 0.0028978| 0.0030657|
+|  6| 0.0004635| 0.0005109|
+
+]
+
+
+
+---
+# .orange[Poisson]: tumore al seno
+
+Si studia la suscettibilità genetica per il cancro alla mammella, trovando che 4 donne su 1000 tra i 40 e i 49 anni le cui madri hanno avuto un cancro al seno, lo sviluppano nell'anno successivo di vita.
+
+In base a studi di popolazione, si pensa che in queste classi di età si dovrebbe avere circa 1 cancro al seno su 1000 donne.
+
+Secondo la probabilità binomiale, con `\(n=1000\)` e `\(p=1/1000\)` si ha che
+`$$\begin{split}
+P(X\geq 4)&amp; = 1 - P(X\leq 3)\\&amp; = 1- \left [\binom{1000}{0} (.001)^0(.9999)^{1000}+\ldots+\binom{1000}{3} (.001)^3(.9999)^{997}  \right ]\\&amp;\end{split}$$`
+
+Secondo la probabilità di Poisson, con `\(\mu = 1\)`, si ha che
+
+`$$\begin{split}P(X\geq 4)&amp; = 1- [e^{-1}1^0/0! + \ldots + e^{-1}1^3/3!]\\&amp;= 1- 0.9810\\&amp; = 0.019\end{split}$$`
+
+Un valore sufficientemente piccolo da far pensare ad una suscettibilità genetica.
 
 
 
@@ -565,9 +909,10 @@ che è la distribuzione di probabilità binomiale
 ---
 class: middle, center, hide-count, inverse
 
-# .orange[Vediamolo...&lt;br&gt;...sul _vostro_ cloud!]
+# .orange[link al _vostro_ cloud:]
 
 [https://bit.ly/tpall22-feltre-rscloud](https://bit.ly/tpall22-feltre-rscloud)
+
 
 ---
 class: inverse
@@ -583,6 +928,11 @@ class: inverse
 - [**GGplot2 cheatsheet**](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-visualization.pdf) schema dei possibili grafici di base rappresentabili in R con il pacchetto `{ggplot2}`, molto utile anche per conoscere le tipologie di grafico, e il loro utilizzo.
 
 - [An Introduction to Medical Statistics](https://global.oup.com/academic/product/an-introduction-to-medical-statistics-9780199589920) di [**Martin Bland**](https://www.york.ac.uk/healthsciences/our-staff/honoraryemeritus/martin-bland/), suggeriti capitoli 4 e 5.
+
+
+- [Perché n − 1 nella formula della deviazione standard
+campionaria?](http://rdossena.altervista.org/Articoli/Book-Perch%E9%20n-1.pdf) di [Riccardo Dossena](http://rdossena.altervista.org) Traduzione dell'articolo **Book, S.A.**: _Why n − 1 in the formula for the sample standard deviation?_, The Two-Year College Mathematics Journal 10(5), 330–333 (1979
+
 
 ---
 class: inverse, center, middle, hide-count
