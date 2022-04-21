@@ -188,6 +188,16 @@ class: inverse, hide-count
 
 # Cosa faremo
 
+Quello   ci interesseremo in questa lezione è di introdurre le 
+principali distribuzioni di probabilità per eventi discreti, quali 
+.orange[processi binomiali], utili per rappresentare il numero di
+successi per eventi dicotomici con una data probabilità p di esito
+positivo, e .orange[processi di Poisson] utili a modellizzare
+il numero di eventi che è probabile osservare in un lasso di tempo
+stabilito.
+
+Per ciascuno, vedremo come calcolare .orange[media] e .orange[varianza],
+oltre che qualche esempio concreto.
 
 ---
 class: hide-count
@@ -229,11 +239,11 @@ Distribuzione **binomiale** (ovvero per variabili con due soli possibili esiti)
 
 Distribuzione di **Poisson** (ovvero per varibili _conteggio_) e approssimazione della binomiale
 
-**Modello** probabilistico per variabili continue: densità
+<!-- **Modello** probabilistico per variabili continue: densità -->
 
-Distribuzione **normale**, localizzazione, forma, simmetria, percentili, trasformazioni 
+<!-- Distribuzione **normale**, localizzazione, forma, simmetria, percentili, trasformazioni  -->
 
-**Approssimazioni** alla Normale
+<!-- **Approssimazioni** alla Normale -->
 
 
 
