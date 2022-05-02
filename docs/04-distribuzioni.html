@@ -16,7 +16,7 @@
     <link href="04-distribuzioni_files/xaringanExtra-clipboard/xaringanExtra-clipboard.css" rel="stylesheet" />
     <script src="04-distribuzioni_files/xaringanExtra-clipboard/xaringanExtra-clipboard.js"></script>
     <script>window.xaringanExtraClipboard(null, {"button":"Copy Code","success":"Copied!","error":"Press Ctrl+C to Copy"})</script>
-    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"e1fb925f53f54096a54bad1ce0a100c7","expires":1}</script>
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"f387a474bd99452fa0cc5b030f0c8823","expires":1}</script>
     <script src="04-distribuzioni_files/himalaya/himalaya.js"></script>
     <script src="04-distribuzioni_files/js-cookie/js.cookie.js"></script>
     <link href="04-distribuzioni_files/editable/editable.css" rel="stylesheet" />
@@ -171,16 +171,19 @@ class: inverse, hide-count
 
 # Cosa faremo
 
-Quello   ci interesseremo in questa lezione è di introdurre le 
+Quello di cui ci interesseremo in questa lezione è di introdurre le 
 principali distribuzioni di probabilità per eventi discreti, quali 
 .orange[processi binomiali], utili per rappresentare il numero di
 successi per eventi dicotomici con una data probabilità p di esito
 positivo, e .orange[processi di Poisson] utili a modellizzare
 il numero di eventi che è probabile osservare in un lasso di tempo
-stabilito.
+stabilito. Inoltre ci occuperemo anche delle distribuzioni utili a
+descrivere eventi continui, con particolare attenzione alle
+distribuzioni .orange[normale] e .orange[normale standard].
 
-Per ciascuno, vedremo come calcolare .orange[media] e .orange[varianza],
-oltre che qualche esempio concreto.
+Per ciascuna, oltre a qualche rapido cenno teorico, vedremo come
+calcolare .orange[media] e .orange[varianza], .orange[percentili] 
+(per le distribuzioni continue), oltre che qualche esempio concreto.
 
 ---
 class: hide-count
@@ -222,11 +225,11 @@ Distribuzione **binomiale** (ovvero per variabili con due soli possibili esiti)
 
 Distribuzione di **Poisson** (ovvero per varibili _conteggio_) e approssimazione della binomiale
 
-&lt;!-- **Modello** probabilistico per variabili continue: densità --&gt;
+**Modello** probabilistico per variabili continue: densità
 
-&lt;!-- Distribuzione **normale**, localizzazione, forma, simmetria, percentili, trasformazioni  --&gt;
+Distribuzione **normale**, localizzazione, forma, simmetria, percentili, trasformazioni
 
-&lt;!-- **Approssimazioni** alla Normale --&gt;
+**Approssimazioni** alla Normale
 
 
 
@@ -269,7 +272,7 @@ Una variabile casuale è una quantità che assume **valori differenti** con **sp
 
  
 
-&gt; Nota 2: **funzione**: una qualunque mappa/regola che associa **a ogni elemento** di un insieme (.orange[dominio] della funzione) **un unico elemento** di un un insieme (.orange[codominio] della funzione).
+&gt; Nota 2: **funzione**: una qualunque mappa/regola che associa **a ogni elemento** di un insieme (detto .orange[dominio] della funzione) **un unico elemento** di un insieme (detto .orange[codominio] della funzione).
 
 
 ---
@@ -379,16 +382,32 @@ Per la variabile `\(X =\)` _pazienti complianti al controllo dell'ipertensione_
 
 `$$E(X)=0(0.008)+1(0.076)+2(0.265)+3(0.411)+4(0.240) = 2.799$$`
 
+
+|  r| P(X=r)|
+|--:|------:|
+|  0|  0.008|
+|  1|  0.076|
+|  2|  0.265|
+|  3|  0.411|
+|  4|  0.240|
+
+
+```r
+sum(
+  ipertensione[["r"]] * ipertensione[["P(X=r)"]]
+)
+```
+
+```
+[1] 2.799
+```
+
+
 ]
 ]
 
 ---
 # .orange[Valore atteso]: esempio
-
-
-<div class="countdown" id="timer_6260b33e" style="bottom:10%;left:70%;" data-audio="true" data-warnwhen="1">
-<code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
 
 
 .panelset[
@@ -435,6 +454,11 @@ sum(otiti[["r"]] * otiti[["P(X=r)"]])
 
 ]
 ]
+
+<div class="countdown" id="timer_626ff98e" style="bottom:15%;left:70%;" data-audio="true" data-warnwhen="1">
+<code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
 
 ---
 # .orange[Modelli discreti]: varianza
@@ -650,7 +674,7 @@ ggplot(db, aes(x = p, y = pq)) +
 
 .panel[.panel-name[Output]
 
-&lt;img src="04-distribuzioni_files/figure-html/unnamed-chunk-15-1.png" width="60%" /&gt;
+&lt;img src="04-distribuzioni_files/figure-html/unnamed-chunk-17-1.png" width="60%" /&gt;
 
 ]
 
@@ -690,7 +714,7 @@ ggplot(db, aes(x = k, y = `P(S=k)`,fill = p)) +
 
 .panel[.panel-name[Output]
 
-&lt;img src="04-distribuzioni_files/figure-html/unnamed-chunk-16-1.png" width="60%" /&gt;
+&lt;img src="04-distribuzioni_files/figure-html/unnamed-chunk-18-1.png" width="60%" /&gt;
 
 ]
 
@@ -793,7 +817,7 @@ ggplot(db, aes(n, `P(X=n)`, fill = mu)) +
 ]
 
 .panel[.panel-name[Grafici]
-&lt;img src="04-distribuzioni_files/figure-html/unnamed-chunk-18-1.png" width="60%" /&gt;
+&lt;img src="04-distribuzioni_files/figure-html/unnamed-chunk-20-1.png" width="60%" /&gt;
 ]
 ]
 
@@ -916,12 +940,94 @@ Un valore sufficientemente piccolo da far pensare ad una suscettibilità genetic
 
 
 
+
+
+
+
+
+
+---
+class: inverse, middle
+
+# .center[Modello probabilistico per variabili **.orange[continue]**]
+
+- **densità**
+
+---
+class: inverse, middle
+
+# .center[Distribuzione **.orange[normale]**]
+
+- **localizzazione**
+- **forma**
+- **simmetria**
+- **percentili**
+- **trasformazioni**
+
+
+---
+class: inverse, middle
+
+# .center[**.orange[Approssimazioni]** alla distribuzione normale]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ---
 class: middle, center, hide-count, inverse
 
 # .orange[link al _vostro_ cloud:]
 
 [https://bit.ly/tpall22-feltre-rscloud](https://bit.ly/tpall22-feltre-rscloud)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ---
@@ -1029,6 +1135,19 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     deleted = true;
   });
 })();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
 (function() {
   "use strict"
   // Replace <script> tags in slides area to make them executable

@@ -188,16 +188,19 @@ class: inverse, hide-count
 
 # Cosa faremo
 
-Quello   ci interesseremo in questa lezione è di introdurre le 
+Quello di cui ci interesseremo in questa lezione è di introdurre le 
 principali distribuzioni di probabilità per eventi discreti, quali 
 .orange[processi binomiali], utili per rappresentare il numero di
 successi per eventi dicotomici con una data probabilità p di esito
 positivo, e .orange[processi di Poisson] utili a modellizzare
 il numero di eventi che è probabile osservare in un lasso di tempo
-stabilito.
+stabilito. Inoltre ci occuperemo anche delle distribuzioni utili a
+descrivere eventi continui, con particolare attenzione alle
+distribuzioni .orange[normale] e .orange[normale standard].
 
-Per ciascuno, vedremo come calcolare .orange[media] e .orange[varianza],
-oltre che qualche esempio concreto.
+Per ciascuna, oltre a qualche rapido cenno teorico, vedremo come
+calcolare .orange[media] e .orange[varianza], .orange[percentili] 
+(per le distribuzioni continue), oltre che qualche esempio concreto.
 
 ---
 class: hide-count
@@ -239,11 +242,11 @@ Distribuzione **binomiale** (ovvero per variabili con due soli possibili esiti)
 
 Distribuzione di **Poisson** (ovvero per varibili _conteggio_) e approssimazione della binomiale
 
-<!-- **Modello** probabilistico per variabili continue: densità -->
+**Modello** probabilistico per variabili continue: densità
 
-<!-- Distribuzione **normale**, localizzazione, forma, simmetria, percentili, trasformazioni  -->
+Distribuzione **normale**, localizzazione, forma, simmetria, percentili, trasformazioni
 
-<!-- **Approssimazioni** alla Normale -->
+**Approssimazioni** alla Normale
 
 
 
@@ -286,7 +289,7 @@ Una variabile casuale è una quantità che assume **valori differenti** con **sp
 
  
 
-> Nota 2: **funzione**: una qualunque mappa/regola che associa **a ogni elemento** di un insieme (.orange[dominio] della funzione) **un unico elemento** di un un insieme (.orange[codominio] della funzione).
+> Nota 2: **funzione**: una qualunque mappa/regola che associa **a ogni elemento** di un insieme (detto .orange[dominio] della funzione) **un unico elemento** di un insieme (detto .orange[codominio] della funzione).
 
 
 ---
@@ -412,17 +415,22 @@ media_ipertensione <- sum(
 
 $$E(X)=0(0.008)+1(0.076)+2(0.265)+3(0.411)+4(0.240) = `r media_ipertensione`$$
 
+```{r, echo=FALSE}
+knitr::kable(ipertensione)
+```
+
+```{r}
+sum(
+  ipertensione[["r"]] * ipertensione[["P(X=r)"]]
+)
+```
+
+
 ]
 ]
 
 ---
 # .orange[Valore atteso]: esempio
-
-
-```{r, echo = FALSE}
-countdown(minutes = 1, warn_when = 1, play_sound = TRUE,
-          left = "70%", bottom = "10%")
-```
 
 
 .panelset[
@@ -465,6 +473,12 @@ sum(otiti[["r"]] * otiti[["P(X=r)"]])
 
 ]
 ]
+
+```{r, echo = FALSE}
+countdown(minutes = 1, warn_when = 1, play_sound = TRUE,
+          left = "70%", bottom = "15%")
+```
+
 
 ---
 # .orange[Modelli discreti]: varianza
@@ -933,12 +947,94 @@ Un valore sufficientemente piccolo da far pensare ad una suscettibilità genetic
 
 
 
+
+
+
+
+
+
+---
+class: inverse, middle
+
+# .center[Modello probabilistico per variabili **.orange[continue]**]
+
+- **densità**
+
+---
+class: inverse, middle
+
+# .center[Distribuzione **.orange[normale]**]
+
+- **localizzazione**
+- **forma**
+- **simmetria**
+- **percentili**
+- **trasformazioni**
+
+
+---
+class: inverse, middle
+
+# .center[**.orange[Approssimazioni]** alla distribuzione normale]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ---
 class: middle, center, hide-count, inverse
 
 # .orange[link al _vostro_ cloud:]
 
 [https://bit.ly/tpall22-feltre-rscloud](https://bit.ly/tpall22-feltre-rscloud)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ---
