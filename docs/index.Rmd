@@ -12,6 +12,7 @@ output:
       highlightLines: true
       countIncrementalSlides: false
     css: xaringan-themer.css
+    self_contained: true
 ---
 class: center, middle, bg_title, hide-count
 
@@ -164,15 +165,14 @@ Feltre, a.a. 2021/2022 - 20 ore (2 crediti)
 
 <small>
 
-**Giorno**    | **Tema**               | **Diapositive**
--------------:|:-----------------------|:--------------------
-2022/04/07    | Intro e info           | [00-intro_and_info](00-intro_and_info.html)
-2022/04/07    | R e RStudio            | [01-r_rstudio](01-r_rstudio.html)
-2022/04/07-20 | Descrittive            | [02-descrittive](02-descrittive.html)
-2022/04/21    | Probabilità            | [03-probabilità](03-probabilità.html)
-2022/05/04    | Distribuzioni discrete | [04-distribuzioni](04-distribuzioni.html)
-2022/05/04    |                        | []()
-2022/05/05    |                        | []()
+**Giorno**    | **Tema**      | **Diapositive**
+-------------:|:--------------|:--------------------
+2022/04/07    | Intro e info  | [00-intro_and_info](00-intro_and_info.html)
+2022/04/07    | R e RStudio   | [01-r_rstudio](01-r_rstudio.html)
+2022/04/07-20 | Descrittive   | [02-descrittive](02-descrittive.html)
+2022/04/21    | Probabilità   | [03-probabilità](03-probabilità.html)
+2022/05/04    | Distribuzioni | [04-distribuzioni](04-distribuzioni.html)
+2022/05/05    | Test          | [05-test](05-test.html)
 
 </small>
 

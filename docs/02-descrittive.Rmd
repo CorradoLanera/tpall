@@ -12,6 +12,7 @@ output:
       highlightLines: true
       countIncrementalSlides: false
     css: xaringan-themer.css
+    self_contained: true
 ---
 class: center, middle, bg_title, hide-count
 
