@@ -12,6 +12,7 @@ output:
       highlightLines: true
       countIncrementalSlides: false
     css: xaringan-themer.css
+    self_contained: true
 ---
 class: center, middle, bg_title, hide-count
 
@@ -488,11 +489,11 @@ countdown(minutes = 1, warn_when = 1, play_sound = TRUE,
 
 La varianza di una variabile casuale discreta $X$ è pari a
 
-$$\mbox{var}(X)=\sum_{i=1}^k(x-\mu)^2P(X=x_i)=\sigma^2$$
+$$\mbox{var}(X)=\sum_r(x_r-\mu)^2P(X=x_r)=\sigma^2$$
 
 vale anche
 
-$$\sigma^2=E(X-\mu)=\left(\sum_{i=1}^kx_i^2P(X=x_i)\right)-\mu^2$$
+$$\sigma^2=E(X-\mu)=\left(\sum_rx_r^2P(X=x_r)\right)-\mu^2$$
 ]
 .panel[.panel-name[Esempio]
 
@@ -504,7 +505,7 @@ var_otiti <- sum(
 
 La varianza della variabile casuale episodi di otite è pari a
 
-$$0^2(0.129)+\ldots+36(0.017)-2.038^2=`r round(var_otiti,3)`$$
+$$0^2(0.129)+\ldots+6^2(0.017)-2.038^2=`r round(var_otiti,3)`$$
 
 ]
 
@@ -604,11 +605,11 @@ knitr::include_graphics("img/Algebra1_12_fig003.svg.png")
 
 La distribuzione binomiale, di parametri $n$ e $p$ si indica come
 
-$$P(S=k)=\binom{n}{k}p^k(1-p)^{n-k} \:\:\:\: k=0,1,\ldots,n$$
+$$P(X=k)=\binom{n}{k}p^k(1-p)^{n-k} \:\:\:\: k=0,1,\ldots,n$$
 
 vale la simmetria
 
-$$P(S=k)=\binom{n}{k}p^k(1-p)^{n-k} = \binom{n}{n-k}p^{n-k}(1-p)^{k}=P(S=n-k)$$
+$$P(X=k)=\binom{n}{k}p^k(1-p)^{n-k} = \binom{n}{n-k}p^{n-k}(1-p)^{k}=P(X=n-k)$$
 ]
 
 .panel[.panel-name[Esempio]
@@ -624,7 +625,7 @@ pbin <- dbinom(
 
 Si usa la distribuzione binomiale
 
-$$P(S=2)=\binom{5}{2}0.51^2(0.49)^{5-2}=\frac{5 \times 4}{2 \times 1}0.51^2(0.49)^{5-2}=`r round(pbin,3)`$$
+$$P(X=2)=\binom{5}{2}0.51^2(0.49)^{5-2}=\frac{5 \times 4}{2 \times 1}0.51^2(0.49)^{5-2}=`r round(pbin,3)`$$
 
 ```{r}
 dbinom(x = 2, size = 5, prob = 0.51)
@@ -768,7 +769,7 @@ dove $\mu=\lambda t$ ed $e$ è pari approssimativamente a 2.71828 è la costante
 .panelset[
 .panel[.panel-name[Esempio]
 
-Si supponga che il numero di morti attribuite alla febbre tifoide in un anno sia una Poisson con parametro $\mu = 4.6$. Si cerca la distribuzione di probabilità su un periodo di 6 e 3 mesi
+Si supponga che il numero di morti attribuite alla febbre tifoide in un anno sia una Poisson con parametro $\mu = 4.6$. Si cerca la probabilità su un periodo di 6 e 3 mesi che avvengono, per esempio,  zero eventi o almeno 6
 
 Dalla definizione si ha che $\mu = 4.6 \times 1$, quindi $\lambda = 4.6$.
 
@@ -1235,9 +1236,9 @@ lines(c(0,0),c(-0.1, dnorm(0,mean=0, sqrt(1))),lty=2)
 ---
 ## Distribuzione Standard: valori notevoli
 
-- circa il 68% dell'area cade tra $+1$ e $-1$
-- circa il 95% dell'area cade tra $+2$ e $-2$
-- circa il 99% dell'area cade tra $+2.5$ e $-2.5$
+- circa il 68% dell'area cade tra $-1$ e $1$
+- circa il 95% dell'area cade tra circa $-2$ e $2$
+- circa il 99% dell'area cade tra circa $-2.5$ e $2.5$
 
 ```{r, echo=FALSE, fig.height=5, fig.width=12, fig.align='center', message=FALSE, warning=FALSE}
 plot(x,y, type="l", lwd=2,xlim=c(-3,3), col="blue",ylab=expression(Density),xlab = "Standard Normal distributiion",xaxt="n")
@@ -1392,7 +1393,7 @@ Di prassi, un bambino sarà considerato con un sistema polmonare _normale_ se pr
 
 ]
 .panel[.panel-name[Soluzione]
-$$\begin{split}P(-1.5 \leq X \leq 1.5)& = 1 - (P(-1.5 \leq X) + P(X \geq 1.5))\\& = 1 - 2*P(X \leq -1.5)\\& = 1 - 2 * 0.0668\\& = 0.8664\end{split}$$
+$$\begin{split}P(-1.5 \leq X \leq 1.5)& = 1 - (P(X \leq -1.5) + P(X \geq 1.5))\\& = 1 - 2*P(X \leq -1.5)\\& = 1 - 2 * 0.0668\\& = 0.8664\end{split}$$
 
 ]
 .panel[.panel-name[R Code]
@@ -1453,7 +1454,7 @@ text(0,0.2,expression(Area==p),cex = 1.5)
 
 Per trovare $z_p$ si deve trovare l'area $p$ e quindi trovare il valore che corrisponde a tale area.
 
-Se $p < 0.5$ ( $z_p < 0$ ) è utile usare la .orange[simmetria della distribuzione] per ottenere $z_p = -z_{1-p}$, dove $1-p > 0.5$ ($z_{1-p} > 0$ ) può essere spesso ottenuto dai valori comuni/noti come per esempio:
+Se $p < 0.5$ ( $z_p < 0$ ) è utile usare la .orange[simmetria della distribuzione] per ottenere $z_p = -z_{1-p}$, dove $1-p > 0.5$ ( $z_{1-p} > 0$ ) può essere spesso ottenuto dai valori comuni/noti come per esempio:
 
 $$z_{.975}=1.96 \:\:\:\: z_{.95}=1.645 \:\:\:\: z_{.5}=0 \:\:\:\: z_{.025}=-1.96$$
 
@@ -1474,7 +1475,7 @@ $$z_{.975}=1.96 \:\:\:\: z_{.95}=1.645 \:\:\:\: z_{.5}=0 \:\:\:\: z_{.025}=-1.96
 
 **E vale dunque**:
 
-$$\begin{split}P(a \leq X \leq b)& = P \left ( \frac{a-\mu}{\sigma} \leq Z \leq \frac{b-\mu}{\sigma}\right )\\& = P \left (Z \leq \frac{b-\mu}{\sigma}\right ) - P \left ( \frac{a-\mu}{\sigma} \leq Z\right )\\& = \Phi[(b-\mu)/\sigma]-\Phi[(a-\mu)/\sigma]\end{split}$$
+$$\begin{split}P(a \leq X \leq b)& = P \left ( \frac{a-\mu}{\sigma} \leq Z \leq \frac{b-\mu}{\sigma}\right )\\& = P \left (Z \leq \frac{b-\mu}{\sigma}\right ) - P \left (Z \leq \frac{a-\mu}{\sigma}\right )\\& = \Phi[(b-\mu)/\sigma]-\Phi[(a-\mu)/\sigma]\end{split}$$
 
 ]
 .panel[.panel-name[Graficamente]
@@ -1533,7 +1534,7 @@ Si vuole la probabilità di essere borderline per un maschio in quella classe di
 
 .panel[.panel-name[Soluzione]
 
-$$\begin{split}P(90 < X < 95)& = P \left ( \frac{90-80}{12} \leq Z \leq \frac{95-80}{12}\right )\\& = \Phi[1.25]-\Phi[0.83]\\& = 0.8944-0.7967\\& = 0.098\end{split}$$
+$$\begin{split}P(90 \leq X \leq 95)& = P \left ( \frac{90-80}{12} \leq Z \leq \frac{95-80}{12}\right )\\& = \Phi[1.25]-\Phi[0.83]\\& = 0.8944-0.7967\\& = 0.098\end{split}$$
 ]
 
 .panel[.panel-name[R Code]
