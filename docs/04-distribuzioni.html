@@ -16,7 +16,7 @@
     <link href="04-distribuzioni_files/xaringanExtra-clipboard/xaringanExtra-clipboard.css" rel="stylesheet" />
     <script src="04-distribuzioni_files/xaringanExtra-clipboard/xaringanExtra-clipboard.js"></script>
     <script>window.xaringanExtraClipboard(null, {"button":"Copy Code","success":"Copied!","error":"Press Ctrl+C to Copy"})</script>
-    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"e1fb925f53f54096a54bad1ce0a100c7","expires":1}</script>
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"x92b79065cf7414faa6040eead7a297c","expires":1}</script>
     <script src="04-distribuzioni_files/himalaya/himalaya.js"></script>
     <script src="04-distribuzioni_files/js-cookie/js.cookie.js"></script>
     <link href="04-distribuzioni_files/editable/editable.css" rel="stylesheet" />
@@ -171,16 +171,19 @@ class: inverse, hide-count
 
 # Cosa faremo
 
-Quello   ci interesseremo in questa lezione è di introdurre le 
+Quello di cui ci interesseremo in questa lezione è di introdurre le 
 principali distribuzioni di probabilità per eventi discreti, quali 
 .orange[processi binomiali], utili per rappresentare il numero di
 successi per eventi dicotomici con una data probabilità p di esito
 positivo, e .orange[processi di Poisson] utili a modellizzare
 il numero di eventi che è probabile osservare in un lasso di tempo
-stabilito.
+stabilito. Inoltre ci occuperemo anche delle distribuzioni utili a
+descrivere eventi continui, con particolare attenzione alle
+distribuzioni .orange[normale] e .orange[normale standard].
 
-Per ciascuno, vedremo come calcolare .orange[media] e .orange[varianza],
-oltre che qualche esempio concreto.
+Per ciascuna, oltre a qualche rapido cenno teorico, vedremo come
+calcolare .orange[media] e .orange[varianza], .orange[percentili] 
+(per le distribuzioni continue), oltre che qualche esempio concreto.
 
 ---
 class: hide-count
@@ -222,11 +225,11 @@ Distribuzione **binomiale** (ovvero per variabili con due soli possibili esiti)
 
 Distribuzione di **Poisson** (ovvero per varibili _conteggio_) e approssimazione della binomiale
 
-&lt;!-- **Modello** probabilistico per variabili continue: densità --&gt;
+**Modello** probabilistico per variabili continue: densità
 
-&lt;!-- Distribuzione **normale**, localizzazione, forma, simmetria, percentili, trasformazioni  --&gt;
+Distribuzione **normale**, localizzazione, forma, simmetria, percentili, trasformazioni
 
-&lt;!-- **Approssimazioni** alla Normale --&gt;
+**Approssimazioni** alla Normale
 
 
 
@@ -269,7 +272,7 @@ Una variabile casuale è una quantità che assume **valori differenti** con **sp
 
  
 
-&gt; Nota 2: **funzione**: una qualunque mappa/regola che associa **a ogni elemento** di un insieme (.orange[dominio] della funzione) **un unico elemento** di un un insieme (.orange[codominio] della funzione).
+&gt; Nota 2: **funzione**: una qualunque mappa/regola che associa **a ogni elemento** di un insieme (detto .orange[dominio] della funzione) **un unico elemento** di un insieme (detto .orange[codominio] della funzione).
 
 
 ---
@@ -379,16 +382,32 @@ Per la variabile `\(X =\)` _pazienti complianti al controllo dell'ipertensione_
 
 `$$E(X)=0(0.008)+1(0.076)+2(0.265)+3(0.411)+4(0.240) = 2.799$$`
 
+
+|  r| P(X=r)|
+|--:|------:|
+|  0|  0.008|
+|  1|  0.076|
+|  2|  0.265|
+|  3|  0.411|
+|  4|  0.240|
+
+
+```r
+sum(
+  ipertensione[["r"]] * ipertensione[["P(X=r)"]]
+)
+```
+
+```
+[1] 2.799
+```
+
+
 ]
 ]
 
 ---
 # .orange[Valore atteso]: esempio
-
-
-<div class="countdown" id="timer_6260b33e" style="bottom:10%;left:70%;" data-audio="true" data-warnwhen="1">
-<code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
 
 
 .panelset[
@@ -435,6 +454,11 @@ sum(otiti[["r"]] * otiti[["P(X=r)"]])
 
 ]
 ]
+
+<div class="countdown" id="timer_6272624b" style="bottom:15%;left:70%;" data-audio="true" data-warnwhen="1">
+<code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
 
 ---
 # .orange[Modelli discreti]: varianza
@@ -650,7 +674,7 @@ ggplot(db, aes(x = p, y = pq)) +
 
 .panel[.panel-name[Output]
 
-&lt;img src="04-distribuzioni_files/figure-html/unnamed-chunk-15-1.png" width="60%" /&gt;
+&lt;img src="04-distribuzioni_files/figure-html/unnamed-chunk-17-1.png" width="60%" /&gt;
 
 ]
 
@@ -690,7 +714,7 @@ ggplot(db, aes(x = k, y = `P(S=k)`,fill = p)) +
 
 .panel[.panel-name[Output]
 
-&lt;img src="04-distribuzioni_files/figure-html/unnamed-chunk-16-1.png" width="60%" /&gt;
+&lt;img src="04-distribuzioni_files/figure-html/unnamed-chunk-18-1.png" width="60%" /&gt;
 
 ]
 
@@ -793,7 +817,7 @@ ggplot(db, aes(n, `P(X=n)`, fill = mu)) +
 ]
 
 .panel[.panel-name[Grafici]
-&lt;img src="04-distribuzioni_files/figure-html/unnamed-chunk-18-1.png" width="60%" /&gt;
+&lt;img src="04-distribuzioni_files/figure-html/unnamed-chunk-20-1.png" width="60%" /&gt;
 ]
 ]
 
@@ -916,12 +940,871 @@ Un valore sufficientemente piccolo da far pensare ad una suscettibilità genetic
 
 
 
+
+---
+class: middle, hide-count, inverse
+
+# .center[.orange[Break]]
+
+Consigli: 
+- alzarsi
+- sgranchirsi
+- guardare _lontano_ (rilassare gli occhi)
+- bere
+- andare in bagno
+
+<div class="countdown" id="timer_627262fe" style="bottom:5%;left:65%;" data-audio="true" data-warnwhen="3">
+<code class="countdown-time"><span class="countdown-digits minutes">15</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+
+
+
+
+---
+class: inverse, middle
+
+# .center[Modello probabilistico per variabili **.orange[continue]**]
+
+- **densità**
+
+---
+# .orange[Modelli **continui**]
+
+La distribuzione di .orange[densità] di probabilità di una variabile casuale `\(X\)` è una **curva** tale per cui:
+
+- l'**area** sotto la curva, **compresa tra due punti** `\(a\)` e `\(b\)` è pari alla probabilità che la variabile casuale `\(X\)` assuma valore nell'intervallo `\((a,b)\)`
+
+- l'**area totale** sotto la curva è pari ad 1.
+
+---
+# .orange[Esempi]
+
+.panelset[
+.panel[.panel-name[Ipertensione]
+
+&lt;small&gt;
+Densità di probabilità per la DBP in un uomo di età 35-44. A, B, C sono rispettivamente Borderline, Moderatamente iperteso e Iperteso.
+
+&lt;img src="04-distribuzioni_files/figure-html/unnamed-chunk-26-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+
+&lt;/small&gt;
+]
+.panel[.panel-name[Trigliceridi]
+
+La ditribuzione dei trigliceridi è asimmetrica, con skewness positivo
+
+&lt;img src="04-distribuzioni_files/figure-html/unnamed-chunk-27-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+
+]
+]
+
+
+---
+# .orange[Probabilità **cumulativa**]
+
+La distribuzione di probabilità cumulativa di una variabile casuale `\(X\)` valutata in un punto `\(a\)` è pari alla probabilità che `\(X\)` prenda valori in `\(\leq a\)`.
+
+Rappresenta l'area sotto la curva alla sinistra di `\(a\)`
+
+
+### Esempio
+&lt;small&gt;
+La distribuzione cumulativa del peso alla nascita (once) valutata in 0.88 once è pari a `\(P(X\leq 88)\)` ed è pari all'area sotto la curva a sinistra di 88 once.
+Questo valore è usato come limite per possibili outcomes sfavorevoli nel primo anno di vita
+
+&lt;img src="04-distribuzioni_files/figure-html/unnamed-chunk-28-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+&lt;/small&gt;
+
+---
+# Valore .orange[atteso] e .orange[varianza]
+
+Il valore atteso, indicato con `\(E(X)\)`, o `\(\mu\)` è la **media** dei valori della variabile aleatoria `\(X\)`
+
+&lt;br&gt;
+
+La **varianza**, indicata con `\(\mbox{Var}(X)\)` o `\(\sigma^2\)`, è la media della distanza al quadrato di ogni valore della variabile aleatoria `\(X\)` dal suo valore atteso.
+
+&lt;br&gt;
+
+La **deviazione standard** è pari alla radice quadrata della varianza.
+
+
+
+
+---
+class: inverse, middle
+
+# .center[Distribuzione **.orange[normale]**]
+
+- **localizzazione**
+- **forma**
+- **simmetria**
+- **percentili**
+- **trasformazioni**
+
+
+
+
+
+
+---
+# Distribuzione .orange[Normale]: definizione
+
+
+La distribuzione normale è definita dalla sua distribuzione di densità di probabilità, pari a:
+
+`$$f(x) = \frac{1}{\sqrt{2\pi\sigma}}e^{-\frac{1}{2\sigma^2}(X-\mu)^2} \:\:\:\: -\infty&lt;x&lt;\infty$$`
+
+
+&lt;img src="04-distribuzioni_files/figure-html/unnamed-chunk-29-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+
+
+---
+# Distribuzione Normale: .orange[localizzazione]
+
+Una distribuzione normale con media `\(\mu\)` e varianza `\(\sigma^2\)` si indica come `\(N(\mu, \sigma^2)\)`.
+
+I suoi parametri modellano la locazione e la forma della distribuzione
+&lt;img src="04-distribuzioni_files/figure-html/unnamed-chunk-30-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+
+
+---
+# Distribuzione Normale: .orange[forma]
+
+
+
+&lt;img src="04-distribuzioni_files/figure-html/unnamed-chunk-31-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+
+---
+# Distribuzione Normale .orange[Standard]
+
+
+Una distribuzione normale con media 0 e varianza 1 si indica come distribuzione normale standard `\(N(0,1)\)` (o anche solo **Standard**)
+
+`$$f(x) = \frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}x^2} \:\:\:\: -\infty&lt;x&lt;\infty$$`
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+&gt; Memo: distribuzione Normale (generale):
+&gt;
+&gt; `$$f(x) = \frac{1}{\sqrt{2\pi\sigma}}e^{-\frac{1}{2\sigma^2}(X-\mu)^2} \:\:\:\: -\infty&lt;x&lt;\infty$$`
+
+
+---
+# Distribuzione Standard: .orange[simmetria]
+
+
+La distribuzione `\(N(0,1)\)` è simmetrica intorno allo `\(0\)`, avendo `\(f(x) = f(-x)\)`
+&lt;img src="04-distribuzioni_files/figure-html/unnamed-chunk-32-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+
+
+
+
+---
+## Distribuzione Standard: valori notevoli
+
+- circa il 68% dell'area cade tra `\(+1\)` e `\(-1\)`
+- circa il 95% dell'area cade tra `\(+2\)` e `\(-2\)`
+- circa il 99% dell'area cade tra `\(+2.5\)` e `\(-2.5\)`
+
+&lt;img src="04-distribuzioni_files/figure-html/unnamed-chunk-33-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+&gt; (Spoiler: percentili?...)
+
+---
+## Distribuzone Standard: cumulativa
+
+La distribuzione cumulativa di una normale standard è indicata da
+
+`\(\Phi(x) = P(X\leq x)\)`
+
+dove `\(X\)` segue una distribuzione `\(N(0,1)\)`
+
+&lt;img src="04-distribuzioni_files/figure-html/unnamed-chunk-34-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+
+---
+# Distribuzione cumulativa Standard: applicazione
+
+La rappresentazione cumulativa può aiutare a calcolare le probabilità di una `\(N(0,1)\)`
+
+Si calcoli `\(P(X \leq 1.96)\)` e `\(P(\leq 1)\)`
+si ha che
+
+.pull-left[
+`$$\Phi(1.96) = 0.975 \:\:\:\:  \Phi(1) = 0.8413$$`
+
+]
+.pull-right[
+
+```r
+pnorm(c(1.96, 1))
+```
+
+```
+[1] 0.9750021 0.8413447
+```
+]
+
+.center[
+&lt;img src="04-distribuzioni_files/figure-html/unnamed-chunk-36-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+### Distribuzione Standard: strategia simmetrica
+
+Per la simmetria si ha che
+
+`$$\Phi(-x)=P(X\leq -x) = P(X \geq x) = 1-P(X\leq x) = 1-\Phi(x)$$`
+
+&lt;img src="04-distribuzioni_files/figure-html/unnamed-chunk-37-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+
+---
+### Strategia: esempio
+
+Per calcolare `\(P(X \leq -1.96)\)` si ha che:
+
+
+`$$\Phi(-1.96) = P(X\geq 1.96) = 1 - P(X\leq 1.96) = 0.0250$$`
+
+
+```r
+pnorm(1.96)
+```
+
+```
+[1] 0.9750021
+```
+
+```r
+1 - pnorm(1.96)
+```
+
+```
+[1] 0.0249979
+```
+
+```r
+pnorm(-1.96)
+```
+
+```
+[1] 0.0249979
+```
+
+---
+### Normale Standard: .orange[FVC]
+&lt;small&gt;
+
+La **capacità vitale forzata** (FVC) è una misura di funzionalità polmonare ed è misurata dalla quantità d'aria che una persona riesce ad espellere in 6 secondi.
+
+Si fa riferimento ad una FVC standard per ovviare a elementi di confondimento (età, fumo, ...).
+
+Un bambino è considerato a rischio se con un a FVC a più di 1.5 deviazioni standard inferiore alla media.
+
+Allora, **sotto l'ipotesi che lo scarto dalla FVC si distribuisca come una Normale Standard**, possiamo calcolare con quel probabilità posiamo trovare valori più estremi, ovvero:
+
+`$$P(X \leq -1.5) = P(X \geq 1.5) = 0.0668$$`
+
+Ovvero, possiamo ipotizzare che circa il 7% dei bambini siano in condizioni polmonari compromesse
+
+
+
+.panelset[
+.panel[.panel-name[Problema]
+Di prassi, un bambino sarà considerato con un sistema polmonare _normale_ se presenta una FVC entro un range di 1.5 deviazioni standard dalla media standardizzata.
+
+&gt; Con quale probabilità potremmo incontrare bambini con un sistema polmonare _normale_?
+
+]
+.panel[.panel-name[Soluzione]
+`$$\begin{split}P(-1.5 \leq X \leq 1.5)&amp; = 1 - (P(-1.5 \leq X) + P(X \geq 1.5))\\&amp; = 1 - 2*P(X \leq -1.5)\\&amp; = 1 - 2 * 0.0668\\&amp; = 0.8664\end{split}$$`
+
+]
+.panel[.panel-name[R Code]
+
+
+```r
+1 - 2 * pnorm(-1.5)
+```
+
+```
+[1] 0.8663856
+```
+
+]
+
+]
+
+
+<div class="countdown" id="timer_62726354" style="bottom:5%;left:65%;" data-audio="true" data-warnwhen="30">
+<code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+
+
+&lt;small&gt;
+
+
+
+
+---
+# Distribuzione Normale: .orange[percentili]
+
+Il `\(100-p\)` percentile di una normale standard è indicato con `\(z_p\)` ed è definito dalla relazione
+
+`$$P(X &lt; z_p)=p$$`
+
+&lt;img src="04-distribuzioni_files/figure-html/unnamed-chunk-41-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+
+
+---
+# Percentili Standard: .orange[calcolo]
+
+Per trovare `\(z_p\)` si deve trovare l'area `\(p\)` e quindi trovare il valore che corrisponde a tale area.
+
+Se `\(p &lt; 0.5\)` ( `\(z_p &lt; 0\)` ) è utile usare la .orange[simmetria della distribuzione] per ottenere `\(z_p = -z_{1-p}\)`, dove `\(1-p &gt; 0.5\)` ($z_{1-p} &gt; 0$ ) può essere spesso ottenuto dai valori comuni/noti come per esempio:
+
+`$$z_{.975}=1.96 \:\:\:\: z_{.95}=1.645 \:\:\:\: z_{.5}=0 \:\:\:\: z_{.025}=-1.96$$`
+
+
+
+---
+## Normale Standard: .orange[trasformazioni]
+
+.panelset[
+.panel[.panel-name[Analiticamente]
+
+**Se**: 
+- `\(X \sim N(\mu, \sigma^2)\)`
+- `\(Z = \frac{X-\mu}{\sigma}\)`
+
+
+**Allora**: `\(Z \sim N(0,1)\)`
+
+**E vale dunque**:
+
+`$$\begin{split}P(a \leq X \leq b)&amp; = P \left ( \frac{a-\mu}{\sigma} \leq Z \leq \frac{b-\mu}{\sigma}\right )\\&amp; = P \left (Z \leq \frac{b-\mu}{\sigma}\right ) - P \left ( \frac{a-\mu}{\sigma} \leq Z\right )\\&amp; = \Phi[(b-\mu)/\sigma]-\Phi[(a-\mu)/\sigma]\end{split}$$`
+
+]
+.panel[.panel-name[Graficamente]
+
+&lt;img src="04-distribuzioni_files/figure-html/unnamed-chunk-42-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+]
+
+---
+# Caso di studio: .orange[ipertensione]
+
+.panelset[
+.panel[.panel-name[Problema]
+Una persona borderline per ipertensione è definita come una DBP compresa tra 90 e 95 mm Hg. Nei maschi tra i 35 ed i 44 anni la DBP è distribuita normalmente con media 80 e varianza 144
+Si vuole la probabilità di essere borderline per un maschio in quella classe di età
+]
+
+.panel[.panel-name[Soluzione]
+
+`$$\begin{split}P(90 &lt; X &lt; 95)&amp; = P \left ( \frac{90-80}{12} \leq Z \leq \frac{95-80}{12}\right )\\&amp; = \Phi[1.25]-\Phi[0.83]\\&amp; = 0.8944-0.7967\\&amp; = 0.098\end{split}$$`
+]
+
+.panel[.panel-name[R Code]
+
+```r
+pnorm(c(1.25, 0.83))
+```
+
+```
+[1] 0.8943502 0.7967306
+```
+
+```r
+pnorm(1.25) - pnorm(0.83)
+```
+
+```
+[1] 0.09761962
+```
+]
+]
+
+
+<div class="countdown" id="timer_627262c6" style="bottom:5%;left:65%;" data-audio="true" data-warnwhen="30">
+<code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+
+
+
+
+
+---
+# Caso di studio: .orange[diametri del tronco]
+.panelset[
+.panel[.panel-name[Problema]
+Si supponga che i diametri di alcuni arbusti siano distribuiti normalmente con media 8 cm e deviazione standard 2 cm.
+
+La probabilità per un arbusto di avere un diametro eccezionalmente grande ( `\(&gt; 12 cm\)` ) è pari a?
+
+]
+
+.panel[.panel-name[Soluzione]
+
+`$$\begin{split}P(X &gt; 12)&amp; = 1 - P \left ( Z &lt; \frac{12-8}{2}\right )\\&amp; = 1-\Phi[2]\\&amp; = 1-0.977\\&amp; = 0.023
+\end{split}$$`
+]
+
+.panel[.panel-name[R Code]
+
+```r
+zp &lt;- (12 - 8) / 2
+zp # &gt; 0.5
+```
+
+```
+[1] 2
+```
+
+```r
+pnorm(zp)
+```
+
+```
+[1] 0.9772499
+```
+
+```r
+1 - pnorm(zp)
+```
+
+```
+[1] 0.02275013
+```
+]
+]
+
+<div class="countdown" id="timer_62726453" style="bottom:5%;left:65%;" data-audio="true" data-warnwhen="30">
+<code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+
+
+
+
+
+
+---
+# Caso di studio: .orange[pressione vascolare cerebrale]
+
+.panelset[
+.panel[.panel-name[Problema]
+Nella popolazione generale la pressione vascolare cerebrale CBF é distribuita con media 75 e deviazione standard 17. Un paziente é definito a rischio di stroke se ha una CBF `\(&lt;\)` 40.
+
+La probabilità di essere a rischio è pari a?
+]
+
+.panel[.panel-name[Soluzione]
+`$$\begin{split}P(X &lt; 40)&amp; = P \left ( Z &lt; \frac{40-75}{17}\right )\\&amp;= \Phi[-2.059]\\&amp; = 1-\Phi[2.059]\\&amp; = 1-0.98\\&amp; = 0.02\end{split}$$`
+]
+
+.panel[.panel-name[R Code]
+
+
+```r
+zp &lt;- (40 - 75) / 17
+zp # &lt; 0
+```
+
+```
+[1] -2.058824
+```
+
+```r
+1 - pnorm(-zp)
+```
+
+```
+[1] 0.01975557
+```
+
+]
+]
+
+
+<div class="countdown" id="timer_62726336" style="bottom:5%;left:65%;" data-audio="true" data-warnwhen="30">
+<code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+
+
+
+
+---
+# Caso di studio: .orange[glaucoma]
+
+
+.panelset[
+.panel[.panel-name[Problema]
+
+Il glaucoma è una malattia che si presenta con una pressione intraoculare eccessiva. Nella popolazione generale, la pressione intraoculare è normale con media 16 mm Hg e dieviazione standard 3 mm Hg.
+
+Se il range di normalità è tra i 12 ed i 20 mm Hg, la probabilità di essere normali è pari a?
+]
+
+.panel[.panel-name[Soluzione]
+`$$\begin{split}P(12 &lt; X &lt; 20)&amp; = P \left (\frac{12-16}{3}&lt; Z &lt; \frac{20-16}{3}\right )\\&amp; = \Phi[4/3]-\Phi[-4/3]\\&amp; = \Phi[1.33]-(1-\Phi[1.33])\\&amp; = 0.8175776\end{split}$$`
+]
+
+.panel[.panel-name[R Code]
+
+
+```r
+zp_high &lt;- (20 - 16) / 3
+zp_low &lt;- (12 - 16) / 3
+zp_low # &lt; 0 (zp_low = -zp_high)
+```
+
+```
+[1] -1.333333
+```
+
+```r
+pnorm(zp_high) - (1 - pnorm(zp_high))
+```
+
+```
+[1] 0.8175776
+```
+
+```r
+pnorm(zp_high) - pnorm(zp_low)
+```
+
+```
+[1] 0.8175776
+```
+
+
+]
+
+.panel[.panel-name[grafico]
+&lt;img src="04-distribuzioni_files/figure-html/unnamed-chunk-50-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+]
+
+
+<div class="countdown" id="timer_62726464" style="bottom:5%;left:65%;" data-audio="true" data-warnwhen="30">
+<code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+---
+class: inverse, middle
+
+# .center[**.orange[Approssimazioni]** alla distribuzione normale]
+
+
+---
+# Approssimazione alla Normale: Binomiale
+
+
+.panelset[
+.panel[.panel-name[Approssimazione]
+
+Se `\(X\)` è una variabile aleatoria binomiale di parametri `\(n\)` (successi) e `\(p\)` (probabilità di successo), allora `\(P(a \leq X\leq b)\)` è approssimata dall'area sotto una curva normale `\(N(np, npq)\)` tra `\(a-1/2\)` e `\(b+1/2\)`.
+
+
+La regola implica che per il caso speciale `\(P(X=a)\)` la probabilità binomiale è approssimata dall'area sotto la curva normale tra `\(a-1/2\)` e `\(a+1/2\)`.
+
+Unica eccezione il caso `\(P(X=0)\)` e `\(P(X=n)\)` in cui queste probabilità sono approssimate dall'area sotto la curva normale alla sinistra di `\(1/2\)` e alla destra di `\(n-1/2\)`
+
+&gt; NOTA: La distribuzione normale di media `\(np\)` e varianza `\(npq\)` si può usare per approssimare una binomiale con analoghi parametri quando
+&gt; `$$npq \geq 5$$`
+
+
+
+]
+
+.panel[.panel-name[Grafico]
+
+
+&lt;img src="04-distribuzioni_files/figure-html/unnamed-chunk-52-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+]
+
+
+
+---
+# Approssimazione alla Normale: somma di v.a.
+
+Se `\(N\)` è grande, allora la somma di `\(N\)` v.a. qualsiasi è .orange[approssimativamente normale]
+
+### Esempio
+
+Una v.a. di Bernoulli è una v.a. Binomiale con parametro `\(p\)` ed `\(n = 1\)`
+
+In questo caso, `\(X_1, \ldots, X_n\)` sono il risultato di `\(n\)` prove di Bernoulli. Il valore atteso del numero di successi in `\(n\)` prove è pari a
+
+`$$E(X)=E(\sum_{i=1}^n X_i)= p+\ldots+p=np$$`
+
+`$$\mbox{var}(X_i)=pq+\ldots+pq=npq$$`
+Ovvero attesa e varianza della binomiale (si distribuisce come una `\(N(np, npq)\)`)
+
+
+
+---
+# Approssimazione alla Normale: esempio
+
+.panelset[
+.panel[.panel-name[Problema]
+
+**Si supponga che**:
+- `\(X\)` sia Binomiale di parametro `\(n=25\)` e `\(p=0.4\)`
+
+**Si calcoli**:  
+- `\(P(7 \leq X \leq 12)\)`
+
+]
+.panel[.panel-name[Soluzione]
+
+Si ha che `\(np = 25 * 0.4 = 10\)`, `\(npq = 25 * 0.4 * 0.6 = 6\)`, quindi la distribuzione approssimante è una normale `\(N(10,6)\)`. Si vuole allora calcolare l'area sotto la curva da `\(6.5\)` a `\(12.5\)`.
+
+`$$\begin{split}P(6.5 \leq Y \leq 12.5)&amp; = \Phi\left(\frac{12.5-10}{\sqrt{6}} \right)-\Phi\left(\frac{6.5-10}{\sqrt{6}} \right)\\&amp; = \Phi(1.02)-\Phi(-1.43)\\&amp; = \Phi(1.02)-[1-\Phi(1.43)]\\&amp; = \Phi(1.02)+\Phi(1.43)-1\\&amp; = 0.8463 + 0.9235 - 1\\&amp; = 0.770\end{split}$$`
+]
+.panel[.panel-name[R Code]
+
+
+```r
+n &lt;- 25
+p &lt;- 0.4
+np &lt;- n * p
+npq &lt;- np * (1 - p)
+sigma &lt;- sqrt(npq)
+  
+yp_high &lt;-  12 + 0.5
+yp_low &lt;-  7 - 0.5
+
+zp_high &lt;- (yp_high - np) / sigma
+zp_low &lt;- (yp_low - np) / sigma
+zp_low # &lt; 0
+```
+
+```
+[1] -1.428869
+```
+
+```r
+pnorm(zp_high) - (1 - pnorm(-zp_low))
+```
+
+```
+[1] 0.769762
+```
+
+
+]
+.panel[.panel-name[Grafico]
+&lt;img src="04-distribuzioni_files/figure-html/unnamed-chunk-54-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+]
+
+
+<div class="countdown" id="timer_62726473" style="bottom:5%;left:65%;" data-audio="true" data-warnwhen="30">
+<code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+
+
+---
+# Approssimazione alla Normale: esempio 2
+
+.panelset[
+.panel[.panel-name[Problema]
+
+Si supponga di voler calcolare la probabilità che di 100 granulociti, ce ne siano tra 50 e 75 neutrofili, dove la probabilità che una cellula sia un neutrofilo è pari a 0.6.
+
+
+
+]
+
+.panel[.panel-name[Soluzione]
+
+La probabilità esatta è
+
+`$$\sum_{k=50}^{75}\binom{100}{k} 0.6^k 0.4^{100-k}$$`
+
+che può essere approssimata da una distribuzione normale di parametro 
+
+`\(np=100 * 0.6 = 60\)` e `\(npq = 100 * 0.6 * 0.4 = 24\)` tra 49.5 e 75.5.
+
+`$$\begin{split}\Phi\left(\frac{75.5-60}{\sqrt{24}} \right)-\Phi\left(\frac{49.5-60}{\sqrt{24}} \right)&amp; = \Phi(3.6)-\Phi(-2.14)\\&amp; = \Phi(3.16)-\Phi(2.14)-1\\&amp; = 0.992 - 0.984 - 1\\&amp; = 0.983\end{split}$$`
+]
+
+
+.panel[.panel-name[R Code]
+
+```r
+np &lt;- 100 * 0.6 # 60
+npq &lt;- np * (1 - 0.6)
+sigma &lt;- sqrt(npq)
+
+yp_low &lt;- 50 - 0.5 # 45
+yp_high &lt;- 75 + 0.5
+
+zp_low &lt;- (yp_low - np) / sigma # &lt; 0
+zp_high &lt;- (yp_high - np) / sigma
+
+pnorm(zp_high) - (1 - pnorm(-zp_low))
+```
+
+```
+[1] 0.9831773
+```
+
+
+]
+
+
+]
+
+
+<div class="countdown" id="timer_62726270" style="bottom:32%;left:65%;" data-audio="true" data-warnwhen="30">
+<code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+
+
+
+
+
+
+
+
+---
+# Approssimazione alla Normale: esempio 3
+
+.panelset[
+.panel[.panel-name[Problema]
+
+Si definisca una persona come anormale se il numero di neutrofili è superiore a 75 o inferiore a 50.
+
+Stimare la percentuale di soggetti anormali
+
+]
+
+.panel[.panel-name[Soluzione]
+
+La percentuale di soggetti anormali può essere stimata con la approssimazione normale
+
+
+`$$1-\Phi\left(\frac{75.5-60}{\sqrt{24}} \right)=1-\Phi(3.16)=0.01$$`
+`$$\Phi\left(\frac{49.5-60}{\sqrt{24}} \right)=\Phi(-2.14)=1-0.9840=0.016$$`
+
+]
+
+
+.panel[.panel-name[R Code]
+
+```r
+np &lt;- 100 * 0.6 # 60
+npq &lt;- np * (1 - 0.6)
+sigma &lt;- sqrt(npq)
+
+yp_low &lt;- 50 - 0.5 # 45
+yp_high &lt;- 75 + 0.5
+
+zp_low &lt;- (yp_low - np) / sigma # &lt; 0
+zp_high &lt;- (yp_high - np) / sigma
+
+(1 - pnorm(zp_high)) + (1 - pnorm(-zp_low))
+```
+
+```
+[1] 0.01682265
+```
+
+
+]
+
+.panel[.panel-name[Grafico]
+
+&lt;img src="04-distribuzioni_files/figure-html/unnamed-chunk-59-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+]
+
+
+<div class="countdown" id="timer_62726357" style="bottom:4%;left:65%;" data-audio="true" data-warnwhen="30">
+<code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+
+
+
+
+
+
+
 ---
 class: middle, center, hide-count, inverse
 
 # .orange[link al _vostro_ cloud:]
 
 [https://bit.ly/tpall22-feltre-rscloud](https://bit.ly/tpall22-feltre-rscloud)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ---
@@ -1029,6 +1912,19 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     deleted = true;
   });
 })();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
 (function() {
   "use strict"
   // Replace <script> tags in slides area to make them executable
