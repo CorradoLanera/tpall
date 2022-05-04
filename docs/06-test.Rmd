@@ -12,6 +12,7 @@ output:
       highlightLines: true
       countIncrementalSlides: false
     css: xaringan-themer.css
+    self_contained: true
 ---
 class: center, middle, bg_title, hide-count
 
@@ -180,22 +181,72 @@ Corrado Lanera | [**Unità di Biostatistica, Epidemiologia e Salute Pubblic**](h
 
 
 
-
-
 ---
 class: inverse, hide-count
 
 # Cosa faremo
 
+Quello di cui ci interesseremo in questa lezione è di introdurre le 
+principali distribuzioni di probabilità per eventi discreti, quali 
+.orange[processi binomiali], utili per rappresentare il numero di
+successi per eventi dicotomici con una data probabilità p di esito
+positivo, e .orange[processi di Poisson] utili a modellizzare
+il numero di eventi che è probabile osservare in un lasso di tempo
+stabilito. Inoltre ci occuperemo anche delle distribuzioni utili a
+descrivere eventi continui, con particolare attenzione alle
+distribuzioni .orange[normale] e .orange[normale standard].
+
+Per ciascuna, oltre a qualche rapido cenno teorico, vedremo come
+calcolare .orange[media] e .orange[varianza], .orange[percentili] 
+(per le distribuzioni continue), oltre che qualche esempio concreto.
+
+---
+class: hide-count
+
+# .orange[Riconoscimenti]
+
+- Le diapositive proposte sono state prodotte a partire anche da
+  materiale generato da/con le seguenti persone gravitanti attorno
+  l'UBEP*:
+  
+  + Danila Azzolina
+  + Dario Gregori
+  + Giulia Lorenzoni
+  + Ileana Baldi
+  + Luca Vedovelli
+  + Matteo Martinato
+  + Paola Berchialla
+
+<br><br>
+<small>
+.right[\* In ordine alfabetico.]
+</small>
+
+<br><br>
+
+> Un ringraziamento speciale a Cristiana Vettori e a Mariasole Rizzi per
+l'aiuto e il supporto logistico e amministrativo che mi è stato offerto,
+e ad Andrea Francavilla per avermi aiutato nella revisione del
+materiale.
 
 ---
 class: inverse, middle
 
 # .center[**.orange[Panoramica]**]
 
-**First** topic
+**Modello** probabilistico per variabili discrete: massa, valore atteso e varianza 
 
-**Second** topic
+Distribuzione **binomiale** (ovvero per variabili con due soli possibili esiti)
+
+Distribuzione di **Poisson** (ovvero per varibili _conteggio_) e approssimazione della binomiale
+
+**Modello** probabilistico per variabili continue: densità
+
+Distribuzione **normale**, localizzazione, forma, simmetria, percentili, trasformazioni
+
+**Approssimazioni** alla Normale
+
+
 
 
 
@@ -207,45 +258,63 @@ class: inverse, middle
 ---
 class: inverse, middle
 
-# .center[**.orange[First] topic**]
+# .center[Modelli (probabilistici) **.orange[discreti]**]
 
-- **one**
+- **Massa**
 
-- **two**
+- **Valore atteso**
 
-
-
----
-# .orange[One]: a
+- **Varianza**
 
 
----
-# .orange[One]: b
 
 
----
-# .orange[Two]: a
 
 
----
-# .center[**.orange[Second] topic**]
-
-- **one**
-
-- **two**
 
 
 
 ---
-# .orange[One]: a
+class: middle, hide-count, inverse
+
+# .center[.orange[Break]]
+
+Consigli: 
+- alzarsi
+- sgranchirsi
+- guardare _lontano_ (rilassare gli occhi)
+- bere
+- andare in bagno
+
+```{r, echo = FALSE}
+countdown(minutes = 15, warn_when = 3, play_sound = TRUE,
+          left = "65%", bottom = "5%")
+```
 
 
----
-# .orange[One]: b
+
+.panelset[
+.panel[.panel-name[A]
+
+]
+
+.panel[.panel-name[B]
+
+]
+
+.panel[.panel-name[C]
+
+]
+
+]
 
 
----
-# .orange[Two]: a
+
+
+
+
+
+
 
 
 
