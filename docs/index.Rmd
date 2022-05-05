@@ -172,7 +172,7 @@ Feltre, a.a. 2021/2022 - 20 ore (2 crediti)
 2022/04/07-20 | Descrittive              | [02-descrittive](02-descrittive.html)
 2022/04/21    | Probabilità              | [03-probabilità](03-probabilità.html)
 2022/05/04    | Distribuzioni            | [04-distribuzioni](04-distribuzioni.html)
-2022/05/05    | Inferenza, CI e test     | [05-ic_test](05-ic_test.html)
+2022/05/05    | Inferenza, IC e p-value  | [05-ic_p](05-ic_p.html)
 
 </small>
 
