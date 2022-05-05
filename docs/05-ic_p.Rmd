@@ -192,7 +192,7 @@ In seguito ci occuperemo di capire come avere una misura di **.orange[precisione
 
 Dopo aver proposto degli esempi e fatto qualche osservazione in merito, introdurremo la distribuzione **.orange[t di Student]**, utile quando la varianza della popolazione non è nota.
 
-Introdurremo quindi il concetto di **.orange[test d'ipotesi]** e di *p-value*.
+Introdurremo quindi il concetto di **.orange[test d'ipotesi]**, delle tipologie di errore, e di **p-value**. Vedremo quindi come questi concetti si legano a quello degli intervalli di confidenza.
 
 
 ---
@@ -241,6 +241,7 @@ Distribuzione **.orange[t di Student]**
 
 **.orange[Test d'ipotesi]**: errori del I e II tipo, **p-value**
 
+Relazione tra p-value e IC
 
 ---
 class: inverse, middle
@@ -256,7 +257,7 @@ class: inverse, middle
 ---
 # .orange[Inferenza]: di cosa si tratta
 
-dato un insieme di osservazioni definito **campione**, si vuole derivare una conoscenza della distribuzione di probabilità che ha generato i dati osservati (generalmente per estrapolare informazioni sulle _non-osservazioni_ della stessa popolazione)
+Dato un insieme di osservazioni definito **campione**, si vuole derivare una conoscenza della distribuzione di probabilità che ha generato i dati osservati (generalmente per estrapolare informazioni sulle _non-osservazioni_ della stessa popolazione)
 
 
 ---
@@ -731,7 +732,7 @@ $$\mbox{P}(-2.262\leq T\leq 2.262)= 0.95$$
 
 ripercorrendo i passaggi del caso con varianza nota si ottiene che l'intervallo di confidenza al 95% è pari a
 
-$$\left (\bar{X} -2.262 \frac{s}{\sqrt{10}} \leq \mu \leq \bar{X} + 2.262 \frac{s}{\sqrt{10}} \right )$$
+$$\left (\bar{x} -2.262 \frac{s}{\sqrt{10}} \leq \mu \leq \bar{x} + 2.262 \frac{s}{\sqrt{10}} \right )$$
 
 In cui $2.262 = t_{9, 0.975} = t_{d,p}$ essendo $\alpha = 0.05$ e $p = 1-\frac{\alpha}{2} = 0.975$
 
@@ -741,7 +742,7 @@ Un intervallo di confidenza al 95% per $\mu$ quando $\sigma^2$ è ignoto
 è dato da
 
 
-$$\left ( \bar{X} - t_{n-1,1-\frac{\alpha}{2}} \frac{s}{\sqrt{n}}; \bar{X} + t_{n-1,1-\frac{\alpha}{2}}
+$$\left ( \bar{x} - t_{n-1,1-\frac{\alpha}{2}} \frac{s}{\sqrt{n}}; \bar{x} + t_{n-1,1-\frac{\alpha}{2}}
 \frac{s}{\sqrt{n}} \right )$$
 
 ]
@@ -749,7 +750,7 @@ $$\left ( \bar{X} - t_{n-1,1-\frac{\alpha}{2}} \frac{s}{\sqrt{n}}; \bar{X} + t_{
 
 Nel caso del campione 1 si ha:
 
-- $\bar{X} = 116.90$
+- $\bar{x} = 116.90$
 - $n = 10$
 - $s = 21.7$
 - $\alpha = 0.5$
@@ -760,7 +761,7 @@ ovvero $(101.38; 132.42)$
 
 In generale, si avrà l'intervallo
 
-$$\left (\bar{X} - t_{\frac{\alpha}{2}; n-1} \frac{s}{\sqrt{n}} \leq \mu \leq \bar{X} + t_{\frac{\alpha}{2}; n-1} \frac{s}{\sqrt{n}} \right )$$
+$$\left (\bar{x} - t_{\frac{\alpha}{2}; n-1} \frac{s}{\sqrt{n}} \leq \mu \leq \bar{x} + t_{\frac{\alpha}{2}; n-1} \frac{s}{\sqrt{n}} \right )$$
 
 
 ]
@@ -880,7 +881,7 @@ Il primo passo è individuare la statistica test, che nel caso specifico $\bar{X
 
 
 
-$$\alpha = P (Errore\ I\ specie|H_0)= P \left [ \bar{x}<c|\bar{x}\sim N\left ( \mu_0,\frac{\sigma^2}{n} \right ) \right ]= \Phi \left ( \frac{c-\mu_0}{\frac{\sigma}{\sqrt{n}}} \right )$$
+$$\alpha = P (Errore\ I\ specie|H_0)= P \left [ \bar{X}<c|\bar{X}\sim N\left ( \mu_0,\frac{\sigma^2}{n} \right ) \right ]= \Phi \left ( \frac{c-\mu_0}{\frac{\sigma}{\sqrt{n}}} \right )$$
 
 
 
@@ -911,8 +912,8 @@ Per testare l'ipotesi:
 
 il test uniformemente più potente è basato su $\bar{X}$
 
-- se $\bar{X}<\mu_0+z_{\alpha}\frac{\sigma}{\sqrt{n}}$ si rifiuta 
-- se $\bar{X}\geq\mu_0+z_{\alpha}\frac{\sigma}{\sqrt{n}}$ si accetta 
+- se $\bar{x}<\mu_0+z_{\alpha}\frac{\sigma}{\sqrt{n}}$ si rifiuta 
+- se $\bar{x}\geq\mu_0+z_{\alpha}\frac{\sigma}{\sqrt{n}}$ si accetta 
 ]
 ]
 
@@ -931,7 +932,7 @@ Il peso medio dei 100 nati è di 115 oz con una deviazione standard campionaria 
 
 Ad un livello di significatività di 0.05, si ha $z_{\alpha}=-1.645$, e la regione critica è pari a 
 
-$$\bar{X}=120-1.645\frac{25}{10}=115.89$$
+$$\bar{x}=120-1.645\frac{25}{10}=115.89$$
 
 quindi, poiché $\bar{X}<115.89$ si rifiuta $H_0$ ad un livello di significatività di 0.05
 
@@ -957,10 +958,10 @@ Per testare l'ipotesi:
 
 si calcola
 
-$$Z=\frac{\bar{X}-\mu_0}{\frac{\sigma}{\sqrt{n}}}$$
+$$z=\frac{\bar{x}-\mu_0}{\frac{\sigma}{\sqrt{n}}}$$
 
-- se $Z<Z_{\alpha}$ si rifiuta $H_0$
-- se $Z\geq Z_{\alpha}$ non si rifiuta $H_0$
+- se $z<z_{\alpha}$ si rifiuta $H_0$
+- se $z\geq z_{\alpha}$ non si rifiuta $H_0$
 
 
 ]
@@ -1038,14 +1039,14 @@ Si supponga che in un campione di 10 bambini il livello di colesterolo sia pari 
 - $H_0:\mu=175$; $\sigma=50$
 - $H_1:\mu>175$; $\sigma=50$
 
-si ha che $Z=\frac{\bar{X}-\mu_0}{\frac{\sigma}{\sqrt{n}}}=\frac{200-175}{\frac{50}{\sqrt{10}}}=1.58$
+si ha che $z=\frac{\bar{x}-\mu_0}{\frac{\sigma}{\sqrt{n}}}=\frac{200-175}{\frac{50}{\sqrt{10}}}=1.58$
 
-Visto che $1.58=Z<Z_{1-\alpha}=Z_{.95}=1.645$ non si rifiuta $H_0$, con un $p-value$ pari a
+Visto che $1.58=z<z_{1-\alpha}=z_{.95}=1.645$ non si rifiuta $H_0$, con un $p-value$ pari a
 
-$$p=1-\Phi(Z)=1-\Phi(1.58)=1-0.9431=0.057$$
+$$p=1-\Phi(z)=1-\Phi(1.58)=1-0.9431=0.057$$
 
 
-
+zz
 ---
 # Test: due code
 
@@ -1072,12 +1073,11 @@ Si test quindi l'ipotesi
 - $H_1:\mu\neq\mu_0$; $\sigma=\sigma_0$
 
 si calcola
-\[
-Z=\frac{\bar{X}-\mu_0}{\frac{\sigma}{\sqrt{n}}}
-\]
 
-- se $Z\leq Z_{\frac{\alpha}{2}}$ o $Z > Z_{1-\frac{\alpha}{2}}$ si rifiuta $H_0$
-- se $Z_{\frac{\alpha}{2}}<Z< Z_{1-\frac{\alpha}{2}}$ non si rifiuta $H_0$
+$$z=\frac{\bar{x}-\mu_0}{\frac{\sigma}{\sqrt{n}}}$$
+
+- se $z\leq Z_{\frac{\alpha}{2}}$ o $z > Z_{1-\frac{\alpha}{2}}$ si rifiuta $H_0$
+- se $z_{\frac{\alpha}{2}}< z < z_{1-\frac{\alpha}{2}}$ non si rifiuta $H_0$
 
 
 ]
@@ -1101,7 +1101,7 @@ Si considera quindi un campione di 100 donne con le caratteristiche specificate 
 - $H_0:\mu=190$; $\sigma=40$
 - $H_1:\mu\neq 190$; $\sigma=40$ 
 
-$$Z=\frac{\bar{X}-\mu_0}{\frac{\sigma}{\sqrt{n}}}=\frac{181.5-190}{\frac{40}{\sqrt{100}}}=-2.12$$
+$$z=\frac{\bar{X}-\mu_0}{\frac{\sigma}{\sqrt{n}}}=\frac{181.5-190}{\frac{40}{\sqrt{100}}}=-2.12$$
 
 Per un test a livello di significatività dello 0.05 i valori critici sono $Z_{0.975}=1.96$ e $Z_{0.025}=-1.96$, per cui, visto che $Z=-2.12<-1.96$ rifiuto $H_0$.
 
@@ -1130,7 +1130,7 @@ knitr::include_graphics("img/img5.png")
 #### Colesterolo negli immigrati asiatici
 Si calcola
 
-$$Z=\frac{\bar{X}-\mu_0}{\frac{\sigma}{\sqrt{n}}}=-2.12$$
+$$z=\frac{\bar{x}-\mu_0}{\frac{\sigma}{\sqrt{n}}}=-2.12$$
 
 da cui
 
@@ -1185,7 +1185,7 @@ Si vuole studiare l'effetto dell'attività lavorativa (con conseguente esposizio
 
 si calcola
 
-$$t=\frac{\bar{X}-\mu_0}{\frac{s}{\sqrt{n}}}=\frac{0.27-0.10}{\frac{0.32}{\sqrt{26}}}=2.70$$
+$$t=\frac{\bar{x}-\mu_0}{\frac{s}{\sqrt{n}}}=\frac{0.27-0.10}{\frac{0.32}{\sqrt{26}}}=2.70$$
 
 Sotto ipotesi nulla, si ha che $p(t_{25}>2.70)=0.0061$, per cui $p-value=0.012$
 
