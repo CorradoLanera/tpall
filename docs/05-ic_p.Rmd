@@ -1001,7 +1001,7 @@ ovvero si ha un $p-value$ pari a $p=\Phi(z)$
 ]
 .pull-right[
 ```{r echo=FALSE, fig.align = 'center', out.width="100%"}
-knitr::include_graphics("img/img2 (2).png")
+knitr::include_graphics("img/img2.2.png")
 ```
 ]
 ]
@@ -1023,7 +1023,7 @@ ovvero si ha un $p-value$ pari a $p=1-\Phi(z)$
 ]
 .pull-right[
 ```{r echo=FALSE, fig.align = 'center', out.width="100%"}
-knitr::include_graphics("img/img3 (2).png")
+knitr::include_graphics("img/img3.2.png")
 ```
 ]
 ]
